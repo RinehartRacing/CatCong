@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_UsM6oDKtEeyHduIcLUro5Q" name="CatCongSetHighScore">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_Ussp4DKtEeyHduIcLUro5Q">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_UsTBQDKtEeyHduIcLUro5Q" name="HighScore State">
+    <region xmi:type="uml:Region" xmi:id="_UsU2cDKtEeyHduIcLUro5Q" name="Region1">
+      <transition xmi:type="uml:Transition" xmi:id="_sHEUsDLQEeyHduIcLUro5Q" source="_Cr4TUDKuEeyHduIcLUro5Q" target="_Lnm4MDKuEeyHduIcLUro5Q"/>
+      <transition xmi:type="uml:Transition" xmi:id="_Q1wqMDLREeyHduIcLUro5Q" name="Name Entered[Name less than or equal to 10 characters]" source="_Lnm4MDKuEeyHduIcLUro5Q" target="_BY0bEDLREeyHduIcLUro5Q"/>
+      <transition xmi:type="uml:Transition" xmi:id="_dShs4DLREeyHduIcLUro5Q" name="Name Entered[Name greater than 10 characters]" source="_Lnm4MDKuEeyHduIcLUro5Q" target="_Lnm4MDKuEeyHduIcLUro5Q"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_Cr4TUDKuEeyHduIcLUro5Q" name="Set HighScore Menu appears"/>
+      <subvertex xmi:type="uml:State" xmi:id="_Lnm4MDKuEeyHduIcLUro5Q" name="EnterName">
+        <doActivity xmi:type="uml:Activity" xmi:id="_kd2gkDLQEeyHduIcLUro5Q" name="Prompt user to enter in name"/>
+      </subvertex>
+      <subvertex xmi:type="uml:FinalState" xmi:id="_BY0bEDLREeyHduIcLUro5Q" name="Return to HighScore Menu"/>
+    </region>
+  </packagedElement>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_56uR0DLQEeyHduIcLUro5Q">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_56vf8DLQEeyHduIcLUro5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
+  </profileApplication>
+</uml:Model>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_PgiuQDLSEeyHduIcLUro5Q" name="CatCongLevel0">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_Pg898DLSEeyHduIcLUro5Q">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_PgqqEDLSEeyHduIcLUro5Q" name="PlayerMovement State">
+    <region xmi:type="uml:Region" xmi:id="_PgrRIDLSEeyHduIcLUro5Q" name="Region1">
+      <transition xmi:type="uml:Transition" xmi:id="_vfxZ0DNoEeyfXOiwAyIdfA" name="Press W Key" source="_-60A8DNnEeyfXOiwAyIdfA" target="_mpzesDNoEeyfXOiwAyIdfA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_kBAxUDOFEeyfXOiwAyIdfA" name="Depress W Key or Hit Obstacle" source="_mpzesDNoEeyfXOiwAyIdfA" target="_-60A8DNnEeyfXOiwAyIdfA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_BzMAoDOGEeyfXOiwAyIdfA" name="Press A Key" source="_-60A8DNnEeyfXOiwAyIdfA" target="_2F9kgDOFEeyfXOiwAyIdfA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_a1Gl8DOGEeyfXOiwAyIdfA" name="Depress A Key or Hit Obstacle" source="_2F9kgDOFEeyfXOiwAyIdfA" target="_-60A8DNnEeyfXOiwAyIdfA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_uS2YEDOGEeyfXOiwAyIdfA" name="Press D Key" source="_-60A8DNnEeyfXOiwAyIdfA" target="_m5ZeQDOGEeyfXOiwAyIdfA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_xqH14DOGEeyfXOiwAyIdfA" name="Depress D Key or Hit Obstacle" source="_m5ZeQDOGEeyfXOiwAyIdfA" target="_-60A8DNnEeyfXOiwAyIdfA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_dU6a0DOHEeyfXOiwAyIdfA" name="Depress S Key or Hit Obstacle" source="_1RflMDOGEeyfXOiwAyIdfA" target="_-60A8DNnEeyfXOiwAyIdfA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_hDjPwDOHEeyfXOiwAyIdfA" name="Press S Key" source="_-60A8DNnEeyfXOiwAyIdfA" target="_1RflMDOGEeyfXOiwAyIdfA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_eMqQQDOJEeyfXOiwAyIdfA" source="_Z1JdcDOJEeyfXOiwAyIdfA" target="_-60A8DNnEeyfXOiwAyIdfA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_kbX1QDOJEeyfXOiwAyIdfA" name="Enter Elevator" source="_-60A8DNnEeyfXOiwAyIdfA" target="_hf_pQDOJEeyfXOiwAyIdfA"/>
+      <subvertex xmi:type="uml:State" xmi:id="_-60A8DNnEeyfXOiwAyIdfA" name="Stationary">
+        <doActivity xmi:type="uml:Activity" xmi:id="_d_mHoDNoEeyfXOiwAyIdfA" name="Player stands without doing anything"/>
+      </subvertex>
+      <subvertex xmi:type="uml:State" xmi:id="_mpzesDNoEeyfXOiwAyIdfA" name="Walk Forward">
+        <doActivity xmi:type="uml:Activity" xmi:id="_q-Y5UDNoEeyfXOiwAyIdfA" name="Player moves forward in the direction the camera is pointing"/>
+      </subvertex>
+      <subvertex xmi:type="uml:State" xmi:id="_2F9kgDOFEeyfXOiwAyIdfA" name="Walk Left">
+        <doActivity xmi:type="uml:Activity" xmi:id="_JxHggDOGEeyfXOiwAyIdfA" name="Player moves left relative to the direction the camera is pointing"/>
+      </subvertex>
+      <subvertex xmi:type="uml:State" xmi:id="_m5ZeQDOGEeyfXOiwAyIdfA" name="Walk Right">
+        <doActivity xmi:type="uml:Activity" xmi:id="_sHmBcDOGEeyfXOiwAyIdfA" name="Player moves right relative to the direction the camera is pointing"/>
+      </subvertex>
+      <subvertex xmi:type="uml:State" xmi:id="_1RflMDOGEeyfXOiwAyIdfA" name="Walk Backward">
+        <doActivity xmi:type="uml:Activity" xmi:id="_Y_SeYDOHEeyfXOiwAyIdfA" name="Player moves backward in the opposite direction the camera is pointing"/>
+      </subvertex>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_Z1JdcDOJEeyfXOiwAyIdfA" name="Enter Level"/>
+      <subvertex xmi:type="uml:FinalState" xmi:id="_hf_pQDOJEeyfXOiwAyIdfA" name="FinalState16"/>
+    </region>
+  </packagedElement>
+</uml:Model>

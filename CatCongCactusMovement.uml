@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_MN5vMDOKEeyfXOiwAyIdfA" name="CatCongCactusMovement">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_MOdI0DOKEeyfXOiwAyIdfA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_MOHKkDOKEeyfXOiwAyIdfA" name="CactusMovement State">
+    <region xmi:type="uml:Region" xmi:id="_MOI_wDOKEeyfXOiwAyIdfA" name="Region1">
+      <transition xmi:type="uml:Transition" xmi:id="_xvdFADOKEeyfXOiwAyIdfA" source="_r7BoQDOKEeyfXOiwAyIdfA" target="_cGOSwDOKEeyfXOiwAyIdfA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_HuCcMDOLEeyfXOiwAyIdfA" name="Cactus hit by hammer or cactus hits wall" source="_cGOSwDOKEeyfXOiwAyIdfA" target="_4nkMUDOKEeyfXOiwAyIdfA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_wqkqUDO7EeyfXOiwAyIdfA" name="Cactus hits player" source="_cGOSwDOKEeyfXOiwAyIdfA" target="_mtOQYDO7EeyfXOiwAyIdfA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_2WCYUDO7EeyfXOiwAyIdfA" name="Lives Left on Player" source="_mtOQYDO7EeyfXOiwAyIdfA" target="_cGOSwDOKEeyfXOiwAyIdfA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_MgSEQDUtEeyAFINa0juYjw" name="Player out of lives" source="_mtOQYDO7EeyfXOiwAyIdfA" target="_JOEFkDUtEeyAFINa0juYjw"/>
+      <transition xmi:type="uml:Transition" xmi:id="_d2HHoDUtEeyAFINa0juYjw" source="_JOEFkDUtEeyAFINa0juYjw" target="_cA7usDUtEeyAFINa0juYjw"/>
+      <subvertex xmi:type="uml:State" xmi:id="_cGOSwDOKEeyfXOiwAyIdfA" name="CactusSpawn">
+        <doActivity xmi:type="uml:Activity" xmi:id="_pjCdMDOKEeyfXOiwAyIdfA" name="Cactus Spawns after a random time interval and begins rolling"/>
+      </subvertex>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_r7BoQDOKEeyfXOiwAyIdfA" name="Cactus Spawns"/>
+      <subvertex xmi:type="uml:State" xmi:id="_4nkMUDOKEeyfXOiwAyIdfA" name="CactusBreak">
+        <doActivity xmi:type="uml:Activity" xmi:id="_F_aXMDOLEeyfXOiwAyIdfA" name="Cactus Disappears"/>
+      </subvertex>
+      <subvertex xmi:type="uml:State" xmi:id="_mtOQYDO7EeyfXOiwAyIdfA" name="CactusHitPlayer">
+        <doActivity xmi:type="uml:Activity" xmi:id="_u4clYDO7EeyfXOiwAyIdfA" name="Subtract 1 from player lives"/>
+      </subvertex>
+      <subvertex xmi:type="uml:State" xmi:id="_JOEFkDUtEeyAFINa0juYjw" name="Game Over">
+        <doActivity xmi:type="uml:Activity" xmi:id="_aUAS0DUtEeyAFINa0juYjw" name="Show popup with game over message"/>
+      </subvertex>
+      <subvertex xmi:type="uml:FinalState" xmi:id="_cA7usDUtEeyAFINa0juYjw" name="Return to Home Screen"/>
+    </region>
+  </packagedElement>
+</uml:Model>

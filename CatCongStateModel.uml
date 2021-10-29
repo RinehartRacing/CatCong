@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_Ycg5cDJ_EeyC0YW8hhbPIA" name="CatCong">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_Yfn30DJ_EeyC0YW8hhbPIA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_YdxdsDJ_EeyC0YW8hhbPIA" name="GameState">
+    <region xmi:type="uml:Region" xmi:id="_YeOJoDJ_EeyC0YW8hhbPIA" name="Level1">
+      <transition xmi:type="uml:Transition" xmi:id="_1yd04DKBEeyC0YW8hhbPIA" source="_Lp_XQDKBEeyC0YW8hhbPIA" target="_ck1HwDKBEeyC0YW8hhbPIA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_U_3sEDKCEeyC0YW8hhbPIA" name="Press HighScores Button" source="_ck1HwDKBEeyC0YW8hhbPIA" target="_Or3XYDKCEeyC0YW8hhbPIA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_6jF10DKCEeyC0YW8hhbPIA" name="Press HomeScreen Button" source="_Or3XYDKCEeyC0YW8hhbPIA" target="_ck1HwDKBEeyC0YW8hhbPIA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_5BhpgDKPEeyHduIcLUro5Q" name="Press HowToPlay Button" source="_ck1HwDKBEeyC0YW8hhbPIA" target="_il-CcDKPEeyHduIcLUro5Q"/>
+      <transition xmi:type="uml:Transition" xmi:id="_S95KQDKjEeyHduIcLUro5Q" name="Press HomeScreen Button" source="_il-CcDKPEeyHduIcLUro5Q" target="_ck1HwDKBEeyC0YW8hhbPIA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_hk-vcDKjEeyHduIcLUro5Q" name="Press Play Button" source="_ck1HwDKBEeyC0YW8hhbPIA" target="_ffaKEDKjEeyHduIcLUro5Q"/>
+      <transition xmi:type="uml:Transition" xmi:id="_xbJW4DKjEeyHduIcLUro5Q" source="_ffaKEDKjEeyHduIcLUro5Q" target="_s02hMDKjEeyHduIcLUro5Q"/>
+      <transition xmi:type="uml:Transition" xmi:id="_KDKOcDKkEeyHduIcLUro5Q" name="Use Elevator" source="_s02hMDKjEeyHduIcLUro5Q" target="_41dzYDKjEeyHduIcLUro5Q"/>
+      <transition xmi:type="uml:Transition" xmi:id="_PKjmEDKkEeyHduIcLUro5Q" name="Use Elevator" source="__deCIDKjEeyHduIcLUro5Q" target="_AqsDMDKkEeyHduIcLUro5Q"/>
+      <transition xmi:type="uml:Transition" xmi:id="_k7JkkDKkEeyHduIcLUro5Q" name="Press Pause Button" source="_s02hMDKjEeyHduIcLUro5Q" target="_iTOgEDKkEeyHduIcLUro5Q"/>
+      <transition xmi:type="uml:Transition" xmi:id="_m0OmEDKkEeyHduIcLUro5Q" name="Press Pause Button" source="_41dzYDKjEeyHduIcLUro5Q" target="_iTOgEDKkEeyHduIcLUro5Q"/>
+      <transition xmi:type="uml:Transition" xmi:id="_pj21EDKkEeyHduIcLUro5Q" name="Press Pause Button" source="__deCIDKjEeyHduIcLUro5Q" target="_iTOgEDKkEeyHduIcLUro5Q"/>
+      <transition xmi:type="uml:Transition" xmi:id="_s0ffYDKkEeyHduIcLUro5Q" name="Press Pause Button" source="_AqsDMDKkEeyHduIcLUro5Q" target="_iTOgEDKkEeyHduIcLUro5Q"/>
+      <transition xmi:type="uml:Transition" xmi:id="_54TT8DKkEeyHduIcLUro5Q" name="Press Resume[Level 0]" kind="local" source="_iTOgEDKkEeyHduIcLUro5Q" target="_s02hMDKjEeyHduIcLUro5Q"/>
+      <transition xmi:type="uml:Transition" xmi:id="_IUxkkDKlEeyHduIcLUro5Q" name="Press Resume[Level 1]" source="_iTOgEDKkEeyHduIcLUro5Q" target="_41dzYDKjEeyHduIcLUro5Q"/>
+      <transition xmi:type="uml:Transition" xmi:id="_Sjv6ADKlEeyHduIcLUro5Q" name="Press Resume[Level 2]" source="_iTOgEDKkEeyHduIcLUro5Q" target="__deCIDKjEeyHduIcLUro5Q"/>
+      <transition xmi:type="uml:Transition" xmi:id="_d8PcQDKlEeyHduIcLUro5Q" name="Press Resume[Level 3]" source="_iTOgEDKkEeyHduIcLUro5Q" target="_AqsDMDKkEeyHduIcLUro5Q"/>
+      <transition xmi:type="uml:Transition" xmi:id="_q4zZUDKlEeyHduIcLUro5Q" name="Use Hammer on Sun Devil" source="_AqsDMDKkEeyHduIcLUro5Q" target="_pNGFcDKlEeyHduIcLUro5Q"/>
+      <transition xmi:type="uml:Transition" xmi:id="_z1aH8DKlEeyHduIcLUro5Q" source="_pNGFcDKlEeyHduIcLUro5Q" target="_xDTMsDKlEeyHduIcLUro5Q"/>
+      <transition xmi:type="uml:Transition" xmi:id="_5kB3oDKlEeyHduIcLUro5Q" name="HighScore Set" source="_xDTMsDKlEeyHduIcLUro5Q" target="_Or3XYDKCEeyC0YW8hhbPIA"/>
+      <transition xmi:type="uml:Transition" xmi:id="__a2hEDKlEeyHduIcLUro5Q" name="HomeScreen Button pressed" source="_iTOgEDKkEeyHduIcLUro5Q" target="_ck1HwDKBEeyC0YW8hhbPIA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_NU5aEDKmEeyHduIcLUro5Q" name="Press QuitGame Button" source="_ck1HwDKBEeyC0YW8hhbPIA" target="_GZxbADKmEeyHduIcLUro5Q"/>
+      <transition xmi:type="uml:Transition" xmi:id="_LWuucDO9EeyfXOiwAyIdfA" name="Use Elevator" source="_41dzYDKjEeyHduIcLUro5Q" target="__deCIDKjEeyHduIcLUro5Q"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_Lp_XQDKBEeyC0YW8hhbPIA" name="Open CatCong"/>
+      <subvertex xmi:type="uml:State" xmi:id="_ck1HwDKBEeyC0YW8hhbPIA" name="Home Screen">
+        <doActivity xmi:type="uml:Activity" xmi:id="_TYga8DKpEeyHduIcLUro5Q" name="Display Play, High Scores, How to Play, and Quit CatCong"/>
+      </subvertex>
+      <subvertex xmi:type="uml:State" xmi:id="_Or3XYDKCEeyC0YW8hhbPIA" name="See High Scores">
+        <doActivity xmi:type="uml:Activity" xmi:id="_seoK0DKpEeyHduIcLUro5Q" name="Display Home Screen Button and the list of High Scores"/>
+      </subvertex>
+      <subvertex xmi:type="uml:State" xmi:id="_il-CcDKPEeyHduIcLUro5Q" name="How to Play">
+        <doActivity xmi:type="uml:Activity" xmi:id="_D5FqIDKqEeyHduIcLUro5Q" name="Display Home Screen Button and a paragraph on how to play the game"/>
+      </subvertex>
+      <subvertex xmi:type="uml:State" xmi:id="_ffaKEDKjEeyHduIcLUro5Q" name="IntroText">
+        <doActivity xmi:type="uml:Activity" xmi:id="_7ysx0DKpEeyHduIcLUro5Q" name="Display paragraph explaining the prologue to the game"/>
+      </subvertex>
+      <subvertex xmi:type="uml:State" xmi:id="_s02hMDKjEeyHduIcLUro5Q" name="Level0">
+        <doActivity xmi:type="uml:Activity" xmi:id="_u953sDO8EeyfXOiwAyIdfA" name="State Machine PlayerMovement and State Machine CactusMovement"/>
+      </subvertex>
+      <subvertex xmi:type="uml:State" xmi:id="_41dzYDKjEeyHduIcLUro5Q" name="Level1">
+        <doActivity xmi:type="uml:Activity" xmi:id="_xAIOIDO8EeyfXOiwAyIdfA" name="State Machine PlayerMovement and State Machine CactusMovement"/>
+      </subvertex>
+      <subvertex xmi:type="uml:State" xmi:id="__deCIDKjEeyHduIcLUro5Q" name="Level2">
+        <doActivity xmi:type="uml:Activity" xmi:id="_zl1FEDO8EeyfXOiwAyIdfA" name="State Machine PlayerMovement and State Machine CactusMovement"/>
+      </subvertex>
+      <subvertex xmi:type="uml:State" xmi:id="_AqsDMDKkEeyHduIcLUro5Q" name="Level3">
+        <doActivity xmi:type="uml:Activity" xmi:id="_1_XvUDO8EeyfXOiwAyIdfA" name="State Machine PlayerMovement and State Machine CactusMovement"/>
+      </subvertex>
+      <subvertex xmi:type="uml:State" xmi:id="_iTOgEDKkEeyHduIcLUro5Q" name="Pause Menu">
+        <doActivity xmi:type="uml:Activity" xmi:id="_hVh6ADKqEeyHduIcLUro5Q" name="Pause all Level processes and display Resume and HomeScreen Buttons"/>
+      </subvertex>
+      <subvertex xmi:type="uml:State" xmi:id="_pNGFcDKlEeyHduIcLUro5Q" name="Outro Text">
+        <doActivity xmi:type="uml:Activity" xmi:id="_lJ3HQDKqEeyHduIcLUro5Q" name="Display paragraph explaining the epilogue to the game"/>
+      </subvertex>
+      <subvertex xmi:type="uml:State" xmi:id="_xDTMsDKlEeyHduIcLUro5Q" name="Set HighScore Menu">
+        <doActivity xmi:type="uml:StateMachine" xmi:id="_3ONy0DLREeyHduIcLUro5Q" name="HighScore State"/>
+      </subvertex>
+      <subvertex xmi:type="uml:FinalState" xmi:id="_GZxbADKmEeyHduIcLUro5Q" name="Close CatCong"/>
+    </region>
+  </packagedElement>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_IWGIIDKCEeyC0YW8hhbPIA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IWKZkDKCEeyC0YW8hhbPIA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
+  </profileApplication>
+</uml:Model>
