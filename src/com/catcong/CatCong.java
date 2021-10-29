@@ -83,8 +83,9 @@ public class CatCong extends SimpleApplication implements ActionListener {
 		Geometry geom = new Geometry("Box", b);
 		Material mat = new Material(assetManager,  // Create new material and...
 			    "Common/MatDefs/Misc/Unshaded.j3md");  // ... specify .j3md file to use (unshaded).
-		Texture missTex = assetManager.loadTexture("Interface/Logo/Monkey.png");
-		mat.setTexture("ColorMap", missTex);
+		//Texture missTex = assetManager.loadTexture("Interface/Logo/Monkey.png");
+		//mat.setTexture("ColorMap", missTex);
+		mat.setColor("Color", ColorRGBA.Green);
 		geom.setMaterial(mat);               // Use new material on this Geometry.
 		//rootNode.attachChild(geom);
 		Node gameLevel = new Node("gameLevel");
