@@ -53,7 +53,7 @@ public class CatCong extends SimpleApplication implements ActionListener {
 		cam.setLocation(new Vector3f(0, 5, 0));
 		bulletAppState = new BulletAppState();
 		stateManager.attach(bulletAppState);
-		flyCam.setMoveSpeed(10);
+		//flyCam.setMoveSpeed(10);
 		setupKeys();
 
 
@@ -89,25 +89,14 @@ public class CatCong extends SimpleApplication implements ActionListener {
 		geom.setMaterial(mat);               // Use new material on this Geometry.
 		//rootNode.attachChild(geom);
 		Node gameLevel = new Node("gameLevel");
-		gameLevel.attachChild(geom);
-		
-		Geometry geom2 = geom.clone();
-		geom2.setLocalTranslation(new Vector3f(-2, 0, -2));
-		gameLevel.attachChild(geom2);
+		getFloor(gameLevel, geom, 50, 100);
 		
 		
-		
-		/** A simple textured cube -- in good MIP map quality. */
-	    Box cube1Mesh = new Box( 1f,1f,1f);
-	    Geometry cube1Geo = new Geometry("My Textured Box", cube1Mesh);
-	    cube1Geo.setLocalTranslation(new Vector3f(-3f,1.1f,0f));
-		//gameLevel.setLocalScale(0.1f);
-	    //gameLevel.setLocalScale(100.0f, 1.0f, 100.0f);
 	    CollisionShape sceneShape =
 	    	      CollisionShapeFactory.createMeshShape(gameLevel);
 		gameLevel.addControl(new RigidBodyControl(sceneShape, 0));
 		CapsuleCollisionShape capsuleShape = new CapsuleCollisionShape(1.5f, 6f, 1);
-		bulletAppState.setDebugEnabled(true);
+		//bulletAppState.setDebugEnabled(true);
 		player = new CharacterControl(capsuleShape, 0.05f);
 		player.setJumpSpeed(50);
 		player.setFallSpeed(50);
@@ -120,7 +109,15 @@ public class CatCong extends SimpleApplication implements ActionListener {
 		getPhysicsSpace().addAll(gameLevel);
 		getPhysicsSpace().add(player);
 	}
-
+	public void getFloor(Node node, Geometry geom, int xBox, int yBox) {
+		for(int i = 0; i < xBox; i++) {
+			for(int j = 0; j < yBox; j++) {
+				Geometry geomCopy = geom.clone();
+				geomCopy.setLocalTranslation(new Vector3f(i * 2, 0, j * 2));
+				node.attachChild(geomCopy);
+			}
+		}
+	}
 	private PhysicsSpace getPhysicsSpace() {
 		return bulletAppState.getPhysicsSpace();
 	}
