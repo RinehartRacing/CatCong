@@ -16,6 +16,7 @@ import com.jme3.bullet.control.CharacterControl;
 import com.jme3.bullet.control.GhostControl;
 import com.jme3.bullet.control.RigidBodyControl;
 import com.jme3.bullet.util.CollisionShapeFactory;
+import com.jme3.font.BitmapText;
 import com.jme3.input.InputManager;
 import com.jme3.input.KeyInput;
 import com.jme3.input.controls.ActionListener;
@@ -85,7 +86,9 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 
 		app.getCamera().setLocation(player.get().getPhysicsLocation());
 	}
-
+	public Player getPlayer() {
+		return player;
+	}
 	public void pause() {
 		setEnabled(!isEnabled());
 		player.get().setEnabled(!player.get().isEnabled());
