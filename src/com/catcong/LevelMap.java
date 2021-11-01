@@ -59,6 +59,8 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 		player.setupKeys();
 		Level0 level0 = new Level0(gameLevel, assetManager, bulletAppState);
 		Level1 level1 = new Level1(gameLevel, assetManager, bulletAppState);
+		Level2 level2 = new Level2(gameLevel, assetManager, bulletAppState);
+		Level3 level3 = new Level3(gameLevel, assetManager, bulletAppState);
 		CollisionShape sceneShape = CollisionShapeFactory.createMeshShape(gameLevel);
 		gameLevel.addControl(new RigidBodyControl(sceneShape, 0));
 
@@ -112,7 +114,15 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 		if (event.getNodeB() != null) {
 			if ("elevatorNode0".equals(event.getNodeB().getName())) {
 				System.out.println("On elevator");
-				player.get().setPhysicsLocation(new Vector3f(225, 5, 25));
+				player.get().setPhysicsLocation(new Vector3f(225, 5, 50));
+			}
+			if ("elevatorNode1".equals(event.getNodeB().getName())) {
+				System.out.println("On elevator");
+				player.get().setPhysicsLocation(new Vector3f(425, 5, 50));
+			}
+			if ("elevatorNode2".equals(event.getNodeB().getName())) {
+				System.out.println("On elevator");
+				player.get().setPhysicsLocation(new Vector3f(625, 5, 50));
 			}
 		}
 	}

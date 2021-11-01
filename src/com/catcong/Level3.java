@@ -14,11 +14,11 @@ import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
 import com.jme3.scene.shape.Box;
 
-public class Level1{
+public class Level3{
 	private AssetManager assetManager;
 	private Node node;
 	private BulletAppState bulletAppState;
-	public Level1(Node node, AssetManager assetManager, BulletAppState bulletAppState) {
+	public Level3(Node node, AssetManager assetManager, BulletAppState bulletAppState) {
 		this.assetManager = assetManager;
 		this.node = node;
 		this.bulletAppState = bulletAppState;
@@ -26,10 +26,10 @@ public class Level1{
 		Geometry geom = new Geometry("Box", b);
 		Material mat = new Material(assetManager, // Create new material and...
 				"Common/MatDefs/Misc/Unshaded.j3md"); // ... specify .j3md file to use (unshaded).
-		mat.setColor("Color", ColorRGBA.Blue); // Set some parameters, e.g. blue.
+		mat.setColor("Color", ColorRGBA.Orange); // Set some parameters, e.g. blue.
 		geom.setMaterial(mat); // Use new material on this Geometry.
-		buildFloor(geom, 50, 50, 200);
-		buildElevator(new Vector3f(300, 0, 50));
+		buildFloor(geom, 50, 50, 600);
+		//buildElevator(new Vector3f(700, 0, 50));
 		
 
 	}
@@ -59,12 +59,12 @@ public class Level1{
 		mat.setColor("Color", ColorRGBA.Pink); // Set some parameters, e.g. blue.
 		geom.setMaterial(mat); // Use new material on this Geometry.
 		geom.setLocalTranslation(coor);
-		Node elevatorNode1 = new Node("elevatorNode1");
-		elevatorNode1.attachChild(geom);
-		CollisionShape elevatorShape = CollisionShapeFactory.createMeshShape(elevatorNode1);
-		elevatorNode1.addControl(new RigidBodyControl(elevatorShape, 0));
-		node.attachChild(elevatorNode1);
-		bulletAppState.getPhysicsSpace().addAll(elevatorNode1);
+		Node elevatorNode2 = new Node("elevatorNode2");
+		elevatorNode2.attachChild(geom);
+		CollisionShape elevatorShape = CollisionShapeFactory.createMeshShape(elevatorNode2);
+		elevatorNode2.addControl(new RigidBodyControl(elevatorShape, 0));
+		node.attachChild(elevatorNode2);
+		bulletAppState.getPhysicsSpace().addAll(elevatorNode2);
 	}
 	
 
