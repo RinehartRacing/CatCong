@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<nifty xmlns="http://nifty-gui.sourceforge.net/nifty.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xsi:schemaLocation="http://nifty-gui.sourceforge.net/nifty.xsd http://nifty-gui.sourceforge.net/nifty.xsd">
+    
+    <useStyles filename="nifty-default-styles.xml" />
+    <useControls filename="nifty-default-controls.xml" />
+    
+	<screen id="start" controller="com.catcong.menus.InGameMenu">
+		<layer id="foreground" childLayout="center">
+
+            <panel id="panel_background" width = "50%" height="80%"  childLayout="vertical">
+
+                <panel id="panel_first" backgroundColor="#ffffffff" width="*" height="33%" childLayout="center">
+                    
+					​<control name="button" label="Resume" id="ResumeButton" align="center" valign="center"
+					​visibleToMouse="true" >
+					​<interact onClick="resumeButton()"/>
+					​</control>
+					
+                </panel>
+
+                <panel id="panel_second" backgroundColor="#ffffffff" width="*" height="33%" childLayout="center">
+
+                    ​<control name="button" label="Restart" id="RestartButton" align="center" valign="center"
+					​visibleToMouse="true" >
+					​<interact onClick="restartButton()"/>
+					​</control>
+
+                </panel>
+
+                <panel id="panel_third" backgroundColor="#ffffffff" width="*" height="*" childLayout="center">
+					​<control name="button" label="Return to Home Screen" id="HomeScreenButton" align="center" valign="center"
+					​visibleToMouse="true" >
+					​<interact onClick="homeScreenButton()"/>
+					​</control>
+                    
+
+                </panel>
+				<panel id="panel_fourth" backgroundColor="#ffffffff" width="*" height="*" childLayout="center">
+					​<control name="button" label="Quit CatCong" id="QuitButton" align="center" valign="center"
+					​visibleToMouse="true" >
+					​<interact onClick="quitButton()"/>
+					​</control>
+                    
+
+                </panel>
+
+            </panel>
+
+        </layer>
+    </screen>
+</nifty>
