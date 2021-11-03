@@ -26,10 +26,11 @@ public class Level0{
 		Geometry geom = new Geometry("Box", b);
 		Material mat = new Material(assetManager, // Create new material and...
 				"Common/MatDefs/Misc/Unshaded.j3md"); // ... specify .j3md file to use (unshaded).
-		mat.setColor("Color", ColorRGBA.Green); // Set some parameters, e.g. blue.
+		mat.setColor("Color", ColorRGBA.Cyan); // Set some parameters, e.g. blue.
 		geom.setMaterial(mat); // Use new material on this Geometry.
 		buildFloor(geom, 50, 50, 0);
 		buildElevator(new Vector3f(100, 0, 50));
+		spawnCactus();
 		
 
 	}
@@ -67,7 +68,20 @@ public class Level0{
 		bulletAppState.getPhysicsSpace().addAll(elevatorNode0);
 	}
 	
-
+	public void spawnCactus() {
+		Box b = new Box(1, 1, 1);
+		Geometry geom = new Geometry("Cactus", b);
+		Material mat = new Material(assetManager, // Create new material and...
+				"Common/MatDefs/Misc/Unshaded.j3md"); // ... specify .j3md file to use (unshaded).
+		mat.setColor("Color", ColorRGBA.Green); // Set some parameters, e.g. blue.
+		geom.setMaterial(mat); // Use new material on this Geometry.
+		geom.setLocalTranslation(new Vector3f(25, 10, 25));
+		Node cactusNode = new Node("cactusNode");
+		node.attachChild(cactusNode);
+		CollisionShape cactusShape = CollisionShapeFactory.createMeshShape(cactusNode);
+		cactusNode.addControl(new RigidBodyControl(cactusShape, 0));
+		bulletAppState.getPhysicsSpace().addAll(cactusNode);
+	}
 
 	
 }

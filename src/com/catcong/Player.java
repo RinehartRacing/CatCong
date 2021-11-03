@@ -6,6 +6,7 @@ import com.jme3.bullet.control.CharacterControl;
 import com.jme3.input.InputManager;
 import com.jme3.input.KeyInput;
 import com.jme3.input.controls.ActionListener;
+import com.jme3.input.controls.AnalogListener;
 import com.jme3.input.controls.KeyTrigger;
 import com.jme3.math.Vector3f;
 
@@ -104,4 +105,6 @@ public class Player implements PlayerMovement, ActionListener{
 		}
 		this.get().setWalkDirection(walkDirection);
 	}
+	
+	
 }

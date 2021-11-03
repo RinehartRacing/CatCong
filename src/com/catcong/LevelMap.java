@@ -92,6 +92,7 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 	public void pause() {
 		setEnabled(!isEnabled());
 		player.get().setEnabled(!player.get().isEnabled());
+		app.getFlyByCamera().setEnabled(!app.getFlyByCamera().isEnabled());
 	}
 
 	@Override

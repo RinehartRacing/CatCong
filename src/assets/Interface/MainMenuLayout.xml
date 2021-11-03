@@ -11,19 +11,18 @@
 
             <panel id="panel_background" width = "50%" height="80%"  childLayout="vertical">
 
-                <panel id="panel_top" backgroundColor="#ff0000ff" width="*" height="33%" childLayout="center">
+                <panel id="panel_top" backgroundColor="#ffffffff" width="*" height="33%" childLayout="center">
+                    
+
+                </panel>
+
+                <panel id="panel_middle" backgroundColor="#ffffffff" width="*" height="33%" childLayout="center">
 
                     
 
                 </panel>
 
-                <panel id="panel_middle" backgroundColor="#1240abff" width="*" height="33%" childLayout="center">
-
-                    
-
-                </panel>
-
-                <panel id="panel_bottom" backgroundColor="#ffff00ff" width="*" height="*" childLayout="center">
+                <panel id="panel_bottom" backgroundColor="#ffffffff" width="*" height="*" childLayout="center">
 
                     
 
