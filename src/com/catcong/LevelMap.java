@@ -26,6 +26,7 @@ import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector3f;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
+import com.jme3.scene.Spatial;
 import com.jme3.scene.shape.Box;
 
 public class LevelMap extends AbstractAppState  implements PhysicsCollisionListener {
@@ -41,7 +42,7 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 	private Player player;
 	private BulletAppState bulletAppState;
 	private SimpleApplication app;
-
+	private float speed;
 	public LevelMap(SimpleApplication app) {
 		rootNode = app.getRootNode();
 		assetManager = app.getAssetManager();
@@ -72,7 +73,7 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 		getPhysicsSpace().addCollisionListener(this);
 
 		inputManager.addMapping("Pause", new KeyTrigger(KeyInput.KEY_P));
-
+		speed = 16.0f;
 	}
 
 	public PhysicsSpace getPhysicsSpace() {
@@ -83,12 +84,13 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 		Vector3f camDir = app.getCamera().getDirection().clone().multLocal(0.6f);
 		Vector3f camLeft = app.getCamera().getLeft().clone().multLocal(0.4f);
 		player.updateMovement(camDir, camLeft);
-
 		app.getCamera().setLocation(player.get().getPhysicsLocation());
+		
 	}
 	public Player getPlayer() {
 		return player;
 	}
+
 	public void pause() {
 		setEnabled(!isEnabled());
 		player.get().setEnabled(!player.get().isEnabled());
@@ -104,13 +106,16 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 
 	@Override
 	public void update(float tpf) {
+		Spatial cactus = rootNode.getChild("cactusNode");
 
-		/*Geometry geom = (Geometry) gameLevel.getChild("Box");
-		if (geom != null) {
-			float speed = 1.0f;
-			float addXRot = speed * tpf;
-			geom.rotate(addXRot, 0, 0);
-		}*/
+		if (cactus != null) {
+			float xMov = speed * tpf;
+			
+			if(((cactus.getWorldTranslation().getX() >= 100) && (speed > 0)) || ((cactus.getWorldTranslation().getX() < 0) && (speed < 0))) {
+				speed *= -1;
+			}
+			cactus.move(xMov, 0, 0);
+		}
 
 	}
 	@Override
@@ -127,6 +132,9 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 			if ("elevatorNode2".equals(event.getNodeB().getName())) {
 				System.out.println("On elevator");
 				player.get().setPhysicsLocation(new Vector3f(625, 5, 50));
+			}
+			if ("cactusNode".equals(event.getNodeB().getName())) {
+				System.out.println("Hit Cactus");
 			}
 		}
 	}

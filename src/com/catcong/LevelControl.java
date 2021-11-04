@@ -86,6 +86,8 @@ public class LevelControl extends SimpleApplication {
 	}
 
 	public void restartGame() {
+		rootNode.detachAllChildren();
+		guiNode.detachAllChildren();
 		this.resumeGame();
 		this.simpleInitApp();
 
