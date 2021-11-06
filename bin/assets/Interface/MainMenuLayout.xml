@@ -6,7 +6,8 @@
     <useStyles filename="nifty-default-styles.xml" />
     <useControls filename="nifty-default-controls.xml" />
     
-	<screen id="start" controller="com.catcong.menus.InGameMenu">
+
+	<screen id="pause" controller="com.catcong.menus.InGameMenu">
 		<layer id="foreground" childLayout="center">
 
             <panel id="panel_background" width = "30%" height="60%"  childLayout="vertical">
@@ -50,4 +51,433 @@
 
         </layer>
     </screen>
+	
+	
+	<screen id="introLevel0" controller="com.catcong.menus.InGameMenu">
+		<layer id="foreground" childLayout="center">
+
+            <panel id="panel_background" width = "30%" height="60%"  childLayout="vertical">
+
+                <panel id="panel_first" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="Loading Tutorial Level" color="#0C234B" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+					​
+                </panel>
+
+				<panel id="panel_second" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+					​<text text="Oh No!" color="#AB0520" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+                    
+
+                </panel>
+
+                <panel id="panel_third" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="Wilma has been kidnapped by the ASU Sundevil!" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+
+                </panel>
+				
+				<panel id="panel_fourth" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="Bear Down and help Wilbur rescue her!" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+
+                </panel>
+				
+				
+				<panel id="panel_fifth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
+                    ​<control name="button" label="Start Tutorial Level" id="StartLevel0" align="center" valign="center"
+					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
+					​<interact onClick="resumeButton()"/>
+					​</control>
+
+                </panel>
+
+            </panel>
+
+        </layer>
+    </screen>
+	
+	
+	<screen id="introLevel1" controller="com.catcong.menus.InGameMenu">
+		<layer id="foreground" childLayout="center">
+
+            <panel id="panel_background" width = "30%" height="60%"  childLayout="vertical">
+
+                <panel id="panel_first" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="Loading Level 1" color="#0C234B" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+					​
+                </panel>
+
+				<panel id="panel_second" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+					​<text text="Gosh Darn It!" color="#AB0520" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+                    
+
+                </panel>
+
+                <panel id="panel_third" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="The Sun Devil got away with Wilma again!" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+
+                </panel>
+				
+				<panel id="panel_fourth" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="Get Ready To Play" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+
+                </panel>
+				
+				
+				<panel id="panel_fifth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
+                    ​<control name="button" label="Start Level 1" id="StartLevel0" align="center" valign="center"
+					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
+					​<interact onClick="resumeButton()"/>
+					​</control>
+
+                </panel>
+
+            </panel>
+
+        </layer>
+    </screen>
+	
+	
+	<screen id="introLevel2" controller="com.catcong.menus.InGameMenu">
+		<layer id="foreground" childLayout="center">
+
+            <panel id="panel_background" width = "30%" height="60%"  childLayout="vertical">
+
+                <panel id="panel_first" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="Loading Level 2" color="#0C234B" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+					​
+                </panel>
+
+				<panel id="panel_second" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+					​<text text="Gosh Darn It!" color="#AB0520" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+                    
+
+                </panel>
+
+                <panel id="panel_third" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="The Sun Devil got away with Wilma again!" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+
+                </panel>
+				
+				<panel id="panel_fourth" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="Get Ready To Play" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+
+                </panel>
+				
+				
+				<panel id="panel_fifth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
+                    ​<control name="button" label="Start Level 2" id="StartLevel0" align="center" valign="center"
+					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
+					​<interact onClick="resumeButton()"/>
+					​</control>
+
+                </panel>
+
+            </panel>
+
+        </layer>
+    </screen>
+	
+	
+	<screen id="introLevel3" controller="com.catcong.menus.InGameMenu">
+		<layer id="foreground" childLayout="center">
+
+            <panel id="panel_background" width = "30%" height="60%"  childLayout="vertical">
+
+                <panel id="panel_first" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="Loading Level 3" color="#0C234B" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+					​
+                </panel>
+
+				<panel id="panel_second" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+					​<text text="We Meet At Last!" color="#AB0520" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+                    
+
+                </panel>
+
+                <panel id="panel_third" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="We got that pesky Sun Devil right where we want him!" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+
+                </panel>
+				
+				<panel id="panel_fourth" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="Embrace your inner Wildcat spirit and help Wilbur teach the Sun Devil not to mess with the Wildcats!" wrap="true" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+
+                </panel>
+				
+				
+				<panel id="panel_fifth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
+                    ​<control name="button" label="Start Level 3" id="StartLevel0" align="center" valign="center"
+					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
+					​<interact onClick="resumeButton()"/>
+					​</control>
+
+                </panel>
+
+            </panel>
+
+        </layer>
+    </screen>
+	
+	
+	<screen id="gameOver" controller="com.catcong.menus.InGameMenu">
+		<layer id="foreground" childLayout="center">
+
+            <panel id="panel_background" width = "30%" height="50%"  childLayout="vertical">
+
+                <panel id="panel_first" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="GAME OVER!" color="#0C234B" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+					​
+                </panel>
+
+				<panel id="panel_second" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+					​<text text="Curse that darn Sun Devil!" color="#AB0520" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+                    
+
+                </panel>
+
+                <panel id="panel_third" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="You lost all your lives! :(" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+
+                </panel>
+				
+				<panel id="panel_fourth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
+                    ​<control name="button" label="Play Again" id="PlayAgainButton" align="center" valign="center"
+					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
+					​<interact onClick="resumeButton()"/>
+					​</control>
+
+                </panel>
+				
+				<panel id="panel_fifth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
+                    ​<control name="button" label="High Scores" id="HighScoresButton" align="center" valign="center"
+					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
+					​<interact onClick="highScoreButton()"/>
+					​</control>
+
+                </panel>
+				
+				<panel id="panel_sixth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
+                    ​<control name="button" label="Home Screen" id="HomeScreenButton" align="center" valign="center"
+					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
+					​<interact onClick="homeScreenButton()"/>
+					​</control>
+
+                </panel>
+				
+				<panel id="panel_seventh" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
+                    ​<control name="button" label="Quit Cat Cong" id="QuitButton" align="center" valign="center"
+					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
+					​<interact onClick="quitButton()"/>
+					​</control>
+
+                </panel>
+
+            </panel>
+
+        </layer>
+    </screen>
+	
+	<screen id="completeLevel0" controller="com.catcong.menus.InGameMenu">
+		<layer id="foreground" childLayout="center">
+
+            <panel id="panel_background" width = "30%" height="50%"  childLayout="vertical">
+
+                <panel id="panel_first" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="Congratulations!" color="#0C234B" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+					​
+                </panel>
+
+				<panel id="panel_second" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+					​<text text="You successfully completed the Tutorial Level!" color="#AB0520" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+                    
+
+                </panel>
+
+                <panel id="panel_third" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="Total Score ... XXXX, Lives Left ... X, Power-Ups Used ... X" wrap="true" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+
+                </panel>
+				
+				<panel id="panel_fourth" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="Are you ready to Bear Down and play the next level?" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+
+                </panel>
+				
+				<panel id="panel_fifth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
+                    ​<control name="button" label="Yes" id="YesButton" align="center" valign="center"
+					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
+					​<interact onClick="resumeButton()"/>
+					​</control>
+
+                </panel>
+				
+				<panel id="panel_sixth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
+                    ​<control name="button" label="Home Screen" id="HomeScreenButton" align="center" valign="center"
+					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
+					​<interact onClick="homeScreenButton()"/>
+					​</control>
+
+                </panel>
+
+            </panel>
+
+        </layer>
+    </screen>
+	
+	<screen id="completeLevel1" controller="com.catcong.menus.InGameMenu">
+		<layer id="foreground" childLayout="center">
+
+            <panel id="panel_background" width = "30%" height="50%"  childLayout="vertical">
+
+                <panel id="panel_first" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="Congratulations!" color="#0C234B" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+					​
+                </panel>
+
+				<panel id="panel_second" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+					​<text text="You successfully completed Level 1!" color="#AB0520" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+                    
+
+                </panel>
+
+                <panel id="panel_third" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="Total Score ... XXXX, Lives Left ... X, Power-Ups Used ... X" wrap="true" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+
+                </panel>
+				
+				<panel id="panel_fourth" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="Are you ready to Bear Down and play the next level?" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+
+                </panel>
+				
+				<panel id="panel_fifth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
+                    ​<control name="button" label="Yes" id="YesButton" align="center" valign="center"
+					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
+					​<interact onClick="resumeButton()"/>
+					​</control>
+
+                </panel>
+				
+				<panel id="panel_sixth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
+                    ​<control name="button" label="Home Screen" id="HomeScreenButton" align="center" valign="center"
+					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
+					​<interact onClick="homeScreenButton()"/>
+					​</control>
+
+                </panel>
+
+            </panel>
+
+        </layer>
+    </screen>
+	
+	
+	<screen id="completeLevel2" controller="com.catcong.menus.InGameMenu">
+		<layer id="foreground" childLayout="center">
+
+            <panel id="panel_background" width = "30%" height="50%"  childLayout="vertical">
+
+                <panel id="panel_first" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="Congratulations!" color="#0C234B" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+					​
+                </panel>
+
+				<panel id="panel_second" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+					​<text text="You successfully completed Level 2!" color="#AB0520" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+                    
+
+                </panel>
+
+                <panel id="panel_third" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="Total Score ... XXXX, Lives Left ... X, Power-Ups Used ... X" wrap="true" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+
+                </panel>
+				
+				<panel id="panel_fourth" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="Are you ready to Bear Down and play the next level?" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+
+                </panel>
+				
+				<panel id="panel_fifth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
+                    ​<control name="button" label="Yes" id="YesButton" align="center" valign="center"
+					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
+					​<interact onClick="resumeButton()"/>
+					​</control>
+
+                </panel>
+				
+				<panel id="panel_sixth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
+                    ​<control name="button" label="Home Screen" id="HomeScreenButton" align="center" valign="center"
+					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
+					​<interact onClick="homeScreenButton()"/>
+					​</control>
+
+                </panel>
+
+            </panel>
+
+        </layer>
+    </screen>
+	
+	<screen id="completeFinalLevel" controller="com.catcong.menus.InGameMenu">
+		<layer id="foreground" childLayout="center">
+
+            <panel id="panel_background" width = "30%" height="50%"  childLayout="vertical">
+
+                <panel id="panel_first" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="CONGRATULATIONS!!" color="#0C234B" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+					​
+                </panel>
+
+				<panel id="panel_second" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+					​<text text="You successfully completed Cat Cong!" color="#AB0520" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+                    
+
+                </panel>
+
+                <panel id="panel_third" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="Total Score ... XXXX, Lives Left ... X, Power-Ups Used ... X" wrap="true" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+
+                </panel>
+				
+				<panel id="panel_fourth" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="What would you like to do?" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+
+                </panel>
+				
+				<panel id="panel_fifth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
+                    ​<control name="button" label="Play Again" id="PlayAgainButton" align="center" valign="center"
+					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
+					​<interact onClick="resumeButton()"/>
+					​</control>
+
+                </panel>
+				
+				<panel id="panel_sixth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
+                    ​<control name="button" label="High Scores" id="HighScoresButton" align="center" valign="center"
+					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
+					​<interact onClick="highScoreButton()"/>
+					​</control>
+
+                </panel>
+				
+				<panel id="panel_seventh" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
+                    ​<control name="button" label="Home Screen" id="HomeScreenButton" align="center" valign="center"
+					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
+					​<interact onClick="homeScreenButton()"/>
+					​</control>
+
+                </panel>
+				
+				<panel id="panel_eighth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
+                    ​<control name="button" label="Quit Cat Cong" id="QuitButton" align="center" valign="center"
+					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
+					​<interact onClick="quitButton()"/>
+					​</control>
+
+                </panel>
+
+            </panel>
+
+        </layer>
+    </screen>
+	
 </nifty>

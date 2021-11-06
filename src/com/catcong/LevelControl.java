@@ -78,7 +78,7 @@ public class LevelControl extends SimpleApplication {
 			niftyDisplay = new NiftyJmeDisplay(assetManager, inputManager, audioRenderer, guiViewPort);
 			Nifty nifty = niftyDisplay.getNifty();
 
-			nifty.fromXml("assets/Interface/MainMenuLayout.xml", "start", inGameMenu);
+			nifty.fromXml("assets/Interface/MainMenuLayout.xml", "pause", inGameMenu);
 			guiViewPort.addProcessor(niftyDisplay);
 		} else {
 			inputManager.setCursorVisible(false);
