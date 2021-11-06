@@ -1,5 +1,8 @@
 package com.catcong;
 
+import java.util.ArrayList;
+
+import com.catcong.enemy.Cactus;
 import com.catcong.enemy.SaguaroCactus;
 import com.jme3.asset.AssetManager;
 import com.jme3.bullet.BulletAppState;
@@ -19,12 +22,14 @@ public class Level0{
 	private AssetManager assetManager;
 	private Node node;
 	private BulletAppState bulletAppState;
+	private ArrayList<Cactus> cacti;
+	private Player player;
 
-
-	public Level0(Node node, AssetManager assetManager, BulletAppState bulletAppState) {
+	public Level0(Node node, AssetManager assetManager, BulletAppState bulletAppState, Player player) {
 		this.assetManager = assetManager;
 		this.node = node;
 		this.bulletAppState = bulletAppState;
+		this.cacti = new ArrayList<Cactus>();
 		Box b = new Box(1, 1, 1);
 		Geometry geom = new Geometry("Box", b);
 		Material mat = new Material(assetManager, // Create new material and...
@@ -40,8 +45,9 @@ public class Level0{
 		fillBlocks(new Vector3f(102, 0, 0), new Vector3f(102, 40, 10), "BackWallLeft", ColorRGBA.Black);
 		fillBlocks(new Vector3f(102, 0, 16), new Vector3f(102, 40, 26), "BackWallRight", ColorRGBA.Black);
 		fillBlocks(new Vector3f(104, 0, 10), new Vector3f(104, 40, 16), "BackWallMiddle", ColorRGBA.Brown);
-		SaguaroCactus sc1 = new SaguaroCactus(node, assetManager, bulletAppState);
+		SaguaroCactus sc1 = new SaguaroCactus(node, assetManager, bulletAppState, player);
 		sc1.spawnCactus(new Vector3f(25, 2, 25), new Vector3f(25, 2, 0), "sc1", ColorRGBA.Green);
+		cacti.add(sc1);
 		
 
 	}
@@ -88,29 +94,10 @@ public class Level0{
 		node.attachChild(elevatorNode);
 		bulletAppState.getPhysicsSpace().addAll(elevatorNode);
 	}
-	
-	/*public void spawnCactus() {
-		Box b = new Box(1, 1, 1);
-		Geometry geom = new Geometry("Cactus", b);
-		Material mat = new Material(assetManager, // Create new material and...
-				"Common/MatDefs/Misc/Unshaded.j3md"); // ... specify .j3md file to use (unshaded).
-		mat.setColor("Color", ColorRGBA.Green); // Set some parameters, e.g. blue.
-		geom.setMaterial(mat); // Use new material on this Geometry.
-		
-		cactusNode = new Node("cactusNode");
-		cactusNode.setLocalTranslation(new Vector3f(25, 2, 25));
-		cactusNode.attachChild(geom);
-		node.attachChild(cactusNode);
-		CollisionShape cactusShape = CollisionShapeFactory.createMeshShape(cactusNode);
-		control = new RigidBodyControl(cactusShape, 0);
-		control.setKinematic(true);
-		cactusNode.addControl(control);
-		bulletAppState.getPhysicsSpace().addAll(cactusNode);
-	}*/
-	/*public Node getCactusNode() {
-		return cactusNode;
+	public void updateCacti(float tpf) {
+		for(int i = 0; i < cacti.size(); i++) {
+			cacti.get(i).updateCactus(tpf);
+		}
 	}
-	public void removeCactus() {
-		cactusNode.removeControl(control);
-	}*/
+
 }

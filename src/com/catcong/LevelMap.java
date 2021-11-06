@@ -43,7 +43,7 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 	private Player player;
 	private BulletAppState bulletAppState;
 	private SimpleApplication app;
-	private float speed;
+
 	private Level0 level0;
 	public LevelMap(SimpleApplication app) {
 		rootNode = app.getRootNode();
@@ -61,7 +61,7 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 		stateManager.attach(bulletAppState);
 
 		player.setupKeys();
-		level0 = new Level0(gameLevel, assetManager, bulletAppState);
+		level0 = new Level0(gameLevel, assetManager, bulletAppState, player);
 		Level1 level1 = new Level1(gameLevel, assetManager, bulletAppState);
 		Level2 level2 = new Level2(gameLevel, assetManager, bulletAppState);
 		Level3 level3 = new Level3(gameLevel, assetManager, bulletAppState);
@@ -75,7 +75,6 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 		getPhysicsSpace().addCollisionListener(this);
 
 		inputManager.addMapping("Pause", new KeyTrigger(KeyInput.KEY_P));
-		speed = 16.0f;
 		
 		rootNode.attachChild(SkyFactory.createSky(assetManager,
 				"assets/Textures/BrightSky.dds", SkyFactory.EnvMapType.CubeMap));
@@ -111,19 +110,7 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 
 	@Override
 	public void update(float tpf) {
-		Spatial cactus = rootNode.getChild("cactusNode");
-		/*Node cactusNode = level0.getCactusNode();
-		
-		if (cactus != null) {
-			float zMov = speed * tpf;
-			
-			if(((cactusNode.getWorldTranslation().getZ() >= 26) && (speed > 0)) || ((cactusNode.getWorldTranslation().getZ() < 0) && (speed < 0))) {
-				speed *= -1;
-			}
-			cactusNode.move(0, 0, zMov);
-		}
-		getPhysicsSpace().addAll(cactusNode);
-		getPhysicsSpace().addCollisionListener(this);*/
+		level0.updateCacti(tpf);
 	}
 	@Override
 	public void collision(PhysicsCollisionEvent event) {
@@ -140,11 +127,7 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 				System.out.println("On elevator");
 				player.get().setPhysicsLocation(new Vector3f(625, 5, 50));
 			}
-			if ("cactusNode".equals(event.getNodeB().getName())) {
-				/*level0.removeCactus();
-				gameLevel.detachChild(level0.getCactusNode());
-				this.getPlayer().loseLife();*/
-			}
+			
 		}
 	}
 
