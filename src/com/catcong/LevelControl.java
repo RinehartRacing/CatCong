@@ -17,6 +17,7 @@ import de.lessvoid.nifty.screen.ScreenController;
 public class LevelControl extends SimpleApplication {
 	private LevelMap LM;
 	private BitmapText hudText;
+	private BitmapText livesText;
 	private InGameMenu inGameMenu;
 	private NiftyJmeDisplay niftyDisplay;
 	private boolean paused;
@@ -39,6 +40,12 @@ public class LevelControl extends SimpleApplication {
 
 		hudText.setLocalTranslation(300, hudText.getLineHeight(), 0); // position
 		guiNode.attachChild(hudText);
+		
+		livesText = new BitmapText(guiFont, false);
+		livesText.setSize(guiFont.getCharSet().getRenderedSize());
+		livesText.setColor(ColorRGBA.White);
+		livesText.setLocalTranslation(600, livesText.getLineHeight(), 0);
+		guiNode.attachChild(livesText);
 
 		inGameMenu = new InGameMenu(this);
 
@@ -52,6 +59,7 @@ public class LevelControl extends SimpleApplication {
 	public void simpleUpdate(float tpf) {
 		LM.updateLM();
 		hudText.setText(LM.getPlayer().get().getPhysicsLocation().toString()); // the text
+		livesText.setText("Lives: " + LM.getPlayer().getLives());
 	}
 
 	private final ActionListener actionListener = new ActionListener() {

@@ -17,6 +17,7 @@ public class Player implements PlayerMovement, ActionListener{
 	SimpleApplication app;
 	private boolean left = false, right = false, up = false, down = false;
 	final private Vector3f walkDirection;
+	private int lives;
 	public Player(SimpleApplication app) {
 		capsuleShape = new CapsuleCollisionShape(1.5f, 6f, 1);
 		
@@ -25,10 +26,11 @@ public class Player implements PlayerMovement, ActionListener{
 		cc.setFallSpeed(50);
 		cc.setGravity(100);
 
-		cc.setPhysicsLocation(new Vector3f(0, 10, 0));
+		cc.setPhysicsLocation(new Vector3f(4, 13, 0));
 		walkDirection = new Vector3f();
 		this.inputManager = app.getInputManager();
 		this.app = app;
+		lives = 3;
 	}
 	public CharacterControl get() {
 		return cc;
@@ -105,6 +107,10 @@ public class Player implements PlayerMovement, ActionListener{
 		}
 		this.get().setWalkDirection(walkDirection);
 	}
-	
-	
+	public int getLives() {
+		return this.lives;
+	}
+	public void loseLife() {
+		this.lives--;
+	}
 }
