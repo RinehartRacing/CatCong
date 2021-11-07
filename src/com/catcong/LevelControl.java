@@ -98,6 +98,8 @@ public class LevelControl extends SimpleApplication {
 		}
 	};
 	public void gameOver() {
+		paused = !paused;
+		LM.pause();
 		niftyDisplay = new NiftyJmeDisplay(assetManager, inputManager, audioRenderer, guiViewPort);
 		Nifty nifty = niftyDisplay.getNifty();
 

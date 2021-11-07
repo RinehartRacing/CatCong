@@ -241,7 +241,7 @@
 				<panel id="panel_fourth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
                     ​<control name="button" label="Play Again" id="PlayAgainButton" align="center" valign="center"
 					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
-					​<interact onClick="resumeButton()"/>
+					​<interact onClick="restartButton()"/>
 					​</control>
 
                 </panel>
