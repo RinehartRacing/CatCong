@@ -43,14 +43,15 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 	private Player player;
 	private BulletAppState bulletAppState;
 	private SimpleApplication app;
-
+	private LevelControl lc;
 	private Level0 level0;
-	public LevelMap(SimpleApplication app) {
+	public LevelMap(SimpleApplication app, LevelControl lc) {
 		rootNode = app.getRootNode();
 		assetManager = app.getAssetManager();
 		inputManager = app.getInputManager();
-		player = new Player(app);
+		player = new Player(app, lc);
 		this.app = app;
+		this.lc = lc;
 	}
 
 	@Override
@@ -100,7 +101,9 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 		player.get().setEnabled(!player.get().isEnabled());
 		app.getFlyByCamera().setEnabled(!app.getFlyByCamera().isEnabled());
 	}
-
+	public void removeCactus(String name) {
+		level0.removeCactus(name);
+	}
 	@Override
 	public void cleanup() {
 		rootNode.detachChild(gameLevel);
@@ -126,6 +129,11 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 			if ("elevatorNode2".equals(event.getNodeB().getName())) {
 				System.out.println("On elevator");
 				player.get().setPhysicsLocation(new Vector3f(625, 5, 50));
+			}
+			if("hammerL0F0".equals(event.getNodeB().getName())) {
+				System.out.println("Touched hammer");
+				level0.removeHammer(0);
+				player.grabHammer();
 			}
 			
 		}

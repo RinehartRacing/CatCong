@@ -33,4 +33,15 @@ public class Cactus implements PhysicsCollisionListener{
 		// TODO Auto-generated method stub
 		
 	}
+	public String toString() {
+		return name;
+	}
+	public void removeCactus() {
+		cactusNode.removeControl(control);
+		cactusNode.detachAllChildren();	
+		cactusNode = null;
+	}
+	public Node getCactusNode() {
+		return cactusNode;
+	}
 }
