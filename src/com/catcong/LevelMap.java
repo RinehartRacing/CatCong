@@ -122,6 +122,10 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 				System.out.println("On elevator");
 				player.get().setPhysicsLocation(new Vector3f(99, 24, 13));
 			}
+			if ("elevatorL0F1".equals(event.getNodeB().getName())) {
+				System.out.println("On elevator");
+				player.get().setPhysicsLocation(new Vector3f(-1, 44, 13));
+			}
 			if ("elevatorNode1".equals(event.getNodeB().getName())) {
 				System.out.println("On elevator");
 				player.get().setPhysicsLocation(new Vector3f(425, 5, 50));
@@ -135,7 +139,11 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 				level0.removeHammer(0);
 				player.grabHammer();
 			}
-			
+			if("hammerL0F1".equals(event.getNodeB().getName())) {
+				System.out.println("Touched hammer");
+				level0.removeHammer(1);
+				player.grabHammer();
+			}
 		}
 	}
 

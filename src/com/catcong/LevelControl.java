@@ -67,12 +67,14 @@ public class LevelControl extends SimpleApplication {
 	}
 
 	public void grabHammer() {
-		pic = new Picture("HUD Picture");
-		pic.setImage(assetManager, "assets/Textures/hammer.jpg", true);
-		pic.setWidth(settings.getWidth() / 16);
-		pic.setHeight(settings.getHeight() / 16);
-		pic.setPosition(settings.getWidth() * (3.0f / 4), settings.getHeight() * (1.0f / 10));
-		guiNode.attachChild(pic);
+		if (!guiNode.hasChild(pic)) {
+			pic = new Picture("HUD Picture");
+			pic.setImage(assetManager, "assets/Textures/hammer.jpg", true);
+			pic.setWidth(settings.getWidth() / 16);
+			pic.setHeight(settings.getHeight() / 16);
+			pic.setPosition(settings.getWidth() * (3.0f / 4), settings.getHeight() * (1.0f / 10));
+			guiNode.attachChild(pic);
+		}
 	}
 
 	public void loseHammer() {
@@ -97,6 +99,7 @@ public class LevelControl extends SimpleApplication {
 			}
 		}
 	};
+
 	public void gameOver() {
 		paused = !paused;
 		LM.pause();
@@ -106,6 +109,7 @@ public class LevelControl extends SimpleApplication {
 		nifty.fromXml("assets/Interface/MainMenuLayout.xml", "gameOver", inGameMenu);
 		guiViewPort.addProcessor(niftyDisplay);
 	}
+
 	public void pauseGame() {
 		paused = !paused;
 		LM.pause();

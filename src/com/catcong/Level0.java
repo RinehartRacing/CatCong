@@ -47,17 +47,42 @@ public class Level0{
 		String whitetile = "assets/Textures/whitetile.jpg";
 		String graywall = "assets/Textures/graywall.png";
 		String officeceiling = "assets/Textures/officeceiling.jpg";
+		String graybrick = "assets/Textures/graybrick.jpg";
 		fillBlocks(new Vector3f(0, 0, 0), new Vector3f(100, 0, 26), "floor2", redbrick);
-		fillBlocks(new Vector3f(0, 2, 0), new Vector3f(100, 40, 0), "LeftWall", graywall);
-		fillBlocks(new Vector3f(0, 2, 26), new Vector3f(100, 40, 26), "RightWall", graywall);
-		fillBlocks(new Vector3f(-2, 0, 0), new Vector3f(-2, 40, 26), "FrontWall", graywall);
-		fillBlocks(new Vector3f(102, 0, 12), new Vector3f(102, 0, 14), "elevatorL0F0", whitetile);
-		fillBlocks(new Vector3f(102, 22, 12), new Vector3f(102, 22, 14), "floor3spawn", whitetile);
+		fillBlocks(new Vector3f(0, 2, 0), new Vector3f(40, 40, 0), "LeftWallFront", graywall);
+		fillBlocks(new Vector3f(60, 2, 0), new Vector3f(100, 40, 0), "LeftWallBack", graywall);
+		
+		fillBlocks(new Vector3f(40, 0, 0), new Vector3f(60, 0, -15), "LeftRoomFloor", redbrick);
+		fillBlocks(new Vector3f(40, 2, -2), new Vector3f(40, 40, -15), "LeftRoomLeftWall", graywall);
+		fillBlocks(new Vector3f(60, 2, -2), new Vector3f(60, 40, -15), "LeftRoomRightWall", graywall);
+		fillBlocks(new Vector3f(40, 2, -17), new Vector3f(60, 40, -17), "LeftRoomBackWall", graywall);
+		fillBlocks(new Vector3f(42, 20, 0), new Vector3f(58, 20, -15), "LeftRoomCeiling", officeceiling);
+		
+		fillBlocks(new Vector3f(42, 22, 0), new Vector3f(58, 22, -15), "HiddenRoomFloor", redbrick);
+		fillBlocksGhost(new Vector3f(42, 22, 0), new Vector3f(58, 40, 0), "HiddenRoomFloor", graybrick);
+		fillBlocks(new Vector3f(42, 42, 0), new Vector3f(58, 42, -15), "HiddenRoomCeiling", officeceiling);
+		
+		fillBlocks(new Vector3f(0, 2, 26), new Vector3f(100, 60, 26), "RightWall", graywall);
+		fillBlocks(new Vector3f(-2, 0, 0), new Vector3f(-2, 20, 26), "FrontWall", graywall);
+		fillBlocks(new Vector3f(102, 0, 10), new Vector3f(102, 0, 16), "elevatorL0F0", whitetile);
+		fillBlocks(new Vector3f(102, 22, 10), new Vector3f(102, 22, 16), "floor3spawn", whitetile);
 		fillBlocks(new Vector3f(0, 20, 2), new Vector3f(100, 20, 24), "floor2ceiling", officeceiling);
-		fillBlocks(new Vector3f(0, 22, 2), new Vector3f(100, 22, 24), "floor3", redbrick);
-		fillBlocks(new Vector3f(102, 0, 0), new Vector3f(102, 40, 10), "BackWallLeft", graywall);
-		fillBlocks(new Vector3f(102, 0, 16), new Vector3f(102, 40, 26), "BackWallRight", graywall);
-		fillBlocks(new Vector3f(104, 0, 10), new Vector3f(104, 40, 16), "BackWallMiddle", whitewall);
+		fillBlocks(new Vector3f(2, 22, 2), new Vector3f(100, 22, 24), "floor3", redbrick);
+		fillBlocks(new Vector3f(102, 0, 0), new Vector3f(102, 40, 8), "BackWallLeft", graywall);
+		fillBlocks(new Vector3f(102, 0, 18), new Vector3f(102, 40, 26), "BackWallRight", graywall);
+		fillBlocks(new Vector3f(104, 0, 8), new Vector3f(104, 40, 18), "BackWallMiddle", whitewall);
+		
+		fillBlocks(new Vector3f(0, 22, 0), new Vector3f(0, 60, 8), "FrontWallLeft", graywall);
+		fillBlocks(new Vector3f(0, 22, 18), new Vector3f(0, 60, 26), "FrontWallRight", graywall);
+		fillBlocks(new Vector3f(-2, 22, 8), new Vector3f(-2, 60, 18), "FrontWallMiddle", whitewall);
+		fillBlocks(new Vector3f(0, 22, 10), new Vector3f(0, 22, 16), "elevatorL0F1", whitetile);
+		
+		fillBlocks(new Vector3f(0, 40, 2), new Vector3f(100, 40, 24), "floor3ceiling", officeceiling);
+		fillBlocks(new Vector3f(2, 42, 2), new Vector3f(100, 42, 24), "floor4", redbrick);
+		fillBlocks(new Vector3f(0, 42, 10), new Vector3f(0, 42, 16), "floor4spawn", whitetile);
+		fillBlocks(new Vector3f(0, 22, 0), new Vector3f(40, 60, 0), "floor4LeftWallFront", graywall);
+		fillBlocks(new Vector3f(60, 22, 0), new Vector3f(100, 60, 0), "floor4LeftWallBack", graywall);fillBlocks(new Vector3f(2, 22, 2), new Vector3f(100, 22, 24), "floor4LeftWall", graywall);
+		
 		SaguaroCactus sc1 = new SaguaroCactus(node, assetManager, bulletAppState, player);
 		sc1.spawnCactus(new Vector3f(25, 2, 25), new Vector3f(25, 2, 0), "cactusS1", ColorRGBA.Green);
 		cacti.add(sc1);
@@ -74,8 +99,8 @@ public class Level0{
 		bc3.spawnCactus(new Vector3f(100, 24, 19), new Vector3f(0, 24, 19), "cactusB3", ColorRGBA.Green);
 		cacti.add(bc3);
 		
-		spawnHammer(new Vector3f(40, 2, 10), "hammerL0F0");
-
+		spawnHammer(new Vector3f(50, 2, -10), "hammerL0F0");
+		spawnHammer(new Vector3f(50, 24, -10), "hammerL0F1");
 	}
 
 	
@@ -90,10 +115,15 @@ public class Level0{
 		geom.setMaterial(mat); // Use new material on this Geometry.
 		
 		Node blockNode = new Node(name);
-		
-		for(float i = coor1.getX(); i <= coor2.getX(); i++) {
-			for(float j = coor1.getY(); j <= coor2.getY(); j++) {
-				for(float k = coor1.getZ(); k <= coor2.getZ(); k++) {
+		float xMax = Math.max(coor1.getX(), coor2.getX());
+		float xMin = Math.min(coor1.getX(), coor2.getX());
+		float yMax = Math.max(coor1.getY(), coor2.getY());
+		float yMin = Math.min(coor1.getY(), coor2.getY());
+		float zMax = Math.max(coor1.getZ(), coor2.getZ());
+		float zMin = Math.min(coor1.getZ(), coor2.getZ());
+		for(float i = xMin; i <= xMax; i++) {
+			for(float j = yMin; j <= yMax; j++) {
+				for(float k = zMin; k <= zMax; k++) {
 					Geometry geomCopy = geom.clone();
 					geomCopy.setName("Wall");
 					geomCopy.setLocalTranslation(new Vector3f(i, j, k));
@@ -106,6 +136,35 @@ public class Level0{
 		node.attachChild(blockNode);
 		bulletAppState.getPhysicsSpace().addAll(blockNode);
 		
+	}
+	public void fillBlocksGhost(Vector3f coor1, Vector3f coor2, String name, String texture) {
+		Box b = new Box(1, 1, 1);
+		Geometry geom = new Geometry("Box", b);
+		Material mat = new Material(assetManager, // Create new material and...
+				"Common/MatDefs/Misc/Unshaded.j3md"); // ... specify .j3md file to use (unshaded).
+
+		mat.setTexture("ColorMap",
+	            assetManager.loadTexture(texture));
+		geom.setMaterial(mat); // Use new material on this Geometry.
+		
+		Node blockNode = new Node(name);
+		float xMax = Math.max(coor1.getX(), coor2.getX());
+		float xMin = Math.min(coor1.getX(), coor2.getX());
+		float yMax = Math.max(coor1.getY(), coor2.getY());
+		float yMin = Math.min(coor1.getY(), coor2.getY());
+		float zMax = Math.max(coor1.getZ(), coor2.getZ());
+		float zMin = Math.min(coor1.getZ(), coor2.getZ());
+		for(float i = xMin; i <= xMax; i++) {
+			for(float j = yMin; j <= yMax; j++) {
+				for(float k = zMin; k <= zMax; k++) {
+					Geometry geomCopy = geom.clone();
+					geomCopy.setName("Wall");
+					geomCopy.setLocalTranslation(new Vector3f(i, j, k));
+					blockNode.attachChild(geomCopy);
+				}
+			}
+		}
+		node.attachChild(blockNode);
 	}
 	public void buildElevator(Vector3f coor, String name) {
 		Box b = new Box(1, 1, 1);
@@ -154,7 +213,7 @@ public class Level0{
 	}
 	
 	public void removeHammer(int hammer) {
-		Node hammerNode = hammers.get(0);
+		Node hammerNode = hammers.get(hammer);
 		node.detachChild(hammerNode);
 		hammerNode.removeControl(hammerControl);
 	}
