@@ -50,6 +50,7 @@ public class Level0{
 		fillBlocks(new Vector3f(0, 0, 0), new Vector3f(100, 0, 26), "floor2", redbrick);
 		fillBlocks(new Vector3f(0, 2, 0), new Vector3f(100, 40, 0), "LeftWall", graywall);
 		fillBlocks(new Vector3f(0, 2, 26), new Vector3f(100, 40, 26), "RightWall", graywall);
+		fillBlocks(new Vector3f(-2, 0, 0), new Vector3f(-2, 40, 26), "FrontWall", graywall);
 		fillBlocks(new Vector3f(102, 0, 12), new Vector3f(102, 0, 14), "elevatorL0F0", whitetile);
 		fillBlocks(new Vector3f(102, 22, 12), new Vector3f(102, 22, 14), "floor3spawn", whitetile);
 		fillBlocks(new Vector3f(0, 20, 2), new Vector3f(100, 20, 24), "floor2ceiling", officeceiling);
