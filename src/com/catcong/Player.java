@@ -25,7 +25,7 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 	private int lives;
 	private boolean hasHammer;
 	private LevelControl lc;
-
+	private int level;
 	public Player(SimpleApplication app, LevelControl lc) {
 		capsuleShape = new CapsuleCollisionShape(1.5f, 6f, 1);
 
@@ -41,6 +41,7 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 		this.lives = 3;
 		this.hasHammer = false;
 		this.lc = lc;
+		this.level = 0;
 	}
 
 	public CharacterControl get() {
@@ -143,7 +144,9 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 		this.hasHammer = false;
 		lc.loseHammer();
 	}
-
+	public void advanceLevel() {
+		this.level++;
+	}
 	@Override
 	public void onAnalog(String binding, float value, float tpf) {
 		if (binding.equals("pick target")) {

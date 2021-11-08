@@ -40,7 +40,7 @@ public class InGameMenu extends AbstractAppState implements ScreenController {
 	public void resumeButton() {
 		LC.resumeGame();
 	}
-	
+
 	public void restartButton() {
 		LC.restartGame();
 	}

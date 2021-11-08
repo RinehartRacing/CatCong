@@ -1,5 +1,6 @@
 package com.catcong;
 
+import com.catcong.levels.LevelMap;
 import com.catcong.menus.InGameMenu;
 import com.jme3.app.SimpleApplication;
 import com.jme3.collision.CollisionResults;
@@ -110,6 +111,24 @@ public class LevelControl extends SimpleApplication {
 		guiViewPort.addProcessor(niftyDisplay);
 	}
 
+	public void finishLevel(int level) {
+		paused = true;
+		this.getFlyByCamera().setEnabled(false);
+		LM.getPlayer().get().setEnabled(false);
+		LM.setEnabled(false);
+		if (paused) {
+			niftyDisplay = new NiftyJmeDisplay(assetManager, inputManager, audioRenderer, guiViewPort);
+			Nifty nifty = niftyDisplay.getNifty();
+
+			nifty.fromXml("assets/Interface/MainMenuLayout.xml", "completeLevel" + level, inGameMenu);
+			guiViewPort.addProcessor(niftyDisplay);
+		} else {
+			inputManager.setCursorVisible(false);
+			guiViewPort.clearProcessors();
+		}
+	}
+	
+	
 	public void pauseGame() {
 		paused = !paused;
 		LM.pause();

@@ -1,4 +1,4 @@
-package com.catcong;
+package com.catcong.levels;
 
 import com.jme3.asset.AssetManager;
 import com.jme3.bullet.BulletAppState;
@@ -14,11 +14,11 @@ import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
 import com.jme3.scene.shape.Box;
 
-public class Level2{
+public class Level3{
 	private AssetManager assetManager;
 	private Node node;
 	private BulletAppState bulletAppState;
-	public Level2(Node node, AssetManager assetManager, BulletAppState bulletAppState) {
+	public Level3(Node node, AssetManager assetManager, BulletAppState bulletAppState) {
 		this.assetManager = assetManager;
 		this.node = node;
 		this.bulletAppState = bulletAppState;
@@ -26,10 +26,10 @@ public class Level2{
 		Geometry geom = new Geometry("Box", b);
 		Material mat = new Material(assetManager, // Create new material and...
 				"Common/MatDefs/Misc/Unshaded.j3md"); // ... specify .j3md file to use (unshaded).
-		mat.setColor("Color", ColorRGBA.Red); // Set some parameters, e.g. blue.
+		mat.setColor("Color", ColorRGBA.Orange); // Set some parameters, e.g. blue.
 		geom.setMaterial(mat); // Use new material on this Geometry.
-		buildFloor(geom, 50, 50, 400);
-		buildElevator(new Vector3f(500, 0, 50));
+		buildFloor(geom, 50, 50, 600);
+		//buildElevator(new Vector3f(700, 0, 50));
 		
 
 	}

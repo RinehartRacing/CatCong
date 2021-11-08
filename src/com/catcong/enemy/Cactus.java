@@ -38,7 +38,9 @@ public class Cactus implements PhysicsCollisionListener{
 	}
 	public void removeCactus() {
 		cactusNode.removeControl(control);
-		cactusNode.detachAllChildren();	
+		bulletAppState.getPhysicsSpace().removeCollisionObject(control);
+		cactusNode.detachAllChildren();
+		node.detachChild(cactusNode);
 		cactusNode = null;
 	}
 	public Node getCactusNode() {

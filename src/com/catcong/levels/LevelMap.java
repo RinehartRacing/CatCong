@@ -1,6 +1,8 @@
 
-package com.catcong;
+package com.catcong.levels;
 
+import com.catcong.LevelControl;
+import com.catcong.Player;
 import com.jme3.app.Application;
 import com.jme3.app.SimpleApplication;
 import com.jme3.app.state.AbstractAppState;
@@ -30,7 +32,7 @@ import com.jme3.scene.Spatial;
 import com.jme3.scene.shape.Box;
 import com.jme3.util.SkyFactory;
 
-public class LevelMap extends AbstractAppState  implements PhysicsCollisionListener {
+public class LevelMap extends AbstractAppState implements PhysicsCollisionListener {
 
 	private final Node rootNode;
 	/**
@@ -45,6 +47,7 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 	private SimpleApplication app;
 	private LevelControl lc;
 	private Level0 level0;
+
 	public LevelMap(SimpleApplication app, LevelControl lc) {
 		rootNode = app.getRootNode();
 		assetManager = app.getAssetManager();
@@ -63,22 +66,22 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 
 		player.setupKeys();
 		level0 = new Level0(gameLevel, assetManager, bulletAppState, player);
-		Level1 level1 = new Level1(gameLevel, assetManager, bulletAppState);
-		Level2 level2 = new Level2(gameLevel, assetManager, bulletAppState);
+		Level1 level1 = new Level1(gameLevel, assetManager, bulletAppState, player);
+		Level2 level2 = new Level2(gameLevel, assetManager, bulletAppState, player);
 		Level3 level3 = new Level3(gameLevel, assetManager, bulletAppState);
 		CollisionShape sceneShape = CollisionShapeFactory.createMeshShape(gameLevel);
 		gameLevel.addControl(new RigidBodyControl(sceneShape, 0));
 
 		rootNode.attachChild(gameLevel);
 
-		//getPhysicsSpace().addAll(gameLevel);
+		// getPhysicsSpace().addAll(gameLevel);
 		getPhysicsSpace().add(player.get());
 		getPhysicsSpace().addCollisionListener(this);
 
 		inputManager.addMapping("Pause", new KeyTrigger(KeyInput.KEY_P));
-		
-		rootNode.attachChild(SkyFactory.createSky(assetManager,
-				"assets/Textures/BrightSky.dds", SkyFactory.EnvMapType.CubeMap));
+
+		rootNode.attachChild(
+				SkyFactory.createSky(assetManager, "assets/Textures/BrightSky.dds", SkyFactory.EnvMapType.CubeMap));
 	}
 
 	public PhysicsSpace getPhysicsSpace() {
@@ -90,8 +93,9 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 		Vector3f camLeft = app.getCamera().getLeft().clone().multLocal(0.4f);
 		player.updateMovement(camDir, camLeft);
 		app.getCamera().setLocation(player.get().getPhysicsLocation());
-		
+
 	}
+
 	public Player getPlayer() {
 		return player;
 	}
@@ -101,9 +105,11 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 		player.get().setEnabled(!player.get().isEnabled());
 		app.getFlyByCamera().setEnabled(!app.getFlyByCamera().isEnabled());
 	}
+
 	public void removeCactus(String name) {
 		level0.removeCactus(name);
 	}
+
 	@Override
 	public void cleanup() {
 		rootNode.detachChild(gameLevel);
@@ -115,6 +121,7 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 	public void update(float tpf) {
 		level0.updateCacti(tpf);
 	}
+
 	@Override
 	public void collision(PhysicsCollisionEvent event) {
 		if (event.getNodeB() != null) {
@@ -126,20 +133,35 @@ public class LevelMap extends AbstractAppState  implements PhysicsCollisionListe
 				System.out.println("On elevator");
 				player.get().setPhysicsLocation(new Vector3f(-1, 44, 13));
 			}
-			if ("elevatorNode1".equals(event.getNodeB().getName())) {
+			if ("elevatorL0F2".equals(event.getNodeB().getName())) {
 				System.out.println("On elevator");
-				player.get().setPhysicsLocation(new Vector3f(425, 5, 50));
+				player.get().setPhysicsLocation(new Vector3f(1225, 5, 50));
+				player.advanceLevel();
+				lc.finishLevel(0);
+
+			}
+			if ("elevatorL1F0".equals(event.getNodeB().getName())) {
+				System.out.println("On elevator");
+				player.get().setPhysicsLocation(new Vector3f(2425, 5, 50));
+				player.advanceLevel();
+				lc.finishLevel(1);
+			}
+			if ("elevatorL2F0".equals(event.getNodeB().getName())) {
+				System.out.println("On elevator");
+				player.get().setPhysicsLocation(new Vector3f(3625, 5, 50));
+				player.advanceLevel();
+				lc.finishLevel(2);
 			}
 			if ("elevatorNode2".equals(event.getNodeB().getName())) {
 				System.out.println("On elevator");
 				player.get().setPhysicsLocation(new Vector3f(625, 5, 50));
 			}
-			if("hammerL0F0".equals(event.getNodeB().getName())) {
+			if ("hammerL0F0".equals(event.getNodeB().getName())) {
 				System.out.println("Touched hammer");
 				level0.removeHammer(0);
 				player.grabHammer();
 			}
-			if("hammerL0F1".equals(event.getNodeB().getName())) {
+			if ("hammerL0F1".equals(event.getNodeB().getName())) {
 				System.out.println("Touched hammer");
 				level0.removeHammer(1);
 				player.grabHammer();
