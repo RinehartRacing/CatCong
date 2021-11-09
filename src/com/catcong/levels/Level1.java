@@ -24,8 +24,8 @@ public class Level1 extends Level {
 				"Common/MatDefs/Misc/Unshaded.j3md"); // ... specify .j3md file to use (unshaded).
 		mat.setColor("Color", ColorRGBA.Blue); // Set some parameters, e.g. blue.
 	geom.setMaterial(mat); // Use new material on this Geometry.
-		fillBlocks(new Vector3f(1200, 0, 0), new Vector3f(1300, 0, 100), "level1floor", redbrick);
-		fillBlocks(new Vector3f(1302, 0, 48), new Vector3f(1302, 0, 52), "elevatorL1F0", whitetile);
+		fillBlocks(new Vector3f(10200, 0, 0), new Vector3f(10300, 0, 100), "level1floor", redbrick);
+		fillBlocks(new Vector3f(10302, 0, 48), new Vector3f(10302, 0, 52), "elevatorL1F0", whitetile);
 
 	}
 }

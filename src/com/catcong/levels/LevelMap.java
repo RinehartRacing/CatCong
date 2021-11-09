@@ -135,7 +135,7 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 			}
 			if ("elevatorL0F2".equals(event.getNodeB().getName())) {
 				System.out.println("On elevator");
-				player.get().setPhysicsLocation(new Vector3f(1225, 5, 50));
+				player.get().setPhysicsLocation(new Vector3f(10225, 5, 50));
 				player.advanceLevel();
 				lc.finishLevel(0);
 
