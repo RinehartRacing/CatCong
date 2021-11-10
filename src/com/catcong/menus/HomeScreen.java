@@ -1,33 +1,47 @@
 package com.catcong.menus;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.util.stream.Stream;
+import java.awt.event.WindowEvent;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-public class HomeScreen extends JFrame{
+import com.catcong.LevelControl;
+import com.jme3.app.SimpleApplication;
+import com.jme3.system.AppSettings;
+import com.jme3.system.JmeCanvasContext;
+
+
+public class HomeScreen{
 private final int windowWidth = 800;
 private final int windowHeight = 800;
-
-	public HomeScreen() {
+private LevelControl canvasApplication;
+private LevelControl LC;
+private SimpleApplication app;
+private static JFrame frame;
+	public HomeScreen(String name) {
 		// Set title of window
-		super("Cat Cong");
+		frame = new JFrame(name);
 		
 		// Set size of window
-		setSize(windowWidth, windowHeight);
-		setResizable(false);
+		frame.setSize(windowWidth, windowHeight);
+		frame.setResizable(false);
 
 		// Specify action for the close button
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		// Add null layout manager to the content page
-		getContentPane().setLayout(null);
+		frame.getContentPane().setLayout(null);
 		
 		// Create custom UA colors to use for styling
 		Color UARed = new Color(171, 5, 32);
 		Color ArizonaBlue = new Color(12, 35, 75);
 		
 		// Set the background color
-		getContentPane().setBackground(ArizonaBlue);
+		frame.getContentPane().setBackground(ArizonaBlue);
 	
 		// Create game title and borders
 		JLabel gameTitle = new JLabel("CAT CONG");
@@ -40,7 +54,7 @@ private final int windowHeight = 800;
 		gameTitle.setFont(new Font("Verdana", Font.BOLD, 38));
 		gameTitle.setForeground(Color.WHITE);
 		gameTitle.setBackground(UARed);
-		getContentPane().add(gameTitle);
+		frame.getContentPane().add(gameTitle);
 		
 		// Add and style buttons and add them to pane
 		JButton highScore = new JButton("High Scores");
@@ -54,7 +68,7 @@ private final int windowHeight = 800;
 		highScore.setBackground(Color.WHITE);
 		highScore.setHorizontalAlignment(JLabel.CENTER);
 		highScore.setBorder(buttonBorder);
-		getContentPane().add(highScore);
+		frame.getContentPane().add(highScore);
 		
 		howToPlay.setLocation(274, 300);
 		howToPlay.setSize(150, 50);
@@ -62,7 +76,7 @@ private final int windowHeight = 800;
 		howToPlay.setBackground(Color.WHITE);
 		howToPlay.setHorizontalAlignment(JLabel.CENTER);
 		howToPlay.setBorder(buttonBorder);
-		getContentPane().add(howToPlay);
+		frame.getContentPane().add(howToPlay);
 		
 		play.setLocation(274, 400);
 		play.setSize(150, 50);
@@ -70,7 +84,18 @@ private final int windowHeight = 800;
 		play.setBackground(Color.WHITE);
 		play.setHorizontalAlignment(JLabel.CENTER);
 		play.setBorder(buttonBorder);
-		getContentPane().add(play);
+		frame.getContentPane().add(play);
+		play.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				System.out.println("Play button clicked");
+				frame.dispose();
+				WindowTests.frame.setVisible(true);
+				
+				//LevelControl.startGame();
+			}
+			
+		});
 		
 		quit.setLocation(274, 500);
 		quit.setSize(150, 50);
@@ -78,14 +103,23 @@ private final int windowHeight = 800;
 		quit.setBackground(Color.WHITE);
 		quit.setHorizontalAlignment(JLabel.CENTER);
 		quit.setBorder(buttonBorder);
-		getContentPane().add(quit);
+		frame.getContentPane().add(quit);
 	
 		// Display the window
-		setVisible(true);
+		frame.setVisible(true);
 	
 	}
-
+	public JFrame getHomeScreen() {
+		return frame;
+	}
 	public static void main(String[] args) {
-		new HomeScreen();
+		new HomeScreen("CatCong");
+		frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                new HomeScreen("CatCong");
+                
+            }
+        });
 	}
 }

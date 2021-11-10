@@ -1,25 +1,38 @@
 package com.catcong;
 
+import javax.swing.JFrame;
+
 import com.catcong.levels.LevelMap;
+import com.catcong.menus.HomeScreen;
 import com.catcong.menus.InGameMenu;
+import com.catcong.menus.WindowTests;
 import com.jme3.app.SimpleApplication;
+import com.jme3.app.state.AbstractAppState;
+import com.jme3.app.state.AppStateManager;
+import com.jme3.asset.AssetManager;
+import com.jme3.audio.AudioRenderer;
 import com.jme3.collision.CollisionResults;
 import com.jme3.cursors.plugins.JmeCursor;
+import com.jme3.font.BitmapFont;
 import com.jme3.font.BitmapText;
+import com.jme3.input.InputManager;
 import com.jme3.input.controls.ActionListener;
 import com.jme3.input.controls.AnalogListener;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.Ray;
 import com.jme3.math.Vector3f;
 import com.jme3.niftygui.NiftyJmeDisplay;
+import com.jme3.renderer.ViewPort;
 import com.jme3.scene.Geometry;
+import com.jme3.scene.Node;
+import com.jme3.system.AppSettings;
 import com.jme3.ui.Picture;
 
 import de.lessvoid.nifty.Nifty;
 import de.lessvoid.nifty.screen.Screen;
 import de.lessvoid.nifty.screen.ScreenController;
 
-public class LevelControl extends SimpleApplication {
+public class LevelControl extends AbstractAppState{
 	private LevelMap LM;
 	private BitmapText hudText;
 	private BitmapText livesText;
@@ -28,15 +41,34 @@ public class LevelControl extends SimpleApplication {
 	private NiftyJmeDisplay niftyDisplay;
 	private Picture pic;
 	private boolean paused;
-
-	public static void main(String[] args) {
-		LevelControl app = new LevelControl();
-		app.start();
+	
+	private SimpleApplication app;
+	private AppStateManager stateManager;
+	private InputManager inputManager;
+	private BitmapFont guiFont;
+	private Node guiNode;
+	private AssetManager assetManager;
+	private AppSettings settings;
+	private AudioRenderer audioRenderer;
+	private ViewPort guiViewPort;
+	private Node rootNode;
+	
+	
+	public LevelControl(SimpleApplication app, BitmapFont guiFont, AppSettings settings) {
+		this.app = app;
+		this.stateManager = app.getStateManager();
+		this.inputManager = app.getInputManager();
+		this.guiFont = guiFont;
+		this.guiNode = app.getGuiNode();
+		this.assetManager = app.getAssetManager();
+		this.settings = settings;
+		this.audioRenderer = app.getAudioRenderer();
+		this.guiViewPort = app.getGuiViewPort();
+		this.rootNode = app.getRootNode();
 	}
 
-	@Override
 	public void simpleInitApp() {
-		LM = new LevelMap(this, this);
+		LM = new LevelMap(app, this);
 		paused = false;
 		stateManager.attach(LM);
 		inputManager.addListener(actionListener, "Pause");
@@ -64,6 +96,7 @@ public class LevelControl extends SimpleApplication {
 
 		stateManager.attach(inGameMenu);
 		initCrossHairs();
+		preGame(0);
 
 	}
 
@@ -84,7 +117,6 @@ public class LevelControl extends SimpleApplication {
 		}
 	}
 
-	@Override
 	public void simpleUpdate(float tpf) {
 		LM.updateLM();
 		hudText.setText(LM.getPlayer().get().getPhysicsLocation().toString()); // the text
@@ -111,9 +143,27 @@ public class LevelControl extends SimpleApplication {
 		guiViewPort.addProcessor(niftyDisplay);
 	}
 
+	public void preGame(int level) {
+		paused = true;
+		app.getFlyByCamera().setEnabled(false);
+		LM.getPlayer().get().setEnabled(false);
+		LM.setEnabled(false);
+		if (paused) {
+			niftyDisplay = new NiftyJmeDisplay(assetManager, inputManager, audioRenderer, guiViewPort);
+			Nifty nifty = niftyDisplay.getNifty();
+
+			nifty.fromXml("assets/Interface/MainMenuLayout.xml", "introLevel" + level, inGameMenu);
+			guiViewPort.addProcessor(niftyDisplay);
+		} else {
+			inputManager.setCursorVisible(false);
+			guiViewPort.clearProcessors();
+		}
+
+	}
+
 	public void finishLevel(int level) {
 		paused = true;
-		this.getFlyByCamera().setEnabled(false);
+		app.getFlyByCamera().setEnabled(false);
 		LM.getPlayer().get().setEnabled(false);
 		LM.setEnabled(false);
 		if (paused) {
@@ -127,8 +177,7 @@ public class LevelControl extends SimpleApplication {
 			guiViewPort.clearProcessors();
 		}
 	}
-	
-	
+
 	public void pauseGame() {
 		paused = !paused;
 		LM.pause();
@@ -162,20 +211,26 @@ public class LevelControl extends SimpleApplication {
 		inputManager.deleteMapping("Space");
 		this.resumeGame();
 		this.simpleInitApp();
+		this.preGame(0);
 
 	}
 
 	public void loadHomeScreen() {
-		this.stop();
+		
+		
+		WindowTests.frame.setVisible(false);
+		this.restartGame();
+		HomeScreen hs = new HomeScreen("CatCong");
 		System.out.println("Load Home Screen Here");
 	}
 
 	public void quitGame() {
-		this.stop();
+		app.stop();
+		System.exit(0);
 	}
 
 	protected void initCrossHairs() {
-		setDisplayStatView(false);
+		app.setDisplayStatView(false);
 		inputManager.setCursorVisible(false);
 		guiFont = assetManager.loadFont("Interface/Fonts/Default.fnt");
 		BitmapText ch = new BitmapText(guiFont, false);

@@ -1,72 +1,76 @@
 package com.catcong.menus;
 
-import java.awt.*;
-import javax.swing.*;
+import com.catcong.LevelControl;
+import com.jme3.app.SimpleApplication;
+import com.jme3.material.Material;
+import com.jme3.scene.Geometry;
+import com.jme3.scene.shape.Box;
+import com.jme3.system.AppSettings;
+import com.jme3.system.JmeCanvasContext;
+import java.awt.Canvas;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
 
-/**
- *  The KiloConverterWindow class lets the user enter a
- *  distance in kilometers. When the Calculate button is
- *  clicked, a dialog box is displayed with the distance
- *  converted to miles.
- */
+public class WindowTests extends SimpleApplication {
+    private LevelControl LC;
+    public static JFrame frame = new JFrame("CatCong");
+	public static void runGame() throws InterruptedException{
+    	//LC = new LevelControl();
+    	//LC.start();
+    	HomeScreen hs = new HomeScreen("CatCong");
+    	//JFrame homeFrame = hs.getHomeScreen();
+    	AppSettings settings = new AppSettings(true);
+        settings.setWidth(1920);
+        settings.setHeight(1080);
 
-public class WindowTests extends JFrame
-{
-   private JPanel panel;             // A panel container
-   private JLabel messageLabel;      // A message to display
-   private JTextField kiloTextField; // To hold user input
-   private JButton calcButton;       // Performs calculation
-   private final int WINDOW_WIDTH = 320;  // Window width
-   private final int WINDOW_HEIGHT = 100; // Window height
+        final WindowTests app = new WindowTests();
+        app.setPauseOnLostFocus(false);
+        app.setSettings(settings);
+        app.createCanvas();
+        app.startCanvas(true);
 
-	/**
-	 *  Constructor
-	 */
+        JmeCanvasContext context = (JmeCanvasContext) app.getContext();
+        Canvas canvas = context.getCanvas();
+        canvas.setSize(settings.getWidth(), settings.getHeight());
 
-   public WindowTests()
-   {
-      // Call the JFrame constructor.
-      super("Kilometer Converter");
+        
+        
 
-      // Set the size of the window.
-      setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+        
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
 
-      // Specify what happens when the close
-      // button is clicked.
-      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            }
+        });
+        frame.getContentPane().add(canvas);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        Thread.sleep(100);
+        frame.setVisible(false);
+        
+    }
 
-      // Build the panel and add it to the frame.
-      buildPanel();
-
-      // Add the panel to the frame's content pane.
-      add(panel);
-
-      // Display the window.
-      setVisible(true);
-   }
-
-	/**
-	 *  The buildPanel method adds a label, text field, and
-    *  a button to a panel.
-	 */
-
-   private void buildPanel()
-   {
-      // Create the label, text field, and button components.
-      messageLabel = new JLabel("Enter a distance in kilometers");
-      kiloTextField = new JTextField(10);
-      calcButton = new JButton("Calculate");
-
-      // Create a panel to hold the components.
-      panel = new JPanel();
-      
-      // Add the label, text field, and button to the panel.
-      panel.add(messageLabel);
-      panel.add(kiloTextField);
-      panel.add(calcButton);
-   }
-   
-   public static void main(String[] args) {
-		new WindowTests();
+    @Override
+    public void simpleInitApp() {
+    	LC = new LevelControl(this, guiFont, settings);
+    	LC.simpleInitApp();
+    }
+    
+    @Override
+    public void simpleUpdate(float tpf) {
+		LC.simpleUpdate(tpf);
 	}
+    public static void main(String[] args) {
+    	try {
+			runGame();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
 }
