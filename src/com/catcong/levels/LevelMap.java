@@ -47,6 +47,9 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 	private SimpleApplication app;
 	private LevelControl lc;
 	private Level0 level0;
+	private Level1 level1;
+	private Level2 level2;
+	private Level3 level3;
 
 	public LevelMap(SimpleApplication app, LevelControl lc) {
 		rootNode = app.getRootNode();
@@ -66,9 +69,9 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 
 		player.setupKeys();
 		level0 = new Level0(gameLevel, assetManager, bulletAppState, player);
-		Level1 level1 = new Level1(gameLevel, assetManager, bulletAppState, player);
-		Level2 level2 = new Level2(gameLevel, assetManager, bulletAppState, player);
-		Level3 level3 = new Level3(gameLevel, assetManager, bulletAppState, player);
+		level1 = new Level1(gameLevel, assetManager, bulletAppState, player);
+		level2 = new Level2(gameLevel, assetManager, bulletAppState, player);
+		level3 = new Level3(gameLevel, assetManager, bulletAppState, player);
 		CollisionShape sceneShape = CollisionShapeFactory.createMeshShape(gameLevel);
 		gameLevel.addControl(new RigidBodyControl(sceneShape, 0));
 
@@ -108,6 +111,9 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 
 	public void removeCactus(String name) {
 		level0.removeCactus(name);
+		level1.removeCactus(name);
+		level2.removeCactus(name);
+		level3.removeCactus(name);
 	}
 
 	@Override
@@ -139,14 +145,13 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 				player.advanceLevel();
 				lc.finishLevel(0);
 
-
 			}
 			if ("elevatorL1F0".equals(event.getNodeB().getName())) {
 				System.out.println("On elevator");
 				player.get().setPhysicsLocation(new Vector3f(21425, 5, 50));
 				player.advanceLevel();
 				lc.finishLevel(1);
-				
+
 			}
 			if ("elevatorL2F0".equals(event.getNodeB().getName())) {
 				System.out.println("On elevator");
@@ -164,6 +169,14 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 				level0.removeHammer(1);
 				player.grabHammer();
 			}
+			if (event.getNodeB() != null) {
+				if ("hammerL3F0".equals(event.getNodeB().getName())) {
+					System.out.println("Touched hammer");
+					level3.removeHammer(0);
+					player.grabHammer();
+				}
+			}
+
 		}
 	}
 

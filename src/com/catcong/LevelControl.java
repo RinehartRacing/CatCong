@@ -177,6 +177,23 @@ public class LevelControl extends AbstractAppState{
 			guiViewPort.clearProcessors();
 		}
 	}
+	
+	public void defeatSunDevil() {
+		paused = true;
+		app.getFlyByCamera().setEnabled(false);
+		LM.getPlayer().get().setEnabled(false);
+		LM.setEnabled(false);
+		if (paused) {
+			niftyDisplay = new NiftyJmeDisplay(assetManager, inputManager, audioRenderer, guiViewPort);
+			Nifty nifty = niftyDisplay.getNifty();
+
+			nifty.fromXml("assets/Interface/MainMenuLayout.xml", "completeFinalLevel", inGameMenu);
+			guiViewPort.addProcessor(niftyDisplay);
+		} else {
+			inputManager.setCursorVisible(false);
+			guiViewPort.clearProcessors();
+		}
+	}
 
 	public void pauseGame() {
 		paused = !paused;

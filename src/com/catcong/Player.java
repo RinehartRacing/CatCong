@@ -163,6 +163,8 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 				float dist = results.getCollision(i).getDistance();
 				Vector3f pt = results.getCollision(i).getContactPoint();
 				String target = results.getCollision(i).getGeometry().getName();
+				//System.out.println("Selection #" + i + ": " + target + " at " + pt + ", " +
+						//dist + " WU away.");
 				if (target.length() > 7) {
 					if (target.substring(0, 6).equals("cactus")) {
 						if (getHammer() && dist < 15) {
@@ -170,14 +172,23 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 							lc.removeCactus(target);
 							this.loseHammer();
 						}
-						// System.out.println("Selection #" + i + ": " + target + " at " + pt + ", " +
-						// dist + " WU away.");
+						
+					}
+					if(target.equals("A_normal_mat")) {
+						if (getHammer() && dist < 25) {
+							System.out.println("Kill boss!");
+							lc.removeCactus("cactusSundevil");
+							this.loseHammer();
+							lc.defeatSunDevil();
+						}
 					}
 				}
 
 			}
 
 		}
+		
+		
 
 	}
 }

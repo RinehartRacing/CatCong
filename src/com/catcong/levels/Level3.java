@@ -1,6 +1,8 @@
 package com.catcong.levels;
 
 import com.catcong.Player;
+import com.catcong.enemy.ChollaCactus;
+import com.catcong.enemy.SunDevil;
 import com.jme3.asset.AssetManager;
 import com.jme3.bullet.BulletAppState;
 import com.jme3.bullet.collision.PhysicsCollisionEvent;
@@ -25,7 +27,9 @@ public class Level3 extends Level {
 		mat.setColor("Color", ColorRGBA.Blue); // Set some parameters, e.g. blue.
 	geom.setMaterial(mat); // Use new material on this Geometry.
 		fillBlocks(new Vector3f(31600, 0, 0), new Vector3f(31700, 0, 100), "level3floor", redbrick);
-		fillBlocks(new Vector3f(31702, 0, 48), new Vector3f(31702, 0, 52), "elevatorL3F0", whitetile);
-
+		SunDevil sd = new SunDevil(node, assetManager, bulletAppState, player);
+		sd.spawnCactus(new Vector3f(31675, 2, 50), "cactusSundevil");
+		cacti.add(sd);
+		this.spawnHammer(new Vector3f(31625, 2, 50), "hammerL3F0");
 	}
 }
