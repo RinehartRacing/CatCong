@@ -1,5 +1,6 @@
 package com.catcong.levels;
 
+import com.catcong.Player;
 import com.jme3.asset.AssetManager;
 import com.jme3.bullet.BulletAppState;
 import com.jme3.bullet.collision.PhysicsCollisionEvent;
@@ -14,60 +15,17 @@ import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
 import com.jme3.scene.shape.Box;
 
-public class Level3{
-	private AssetManager assetManager;
-	private Node node;
-	private BulletAppState bulletAppState;
-	public Level3(Node node, AssetManager assetManager, BulletAppState bulletAppState) {
-		this.assetManager = assetManager;
-		this.node = node;
-		this.bulletAppState = bulletAppState;
+public class Level3 extends Level {
+	public Level3(Node node, AssetManager assetManager, BulletAppState bulletAppState, Player player) {
+		super(node, assetManager, bulletAppState, player);
 		Box b = new Box(1, 1, 1);
 		Geometry geom = new Geometry("Box", b);
 		Material mat = new Material(assetManager, // Create new material and...
 				"Common/MatDefs/Misc/Unshaded.j3md"); // ... specify .j3md file to use (unshaded).
-		mat.setColor("Color", ColorRGBA.Orange); // Set some parameters, e.g. blue.
-		geom.setMaterial(mat); // Use new material on this Geometry.
-		buildFloor(geom, 50, 50, 600);
-		//buildElevator(new Vector3f(700, 0, 50));
-		
+		mat.setColor("Color", ColorRGBA.Blue); // Set some parameters, e.g. blue.
+	geom.setMaterial(mat); // Use new material on this Geometry.
+		fillBlocks(new Vector3f(31600, 0, 0), new Vector3f(31700, 0, 100), "level3floor", redbrick);
+		fillBlocks(new Vector3f(31702, 0, 48), new Vector3f(31702, 0, 52), "elevatorL3F0", whitetile);
 
 	}
-
-	public void buildFloor(Geometry geom, int xBox, int yBox, int xTranslate) {
-		Node floorNode = new Node("floorNode1");
-		for (int i = 0; i < xBox; i++) {
-			for (int j = 0; j < yBox; j++) {
-				Geometry geomCopy = geom.clone();
-				geomCopy.setName("Box");
-				geomCopy.setLocalTranslation(new Vector3f(i * 2 + xTranslate, 0, j * 2));
-				floorNode.attachChild(geomCopy);
-				
-			}
-		}
-		CollisionShape floorShape = CollisionShapeFactory.createMeshShape(floorNode);
-		floorNode.addControl(new RigidBodyControl(floorShape, 0));
-		node.attachChild(floorNode);
-		bulletAppState.getPhysicsSpace().addAll(floorNode);
-	}
-
-	public void buildElevator(Vector3f coor) {
-		Box b = new Box(1, 1, 1);
-		Geometry geom = new Geometry("Elevator", b);
-		Material mat = new Material(assetManager, // Create new material and...
-				"Common/MatDefs/Misc/Unshaded.j3md"); // ... specify .j3md file to use (unshaded).
-		mat.setColor("Color", ColorRGBA.Pink); // Set some parameters, e.g. blue.
-		geom.setMaterial(mat); // Use new material on this Geometry.
-		geom.setLocalTranslation(coor);
-		Node elevatorNode2 = new Node("elevatorNode2");
-		elevatorNode2.attachChild(geom);
-		CollisionShape elevatorShape = CollisionShapeFactory.createMeshShape(elevatorNode2);
-		elevatorNode2.addControl(new RigidBodyControl(elevatorShape, 0));
-		node.attachChild(elevatorNode2);
-		bulletAppState.getPhysicsSpace().addAll(elevatorNode2);
-	}
-	
-
-
-	
 }

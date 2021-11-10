@@ -68,7 +68,7 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 		level0 = new Level0(gameLevel, assetManager, bulletAppState, player);
 		Level1 level1 = new Level1(gameLevel, assetManager, bulletAppState, player);
 		Level2 level2 = new Level2(gameLevel, assetManager, bulletAppState, player);
-		Level3 level3 = new Level3(gameLevel, assetManager, bulletAppState);
+		Level3 level3 = new Level3(gameLevel, assetManager, bulletAppState, player);
 		CollisionShape sceneShape = CollisionShapeFactory.createMeshShape(gameLevel);
 		gameLevel.addControl(new RigidBodyControl(sceneShape, 0));
 
@@ -139,22 +139,20 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 				player.advanceLevel();
 				lc.finishLevel(0);
 
+
 			}
 			if ("elevatorL1F0".equals(event.getNodeB().getName())) {
 				System.out.println("On elevator");
-				player.get().setPhysicsLocation(new Vector3f(2425, 5, 50));
+				player.get().setPhysicsLocation(new Vector3f(21425, 5, 50));
 				player.advanceLevel();
 				lc.finishLevel(1);
+				
 			}
 			if ("elevatorL2F0".equals(event.getNodeB().getName())) {
 				System.out.println("On elevator");
-				player.get().setPhysicsLocation(new Vector3f(3625, 5, 50));
+				player.get().setPhysicsLocation(new Vector3f(31625, 5, 50));
 				player.advanceLevel();
 				lc.finishLevel(2);
-			}
-			if ("elevatorNode2".equals(event.getNodeB().getName())) {
-				System.out.println("On elevator");
-				player.get().setPhysicsLocation(new Vector3f(625, 5, 50));
 			}
 			if ("hammerL0F0".equals(event.getNodeB().getName())) {
 				System.out.println("Touched hammer");
