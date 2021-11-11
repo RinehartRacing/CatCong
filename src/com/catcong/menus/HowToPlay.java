@@ -1,6 +1,9 @@
 package com.catcong.menus;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 
@@ -45,7 +48,7 @@ private final int windowHeight = 800;
 	
 		// Add and style buttons and add them to pane
 		JButton play = new JButton("Play");
-		JButton howToPlay = new JButton("How To Play");
+		JButton highScores = new JButton("High Scores");
 		JButton homeScreen = new JButton("Home Screen");
 		JButton quit = new JButton("Quit");
 				
@@ -56,14 +59,35 @@ private final int windowHeight = 800;
 		play.setHorizontalAlignment(JLabel.CENTER);
 		play.setBorder(buttonBorder);
 		getContentPane().add(play);
+		play.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				dispose();
+				WindowTests.frame.setVisible(true);
 				
-		howToPlay.setLocation(224, 200);
-		howToPlay.setSize(150, 50);
-		howToPlay.setForeground(ArizonaBlue);
-		howToPlay.setBackground(Color.WHITE);
-		howToPlay.setHorizontalAlignment(JLabel.CENTER);
-		howToPlay.setBorder(buttonBorder);
-		getContentPane().add(howToPlay);
+				//LevelControl.startGame();
+			}
+			
+		});
+				
+		highScores.setLocation(224, 200);
+		highScores.setSize(150, 50);
+		highScores.setForeground(ArizonaBlue);
+		highScores.setBackground(Color.WHITE);
+		highScores.setHorizontalAlignment(JLabel.CENTER);
+		highScores.setBorder(buttonBorder);
+		getContentPane().add(highScores);
+		highScores.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				dispose();
+				HighScores hs = new HighScores();
+				
+			}
+			
+		});
 				
 		homeScreen.setLocation(424, 200);
 		homeScreen.setSize(150, 50);
@@ -72,6 +96,17 @@ private final int windowHeight = 800;
 		homeScreen.setHorizontalAlignment(JLabel.CENTER);
 		homeScreen.setBorder(buttonBorder);
 		getContentPane().add(homeScreen);
+		homeScreen.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				dispose();
+				HomeScreen hs = new HomeScreen("CatCong");
+
+			}
+
+		});
 				
 		quit.setLocation(624, 200);
 		quit.setSize(150, 50);
@@ -80,6 +115,16 @@ private final int windowHeight = 800;
 		quit.setHorizontalAlignment(JLabel.CENTER);
 		quit.setBorder(buttonBorder);
 		getContentPane().add(quit);
+		quit.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				dispose();
+				System.exit(0);
+			}
+			
+		});
 			
 		
 		// Create the three segments of game instructions

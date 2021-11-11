@@ -69,6 +69,17 @@ private static JFrame frame;
 		highScore.setHorizontalAlignment(JLabel.CENTER);
 		highScore.setBorder(buttonBorder);
 		frame.getContentPane().add(highScore);
+		highScore.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				frame.dispose();
+				HighScores hs = new HighScores();
+				
+			}
+			
+		});
 		
 		howToPlay.setLocation(274, 300);
 		howToPlay.setSize(150, 50);
@@ -77,6 +88,17 @@ private static JFrame frame;
 		howToPlay.setHorizontalAlignment(JLabel.CENTER);
 		howToPlay.setBorder(buttonBorder);
 		frame.getContentPane().add(howToPlay);
+		howToPlay.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				frame.dispose();
+				HowToPlay htp = new HowToPlay();
+				
+			}
+			
+		});
 		
 		play.setLocation(274, 400);
 		play.setSize(150, 50);
@@ -88,7 +110,6 @@ private static JFrame frame;
 		play.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				System.out.println("Play button clicked");
 				frame.dispose();
 				WindowTests.frame.setVisible(true);
 				
@@ -104,6 +125,17 @@ private static JFrame frame;
 		quit.setHorizontalAlignment(JLabel.CENTER);
 		quit.setBorder(buttonBorder);
 		frame.getContentPane().add(quit);
+		quit.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				frame.dispose();
+				System.exit(0);
+				
+			}
+			
+		});
 	
 		// Display the window
 		frame.setVisible(true);
