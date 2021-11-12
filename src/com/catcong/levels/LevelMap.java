@@ -50,6 +50,7 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 	private Level1 level1;
 	private Level2 level2;
 	private Level3 level3;
+	private boolean toScoreorNottoScore;
 
 	public LevelMap(SimpleApplication app, LevelControl lc) {
 		rootNode = app.getRootNode();
@@ -58,6 +59,7 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 		player = new Player(app, lc);
 		this.app = app;
 		this.lc = lc;
+		this.toScoreorNottoScore = true;
 	}
 
 	@Override
@@ -116,6 +118,9 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 		level3.removeCactus(name);
 	}
 
+	public void setScoreBool(boolean toScoreorNottoScore ) {
+		this.toScoreorNottoScore = toScoreorNottoScore;
+	}
 	@Override
 	public void cleanup() {
 		rootNode.detachChild(gameLevel);
@@ -143,6 +148,10 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 				System.out.println("On elevator");
 				player.get().setPhysicsLocation(new Vector3f(10225, 5, 50));
 				player.advanceLevel();
+				if (toScoreorNottoScore) {
+				player.incrementScore(500);
+				toScoreorNottoScore = false;
+				}
 				lc.finishLevel(0);
 
 			}
@@ -150,14 +159,25 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 				System.out.println("On elevator");
 				player.get().setPhysicsLocation(new Vector3f(21425, 5, 50));
 				player.advanceLevel();
+				if (toScoreorNottoScore) {
+					player.incrementScore(500);
+					toScoreorNottoScore = false;
+					}
 				lc.finishLevel(1);
+				
 
 			}
 			if ("elevatorL2F0".equals(event.getNodeB().getName())) {
 				System.out.println("On elevator");
 				player.get().setPhysicsLocation(new Vector3f(31625, 5, 50));
 				player.advanceLevel();
+				if (toScoreorNottoScore) {
+					player.incrementScore(500);
+					toScoreorNottoScore = false;
+					}
 				lc.finishLevel(2);
+				
+				
 			}
 			if ("hammerL0F0".equals(event.getNodeB().getName())) {
 				System.out.println("Touched hammer");

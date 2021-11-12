@@ -37,10 +37,12 @@ public class LevelControl extends AbstractAppState{
 	private BitmapText hudText;
 	private BitmapText livesText;
 	private BitmapText hammerStatus;
+	private BitmapText highScore;
 	private InGameMenu inGameMenu;
 	private NiftyJmeDisplay niftyDisplay;
 	private Picture pic;
 	private boolean paused;
+
 	
 	private SimpleApplication app;
 	private AppStateManager stateManager;
@@ -91,7 +93,13 @@ public class LevelControl extends AbstractAppState{
 		hammerStatus.setColor(ColorRGBA.White);
 		hammerStatus.setLocalTranslation(900, hammerStatus.getLineHeight(), 0);
 		guiNode.attachChild(hammerStatus);
-
+		
+		highScore = new BitmapText(guiFont, false);
+		highScore.setSize(guiFont.getCharSet().getRenderedSize());
+		highScore.setColor(ColorRGBA.White);
+		highScore.setLocalTranslation(1200, highScore.getLineHeight(), 0);
+		guiNode.attachChild(highScore);
+		
 		inGameMenu = new InGameMenu(this);
 
 		stateManager.attach(inGameMenu);
@@ -122,6 +130,8 @@ public class LevelControl extends AbstractAppState{
 		hudText.setText(LM.getPlayer().get().getPhysicsLocation().toString()); // the text
 		livesText.setText("Lives: " + LM.getPlayer().getLives());
 		hammerStatus.setText("HammerStatus: " + LM.getPlayer().getHammer());
+		highScore.setText("High Score:  " + LM.getPlayer().getScore());
+		
 	}
 
 	private final ActionListener actionListener = new ActionListener() {
@@ -148,6 +158,7 @@ public class LevelControl extends AbstractAppState{
 		app.getFlyByCamera().setEnabled(false);
 		LM.getPlayer().get().setEnabled(false);
 		LM.setEnabled(false);
+		LM.setScoreBool(true);
 		if (paused) {
 			niftyDisplay = new NiftyJmeDisplay(assetManager, inputManager, audioRenderer, guiViewPort);
 			Nifty nifty = niftyDisplay.getNifty();

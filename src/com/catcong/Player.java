@@ -26,6 +26,8 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 	private boolean hasHammer;
 	private LevelControl lc;
 	private int level;
+	private double score; 
+	
 	public Player(SimpleApplication app, LevelControl lc) {
 		capsuleShape = new CapsuleCollisionShape(1.5f, 6f, 1);
 
@@ -42,6 +44,7 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 		this.hasHammer = false;
 		this.lc = lc;
 		this.level = 0;
+		this.score = 0.0; 
 	}
 
 	public CharacterControl get() {
@@ -145,6 +148,8 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 		lc.loseHammer();
 	}
 	public void advanceLevel() {
+	
+		
 		this.level++;
 	}
 	@Override
@@ -171,6 +176,7 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 							System.out.println("Break cactus!");
 							lc.removeCactus(target);
 							this.loseHammer();
+							incrementScore(250);
 						}
 						
 					}
@@ -179,6 +185,7 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 							System.out.println("Kill boss!");
 							lc.removeCactus("cactusSundevil");
 							this.loseHammer();
+							incrementScore(1500);
 							lc.defeatSunDevil();
 						}
 					}
@@ -191,4 +198,15 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 		
 
 	}
+	public void setScore(double score) {
+		this.score= score;
+	}
+	public double getScore() {
+		return score; 
+	
+	}
+	public void incrementScore(double score) {
+		this.score += score; 
+	}
+	
 }
