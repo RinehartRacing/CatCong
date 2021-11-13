@@ -111,7 +111,7 @@ private static JFrame frame;
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				frame.dispose();
-				WindowTests.frame.setVisible(true);
+				Game.frame.setVisible(true);
 				
 				//LevelControl.startGame();
 			}

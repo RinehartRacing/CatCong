@@ -5,7 +5,8 @@ import javax.swing.JFrame;
 import com.catcong.levels.LevelMap;
 import com.catcong.menus.HomeScreen;
 import com.catcong.menus.InGameMenu;
-import com.catcong.menus.WindowTests;
+import com.catcong.menus.Game;
+import com.catcong.menus.HighScoreSet;
 import com.jme3.app.SimpleApplication;
 import com.jme3.app.state.AbstractAppState;
 import com.jme3.app.state.AppStateManager;
@@ -242,11 +243,17 @@ public class LevelControl extends AbstractAppState{
 		this.preGame(0);
 
 	}
+	
+	public void setHighScore() {
+		Game.frame.setVisible(false);
+		this.restartGame();
+		HighScoreSet hss = new HighScoreSet();
+	}
 
 	public void loadHomeScreen() {
 		
 		
-		WindowTests.frame.setVisible(false);
+		Game.frame.setVisible(false);
 		this.restartGame();
 		HomeScreen hs = new HomeScreen("CatCong");
 		System.out.println("Load Home Screen Here");
@@ -254,9 +261,9 @@ public class LevelControl extends AbstractAppState{
 
 	public void quitGame() {
 		
-		WindowTests.frame.setVisible(false);
+		Game.frame.setVisible(false);
 		System.exit(0);
-		WindowTests.frame.dispose();
+		Game.frame.dispose();
 
 		
 	}

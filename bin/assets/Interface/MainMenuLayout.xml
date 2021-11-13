@@ -439,41 +439,18 @@
                 </panel>
 				
 				<panel id="panel_fourth" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
-                    <text text="What would you like to do?" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
-
-                </panel>
-				
-				<panel id="panel_fifth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
-                    ​<control name="button" label="Play Again" id="PlayAgainButton" align="center" valign="center"
-					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
-					​<interact onClick="resumeButton()"/>
-					​</control>
-
-                </panel>
-				
-				<panel id="panel_sixth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
-                    ​<control name="button" label="High Scores" id="HighScoresButton" align="center" valign="center"
-					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
-					​<interact onClick="highScoreButton()"/>
-					​</control>
+                    <text text="Click below to enter high score and return to the home screen" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
 
                 </panel>
 				
 				<panel id="panel_seventh" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
                     ​<control name="button" label="Home Screen" id="HomeScreenButton" align="center" valign="center"
 					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
-					​<interact onClick="homeScreenButton()"/>
+					​<interact onClick="setHighScore()"/>
 					​</control>
 
                 </panel>
-				
-				<panel id="panel_eighth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
-                    ​<control name="button" label="Quit Cat Cong" id="QuitButton" align="center" valign="center"
-					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
-					​<interact onClick="quitButton()"/>
-					​</control>
 
-                </panel>
 
             </panel>
 

@@ -64,4 +64,8 @@ public class InGameMenu extends AbstractAppState implements ScreenController {
 		System.out.println("QuitButton");
 		LC.quitGame();
 	}
+	public void setHighScore() {
+		System.out.println("Set High Score here");
+		LC.setHighScore();
+	}
 }

@@ -12,7 +12,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 
-public class WindowTests extends SimpleApplication {
+public class Game extends SimpleApplication {
     private LevelControl LC;
     public static JFrame frame = new JFrame("CatCong");
 	public static void runGame() throws InterruptedException{
@@ -24,7 +24,7 @@ public class WindowTests extends SimpleApplication {
         settings.setWidth(1920);
         settings.setHeight(1080);
 
-        final WindowTests app = new WindowTests();
+        final Game app = new Game();
         app.setPauseOnLostFocus(false);
         app.setSettings(settings);
         app.createCanvas();

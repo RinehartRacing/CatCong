@@ -100,7 +100,7 @@ public class HighScores extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				dispose();
-				WindowTests.frame.setVisible(true);
+				Game.frame.setVisible(true);
 				
 				//LevelControl.startGame();
 			}
