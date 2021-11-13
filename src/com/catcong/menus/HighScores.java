@@ -125,24 +125,45 @@ public class HighScores extends JFrame {
 			}
 			
 		});
-
-		/* Creating the high scores table */
-		// Data that's displayed in table
-		String[][] data = { { "Wilbur" }, { "10000" }, { "03-12-1885" } };
-
-		// Column names
-		String[] columns = { "Name", "Score", "Date Achieved" };
-
-		// Initialize the table
-		JTable highScores = new JTable(data, columns);
-		highScores.setBounds(30, 30, 30, 30);
-
-		// Add it to the JScrollPane
-		JScrollPane sp = new JScrollPane(highScores);
-		getContentPane().add(sp);
-
-		// Display the window
-		setVisible(true);
+		
+		/* Create table */
+		 //headers for the table
+        String[] columns = {
+            "Rank", "Name", "High Score"
+        };
+         
+        //actual data for the table in a 2d array
+        Object[][] data = new Object[][] {
+            {1, "john", 40.0},
+            {2, "Rambo", 70.0 },
+            {3, "Zorro", 60.0},
+            {4, "Kenobi", 60.0},
+            {5, "Rusty", 69.0},
+            {6, "Isabel", 60.0},
+            {7, "Trike", 60.0},
+            {8, "Anakin", 60.0},
+            {9, "Reace", 60.0},
+            {10, "Chris", 60.0 },
+        };
+        //create table with data
+        JTable table = new JTable(data, columns);
+		Border tableBorder = BorderFactory.createLineBorder(UARed, 3);
+		
+		table.setRowHeight(43);
+		table.setFont(new Font("Verdana", Font.BOLD, 20));
+		table.setForeground(Color.WHITE);
+		table.setBackground(UARed);	
+		
+		JScrollPane sp = new JScrollPane(table);
+		
+		// Set dimensions and customize high scores table
+		sp.setLocation(200, 300);
+		sp.setSize(450, 450);
+		
+        //add the table to the frame
+        getContentPane().add(sp);
+         
+        setVisible(true);
 
 	}
 
