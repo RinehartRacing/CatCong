@@ -54,7 +54,6 @@ public class WindowTests extends SimpleApplication {
         frame.setVisible(false);
         
     }
-
     @Override
     public void simpleInitApp() {
     	LC = new LevelControl(this, guiFont, settings);

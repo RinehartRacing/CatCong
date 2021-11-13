@@ -253,8 +253,12 @@ public class LevelControl extends AbstractAppState{
 	}
 
 	public void quitGame() {
-		app.stop();
+		
+		WindowTests.frame.setVisible(false);
 		System.exit(0);
+		WindowTests.frame.dispose();
+
+		
 	}
 
 	protected void initCrossHairs() {
