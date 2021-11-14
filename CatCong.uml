@@ -3,17 +3,12 @@
   <packageImport xmi:type="uml:PackageImport" xmi:id="_nGZIgDEBEeyak6zvHJwSyw">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   </packageImport>
-  <packagedElement xmi:type="uml:Class" xmi:id="_kGdXMDECEeyak6zvHJwSyw" name="Game"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_u6NNoDECEeyak6zvHJwSyw" name="Menu" isAbstract="true"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_w9Z0cDECEeyak6zvHJwSyw" name="HowToPlay">
-    <generalization xmi:type="uml:Generalization" xmi:id="_nImnoDEEEeyak6zvHJwSyw" general="_u6NNoDECEeyak6zvHJwSyw"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_kGdXMDECEeyak6zvHJwSyw" name="Game">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_eRqkokVnEeyMPqmptlx7cA" name="homescreen" type="_0StjYDECEeyak6zvHJwSyw" association="_eRp9kEVnEeyMPqmptlx7cA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_zb5QIDECEeyak6zvHJwSyw" name="Highscore">
-    <generalization xmi:type="uml:Generalization" xmi:id="_pdFLsDEEEeyak6zvHJwSyw" general="_u6NNoDECEeyak6zvHJwSyw"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_0StjYDECEeyak6zvHJwSyw" name="MainMenu">
-    <generalization xmi:type="uml:Generalization" xmi:id="_oUxf0DEEEeyak6zvHJwSyw" general="_u6NNoDECEeyak6zvHJwSyw"/>
-  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_w9Z0cDECEeyak6zvHJwSyw" name="HowToPlay"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_zb5QIDECEeyak6zvHJwSyw" name="HighScores"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_0StjYDECEeyak6zvHJwSyw" name="HomeScreen"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_1LgzoDECEeyak6zvHJwSyw" name="LevelMap">
     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_vQwWsDFVEeyak6zvHJwSyw" client="_1LgzoDECEeyak6zvHJwSyw" supplier="_MG80oDEDEeyak6zvHJwSyw" contract="_MG80oDEDEeyak6zvHJwSyw"/>
   </packagedElement>
@@ -45,12 +40,6 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_If4nUDEDEeyak6zvHJwSyw" name="PlayerMovement"/>
   <packagedElement xmi:type="uml:Interface" xmi:id="_MG80oDEDEeyak6zvHJwSyw" name="LevelComplete"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_RM2-gDEDEeyak6zvHJwSyw" name="Pause">
-    <generalization xmi:type="uml:Generalization" xmi:id="_cSgkADFVEeyak6zvHJwSyw" general="_3C-EgDECEeyak6zvHJwSyw"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_SR0bcDEDEeyak6zvHJwSyw" name="StoryTemplate">
-    <generalization xmi:type="uml:Generalization" xmi:id="_fnimIDFVEeyak6zvHJwSyw" general="_3C-EgDECEeyak6zvHJwSyw"/>
-  </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_UJtKIDEDEeyak6zvHJwSyw" name="Cactus"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_W_2Q0DEDEeyak6zvHJwSyw" name="BarrelCactus">
     <generalization xmi:type="uml:Generalization" xmi:id="_wpk1sDFTEeyak6zvHJwSyw" general="_UJtKIDEDEeyak6zvHJwSyw"/>
@@ -63,13 +52,6 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_HYbakDEEEeyak6zvHJwSyw" name="DetectCollision"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_F82X8DEFEeyak6zvHJwSyw" name="LevelControl"/>
-  <packagedElement xmi:type="uml:Association" xmi:id="_p_DT4DFSEeyak6zvHJwSyw" memberEnd="_p_D68jFSEeyak6zvHJwSyw _p_D69TFSEeyak6zvHJwSyw">
-    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_p_D68DFSEeyak6zvHJwSyw" source="org.eclipse.papyrus">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_p_D68TFSEeyak6zvHJwSyw" key="nature" value="UML_Nature"/>
-    </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_p_D69TFSEeyak6zvHJwSyw" name="game" type="_kGdXMDECEeyak6zvHJwSyw" association="_p_DT4DFSEeyak6zvHJwSyw"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_p_D68jFSEeyak6zvHJwSyw" name="menu" type="_u6NNoDECEeyak6zvHJwSyw" aggregation="composite" association="_p_DT4DFSEeyak6zvHJwSyw"/>
-  </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_u9Mo4DFSEeyak6zvHJwSyw" memberEnd="_u9NP8jFSEeyak6zvHJwSyw _u9NP9TFSEeyak6zvHJwSyw">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_u9NP8DFSEeyak6zvHJwSyw" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_u9NP8TFSEeyak6zvHJwSyw" key="nature" value="UML_Nature"/>
@@ -127,10 +109,27 @@
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Ni_bkTFVEeyak6zvHJwSyw" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Ni_bkjFVEeyak6zvHJwSyw" key="nature" value="UML_Nature"/>
     </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_Ni_bkzFVEeyak6zvHJwSyw" name="ingamemenu" type="_3C-EgDECEeyak6zvHJwSyw" aggregation="composite" association="_Ni_bkDFVEeyak6zvHJwSyw"/>
     <ownedEnd xmi:type="uml:Property" xmi:id="_NjACojFVEeyak6zvHJwSyw" name="levelcontrol" type="_F82X8DEFEeyak6zvHJwSyw" association="_Ni_bkDFVEeyak6zvHJwSyw"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_Ni_bkzFVEeyak6zvHJwSyw" name="ingamemenu" type="_3C-EgDECEeyak6zvHJwSyw" aggregation="composite" association="_Ni_bkDFVEeyak6zvHJwSyw">
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NjACoDFVEeyak6zvHJwSyw"/>
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NjACoTFVEeyak6zvHJwSyw" value="1"/>
-    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_eRp9kEVnEeyMPqmptlx7cA" name="Game opens HomeScreen" memberEnd="_eRqkokVnEeyMPqmptlx7cA _eRwrQEVnEeyMPqmptlx7cA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_eRqkoEVnEeyMPqmptlx7cA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_eRqkoUVnEeyMPqmptlx7cA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_eRwrQEVnEeyMPqmptlx7cA" name="game" type="_kGdXMDECEeyak6zvHJwSyw" association="_eRp9kEVnEeyMPqmptlx7cA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_2S9acEVnEeyMPqmptlx7cA" memberEnd="_2S-BgkVnEeyMPqmptlx7cA _2S-BhUVnEeyMPqmptlx7cA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2S-BgEVnEeyMPqmptlx7cA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2S-BgUVnEeyMPqmptlx7cA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_2S-BhUVnEeyMPqmptlx7cA" name="homescreen" type="_0StjYDECEeyak6zvHJwSyw" association="_2S9acEVnEeyMPqmptlx7cA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_2S-BgkVnEeyMPqmptlx7cA" name="howtoplay" type="_w9Z0cDECEeyak6zvHJwSyw" aggregation="shared" association="_2S9acEVnEeyMPqmptlx7cA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_FFUbgEVoEeyMPqmptlx7cA" memberEnd="_FFVCkkVoEeyMPqmptlx7cA _FFVClUVoEeyMPqmptlx7cA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_FFVCkEVoEeyMPqmptlx7cA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FFVCkUVoEeyMPqmptlx7cA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_FFVClUVoEeyMPqmptlx7cA" name="homescreen" type="_0StjYDECEeyak6zvHJwSyw" association="_FFUbgEVoEeyMPqmptlx7cA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_FFVCkkVoEeyMPqmptlx7cA" name="highscores" type="_zb5QIDECEeyak6zvHJwSyw" aggregation="shared" association="_FFUbgEVoEeyMPqmptlx7cA"/>
   </packagedElement>
 </uml:Model>
