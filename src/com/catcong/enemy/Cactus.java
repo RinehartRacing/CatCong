@@ -1,3 +1,7 @@
+/*
+ * Rusty Rinehart, Isabel Dailey, Chris Bremser
+ * ECE 373
+ */
 package com.catcong.enemy;
 
 import com.catcong.Player;
@@ -8,9 +12,9 @@ import com.jme3.bullet.collision.PhysicsCollisionListener;
 import com.jme3.bullet.control.RigidBodyControl;
 import com.jme3.scene.Node;
 
-public class Cactus implements PhysicsCollisionListener{
-	protected Node node;
-	protected AssetManager assetManager;
+public abstract class Cactus implements PhysicsCollisionListener{
+	protected Node node;	//node Cactus attaches to
+	protected AssetManager assetManager;	//JMonkey Engine objects
 	protected BulletAppState bulletAppState;
 	protected Node cactusNode;
 	protected RigidBodyControl control;
@@ -25,19 +29,19 @@ public class Cactus implements PhysicsCollisionListener{
 		cactusNode = null;
 		control = null;
 	}
-	public void updateCactus(float tpf) {
-		
-	}
-	@Override
-	public void collision(PhysicsCollisionEvent event) {
-		// TODO Auto-generated method stub
-		
-	}
+	public abstract void updateCactus(float tpf);
+	public abstract void collision(PhysicsCollisionEvent event);
 	public String toString() {
+		/*
+		 * Override toString method
+		 */
 		return name;
 	}
 	public void removeCactus() {
-		cactusNode.removeControl(control);
+		/*
+		 * Removes Cactus from Game Engine
+		 */
+		cactusNode.removeControl(control);	//Remove collision detection
 		bulletAppState.getPhysicsSpace().removeCollisionObject(control);
 		cactusNode.detachAllChildren();
 		node.detachChild(cactusNode);

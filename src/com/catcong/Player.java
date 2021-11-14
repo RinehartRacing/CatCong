@@ -1,3 +1,7 @@
+/*
+ * Rusty Rinehart, Isabel Dailey, Chris Bremser
+ * ECE 373
+ */
 package com.catcong;
 
 import com.jme3.app.SimpleApplication;
@@ -13,30 +17,29 @@ import com.jme3.input.controls.KeyTrigger;
 import com.jme3.input.controls.MouseButtonTrigger;
 import com.jme3.math.Ray;
 import com.jme3.math.Vector3f;
-import com.jme3.scene.Geometry;
 
 public class Player implements PlayerMovement, ActionListener, AnalogListener {
-	CharacterControl cc;
-	CapsuleCollisionShape capsuleShape;
-	InputManager inputManager;
-	SimpleApplication app;
-	private boolean left = false, right = false, up = false, down = false;
-	final private Vector3f walkDirection;
-	private int lives;
-	private boolean hasHammer;
-	private LevelControl lc;
-	private int level;
-	private int score; 
-	
+	CharacterControl cc; // Holds the object that control player movement
+	CapsuleCollisionShape capsuleShape; // The player shape
+	InputManager inputManager; // Access to control Game Engine inputs
+	SimpleApplication app; // Access to the Game Engine
+	private boolean left = false, right = false, up = false, down = false; // Status of how player is moving
+	final private Vector3f walkDirection; // Direction player is moving
+	private int lives; // Player lives
+	private boolean hasHammer; // True if player has a hammer, false otherwise
+	private LevelControl lc; // Access to the LevelControl public methods
+	private int level; // Current player level
+	private int score; // Current player score
+
 	public Player(SimpleApplication app, LevelControl lc) {
-		capsuleShape = new CapsuleCollisionShape(1.5f, 6f, 1);
+		capsuleShape = new CapsuleCollisionShape(1.5f, 6f, 1); // Set dimensions of player
 
 		cc = new CharacterControl(capsuleShape, 0.05f);
 		cc.setJumpSpeed(50);
 		cc.setFallSpeed(50);
 		cc.setGravity(100);
 
-		cc.setPhysicsLocation(new Vector3f(4, 13, 0));
+		cc.setPhysicsLocation(new Vector3f(4, 13, 0)); // Spawn location of player
 		walkDirection = new Vector3f();
 		this.inputManager = app.getInputManager();
 		this.app = app;
@@ -44,7 +47,7 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 		this.hasHammer = false;
 		this.lc = lc;
 		this.level = 0;
-		this.score = 0; 
+		this.score = 0;
 	}
 
 	public CharacterControl get() {
@@ -53,6 +56,9 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 
 	@Override
 	public void setupKeys() {
+		/*
+		 * Creates mapping and listeners to all the required keys
+		 */
 		inputManager.addMapping("Lefts", new KeyTrigger(KeyInput.KEY_A));
 		inputManager.addMapping("Rights", new KeyTrigger(KeyInput.KEY_D));
 		inputManager.addMapping("Ups", new KeyTrigger(KeyInput.KEY_W));
@@ -69,6 +75,9 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 
 	@Override
 	public void onAction(String binding, boolean value, float tpf) {
+		/*
+		 * Defines what happens after each key is pressed
+		 */
 		if (binding.equals("Lefts")) {
 			if (value) {
 				left = true;
@@ -94,19 +103,17 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 				down = false;
 			}
 		} else if (binding.equals("Space")) {
-			if (this.get().getPhysicsLocation().getY() < 4.31f) {
-				// player.setPhysicsLocation(new Vector3f(player.getPhysicsLocation().getX(),
-				// 100.0f, player.getPhysicsLocation().getZ()));
-			}
 			this.get().jump();
-			app.getCamera().setLocation(this.get().getPhysicsLocation());
-			System.out.println(this.get().getPhysicsLocation());
+			app.getCamera().setLocation(this.get().getPhysicsLocation()); // Move camera with player
 		}
 
 	}
 
 	@Override
 	public void updateMovement(Vector3f camDir, Vector3f camLeft) {
+		/*
+		 * Updates movement direction of player
+		 */
 		walkDirection.set(0, 0, 0);
 		if (left) {
 			walkDirection.addLocal(camLeft);
@@ -128,8 +135,11 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 	}
 
 	public void loseLife() {
+		/*
+		 * Called when player loses a life
+		 */
 		this.lives--;
-		if(this.lives <= 0) {
+		if (this.lives <= 0) { // If player is out of lives, make it gameover
 			lc.gameOver();
 		}
 	}
@@ -139,26 +149,41 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 	}
 
 	public void grabHammer() {
+		/*
+		 * Called when the player wants to grab a hammer
+		 */
 		this.hasHammer = true;
 		lc.grabHammer();
 	}
 
 	public void loseHammer() {
+		/*
+		 * Called when the player loses a hammer
+		 */
 		this.hasHammer = false;
 		lc.loseHammer();
 	}
+
 	public void advanceLevel() {
-	
-		
+		/*
+		 * Increment player to next level
+		 */
 		this.level++;
 	}
+
+	public int getLevel() {
+		return this.level;
+	}
+
 	@Override
 	public void onAnalog(String binding, float value, float tpf) {
+		/*
+		 * Called when left click of mouse is clicked
+		 */
 		if (binding.equals("pick target")) {
 			// Reset results list.
 			CollisionResults results = new CollisionResults();
 			// Aim the ray from camera location in camera direction
-			// (assuming crosshairs in center of screen).
 			Ray ray = new Ray(app.getCamera().getLocation(), app.getCamera().getDirection());
 			// Collect intersections between ray and all nodes in results list.
 			app.getRootNode().collideWith(ray, results);
@@ -166,27 +191,22 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 			for (int i = 0; i < results.size(); i++) {
 				// For each "hit", we know distance, impact point, geometry.
 				float dist = results.getCollision(i).getDistance();
-				Vector3f pt = results.getCollision(i).getContactPoint();
 				String target = results.getCollision(i).getGeometry().getName();
-				//System.out.println("Selection #" + i + ": " + target + " at " + pt + ", " +
-						//dist + " WU away.");
-				if (target.length() > 7) {
+				if (target.length() > 7) { // If trying to hit cactus
 					if (target.substring(0, 6).equals("cactus")) {
-						if (getHammer() && dist < 15) {
-							System.out.println("Break cactus!");
-							lc.removeCactus(target);
-							this.loseHammer();
-							incrementScore(250);
+						if (getHammer() && dist < 15) { // and cactus is within 15 wu
+							lc.removeCactus(target); // Break the cactus
+							this.loseHammer(); // Lose the hammer
+							incrementScore(250); // Increment the score
 						}
-						
+
 					}
-					if(target.equals("A_normal_mat")) {
-						if (getHammer() && dist < 25) {
-							System.out.println("Kill boss!");
-							lc.removeCactus("cactusSundevil");
-							this.loseHammer();
-							incrementScore(1500);
-							lc.defeatSunDevil();
+					if (target.equals("A_normal_mat")) { // If trying to hit SunDevil model
+						if (getHammer() && dist < 25) { // and SunDevil is within 25 wu
+							lc.removeCactus("cactusSundevil"); // Remove the SunDevil
+							this.loseHammer(); // Lose the hammer
+							incrementScore(1500); // Increment the score
+							lc.defeatSunDevil(); // Tell LevelControl that the SunDevil is defeated
 						}
 					}
 				}
@@ -194,19 +214,23 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 			}
 
 		}
-		
-		
 
 	}
+
 	public void setScore(int score) {
-		this.score= score;
+		this.score = score;
 	}
+
 	public int getScore() {
-		return score; 
-	
+		return score;
+
 	}
+
 	public void incrementScore(int score) {
-		this.score += score; 
+		/*
+		 * Add to player's score
+		 */
+		this.score += score;
 	}
-	
+
 }

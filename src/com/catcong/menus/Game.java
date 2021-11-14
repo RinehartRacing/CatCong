@@ -84,6 +84,9 @@ public class Game extends SimpleApplication {
 		LC.simpleUpdate(tpf);
 	}
     public static void main(String[] args) {
+    	System.out.println("Opening CatCong!");
+    	System.out.println("Developed by Rusty Rinehart, Isabel Dailey, and Chris Bremser");
+    	System.out.println("ECE 373 Final Project");
     	displayThreads();
     	try {
 			runGame();

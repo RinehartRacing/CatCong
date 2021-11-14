@@ -61,4 +61,12 @@ public class ChollaCactus extends Cactus {
 		}
 
 	}
+
+	@Override
+	public void updateCactus(float tpf) {
+		/*
+		 * Where ChollaCactus movement would be defined if needed
+		 */
+		
+	}
 }
