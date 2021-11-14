@@ -1,9 +1,0 @@
-Rusty 3500
-Rusty 3250
-Wilbur 3250
-Wilbur 3250
-Wilbur 3250
-Isabel 250
-Rusty 0
-Wilbur 0
-Wilbur 0
