@@ -110,8 +110,9 @@ private static JFrame frame;
 		frame.getContentPane().add(play);
 		play.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				Game.name = JOptionPane.showInputDialog(null, "Enter your name", "Wilbur");
+				do {
+					Game.name = JOptionPane.showInputDialog(null, "Enter your name (Max 10 characters)", "Wilbur");
+				}while(Game.name.length() > 10);
 				frame.dispose();
 				Game.frame.setVisible(true);
 				

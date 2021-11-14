@@ -107,8 +107,9 @@ public class HighScores extends JFrame {
 		getContentPane().add(play);
 		play.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				Game.name = JOptionPane.showInputDialog(null, "Enter your name", "Wilbur");
+				do {
+					Game.name = JOptionPane.showInputDialog(null, "Enter your name (Max 10 characters)", "Wilbur");
+				}while(Game.name.length() > 10);
 				dispose();
 				Game.frame.setVisible(true);
 				

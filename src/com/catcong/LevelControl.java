@@ -41,10 +41,12 @@ public class LevelControl extends AbstractAppState{
 	private BitmapText livesText;
 	private BitmapText hammerStatus;
 	private BitmapText highScore;
+	private BitmapText currentLevel;
 	private InGameMenu inGameMenu;
 	private NiftyJmeDisplay niftyDisplay;
 	private Picture pic;
 	private boolean paused;
+	private int level;
 
 	
 	private SimpleApplication app;
@@ -70,6 +72,7 @@ public class LevelControl extends AbstractAppState{
 		this.audioRenderer = app.getAudioRenderer();
 		this.guiViewPort = app.getGuiViewPort();
 		this.rootNode = app.getRootNode();
+		this.level = 0;
 	}
 
 	public void simpleInitApp() {
@@ -103,6 +106,12 @@ public class LevelControl extends AbstractAppState{
 		highScore.setLocalTranslation(1200, highScore.getLineHeight(), 0);
 		guiNode.attachChild(highScore);
 		
+		currentLevel = new BitmapText(guiFont, false);
+		currentLevel.setSize(guiFont.getCharSet().getRenderedSize());
+		currentLevel.setColor(ColorRGBA.White);
+		currentLevel.setLocalTranslation(1400, currentLevel.getLineHeight(), 0);
+		guiNode.attachChild(currentLevel);
+		
 		inGameMenu = new InGameMenu(this);
 
 		stateManager.attach(inGameMenu);
@@ -134,6 +143,7 @@ public class LevelControl extends AbstractAppState{
 		livesText.setText("Lives: " + LM.getPlayer().getLives());
 		hammerStatus.setText("HammerStatus: " + LM.getPlayer().getHammer());
 		highScore.setText("High Score:  " + LM.getPlayer().getScore());
+		currentLevel.setText("Level" + level);
 		
 	}
 
@@ -147,6 +157,7 @@ public class LevelControl extends AbstractAppState{
 	};
 
 	public void gameOver() {
+		this.getGameStats();
 		paused = !paused;
 		LM.pause();
 		niftyDisplay = new NiftyJmeDisplay(assetManager, inputManager, audioRenderer, guiViewPort);
@@ -157,6 +168,7 @@ public class LevelControl extends AbstractAppState{
 	}
 
 	public void preGame(int level) {
+		this.level = level;
 		paused = true;
 		app.getFlyByCamera().setEnabled(false);
 		LM.getPlayer().get().setEnabled(false);
@@ -208,8 +220,13 @@ public class LevelControl extends AbstractAppState{
 			guiViewPort.clearProcessors();
 		}
 	}
-
+	public void getGameStats() {
+		System.out.println("Player Name: " + Game.name);
+		System.out.println("Overall Score: " + LM.getPlayer().getScore());
+		System.out.println("Level " + level);
+	}
 	public void pauseGame() {
+		System.out.println("Game Paused");
 		paused = !paused;
 		LM.pause();
 		if (paused) {
@@ -244,7 +261,7 @@ public class LevelControl extends AbstractAppState{
 		this.simpleInitApp();
 		this.preGame(0);
 
-	}
+	} 
 	
 	public void setHighScore() {
 		Game.frame.setVisible(false);
