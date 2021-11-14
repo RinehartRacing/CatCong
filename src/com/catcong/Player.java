@@ -26,7 +26,7 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 	private boolean hasHammer;
 	private LevelControl lc;
 	private int level;
-	private double score; 
+	private int score; 
 	
 	public Player(SimpleApplication app, LevelControl lc) {
 		capsuleShape = new CapsuleCollisionShape(1.5f, 6f, 1);
@@ -44,7 +44,7 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 		this.hasHammer = false;
 		this.lc = lc;
 		this.level = 0;
-		this.score = 0.0; 
+		this.score = 0; 
 	}
 
 	public CharacterControl get() {
@@ -198,14 +198,14 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 		
 
 	}
-	public void setScore(double score) {
+	public void setScore(int score) {
 		this.score= score;
 	}
-	public double getScore() {
+	public int getScore() {
 		return score; 
 	
 	}
-	public void incrementScore(double score) {
+	public void incrementScore(int score) {
 		this.score += score; 
 	}
 	

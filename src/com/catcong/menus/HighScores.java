@@ -3,6 +3,11 @@ package com.catcong.menus;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -10,6 +15,10 @@ import javax.swing.border.Border;
 public class HighScores extends JFrame {
 	private final int windowWidth = 800;
 	private final int windowHeight = 800;
+	private Object[][] data;
+	private String[] columns;
+	private JTable table;
+	private JScrollPane sp;
 
 	public HighScores() {
 		// Set title of window
@@ -99,12 +108,13 @@ public class HighScores extends JFrame {
 		play.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				Game.name = JOptionPane.showInputDialog(null, "Enter your name", "Wilbur");
 				dispose();
 				Game.frame.setVisible(true);
 				
-				//LevelControl.startGame();
+				// LevelControl.startGame();
 			}
-			
+
 		});
 
 		quit.setLocation(624, 200);
@@ -121,53 +131,154 @@ public class HighScores extends JFrame {
 				setVisible(false);
 				dispose();
 				System.exit(0);
-				
+
 			}
-			
+
 		});
-		
+
 		/* Create table */
-		 //headers for the table
-        String[] columns = {
-            "Rank", "Name", "High Score"
-        };
-         
-        //actual data for the table in a 2d array
-        Object[][] data = new Object[][] {
-            {1, "john", 40.0},
-            {2, "Rambo", 70.0 },
-            {3, "Zorro", 60.0},
-            {4, "Kenobi", 60.0},
-            {5, "Rusty", 69.0},
-            {6, "Isabel", 60.0},
-            {7, "Trike", 60.0},
-            {8, "Anakin", 60.0},
-            {9, "Reace", 60.0},
-            {10, "Chris", 60.0 },
-        };
-        //create table with data
-        JTable table = new JTable(data, columns);
+		// headers for the table
+		columns = new String[] { "Rank", "Name", "High Score" };
+
+		this.readFile();
+		// create table with data
+		table = new JTable(data, columns);
 		Border tableBorder = BorderFactory.createLineBorder(UARed, 3);
-		
+
 		table.setRowHeight(43);
 		table.setFont(new Font("Verdana", Font.BOLD, 20));
 		table.setForeground(Color.WHITE);
-		table.setBackground(UARed);	
-		
-		JScrollPane sp = new JScrollPane(table);
-		
+		table.setBackground(UARed);
+
+		sp = new JScrollPane(table);
+
 		// Set dimensions and customize high scores table
 		sp.setLocation(200, 300);
 		sp.setSize(450, 450);
-		
-        //add the table to the frame
-        getContentPane().add(sp);
-         
-        setVisible(true);
+
+		// add the table to the frame
+		getContentPane().add(sp);
+
+		setVisible(true);
 
 	}
 
+	public void shiftData(int loc) {
+		Object[][] sd = new Object[10][3];
+		for (int i = 0; i < data.length; i++) {
+			if (i < loc) {
+				sd[i] = data[i];
+			} else if (i == loc) {
+				sd[i] = new Object[3];
+			} else {
+				sd[i] = data[i - 1];
+			}
+		}
+		data = sd;
+	}
+
+	public void addScore(int score) {
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		System.out.println(Game.name);
+		if (Game.name != null) {
+			for (int i = 0; i < data.length; i++) {
+				if (data[i][0] == null || data[i][1] == null || data[i][2] == null) {
+					data[i][0] = i + 1;
+					data[i][1] = Game.name;
+					data[i][2] = score;
+					break;
+				} else {
+					int oldscore = (int) data[i][2];
+					if (score > oldscore) {
+						this.shiftData(i);
+						data[i][0] = i + 1;
+						data[i][1] = Game.name;
+						data[i][2] = score;
+						break;
+					} else if (score <= oldscore) {
+						continue;
+					} else {
+						System.out.println("Error loading score.");
+					}
+				}
+			}
+			writeFile();
+			this.setVisible(false);
+			HighScores hs = new HighScores();
+			this.dispose();
+		}
+	}
+
+	public void writeFile() {
+		try {
+			FileWriter fileOut = new FileWriter("highscores.txt");
+			for (int i = 0; i < data.length; i++) {
+				if (data[i][0] == null || data[i][1] == null || data[i][2] == null) {
+					break;
+				}
+				if (i != 0) {
+					fileOut.write("\n");
+				}
+				fileOut.write(data[i][1] + " " + data[i][2]);
+
+			}
+			fileOut.close();
+		} catch (IOException e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+	}
+
+	private void resetScores() {
+		try {
+			FileWriter fileOut = new FileWriter("highscores.txt");
+			fileOut.write("");
+			fileOut.close();
+		} catch (IOException e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+	}
+
+	public void readFile() {
+		// actual data for the table in a 2d array
+		data = new Object[10][3];
+		try {
+			File myFile = new File("highscores.txt");
+			Scanner fileIn = new Scanner(myFile);
+			int count = 1;
+			while (fileIn.hasNextLine()) {
+				String name = fileIn.next();
+				int score = fileIn.nextInt();
+				data[count - 1][0] = count;
+				data[count - 1][1] = name;
+				data[count - 1][2] = score;
+				count++;
+			}
+			fileIn.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+	}
+
+	public void printData() {
+		for (int i = 0; i < data.length; i++) {
+			for (int j = 0; j < data[i].length; j++) {
+				System.out.print(data[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
+
 	public static void main(String[] args) {
-		new HighScores();
+		HighScores hs = new HighScores();
+		hs.resetScores();
 	}
 }

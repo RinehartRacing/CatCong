@@ -1,0 +1,5 @@
+Rusty 3250
+Isabel 250
+Rusty 0
+Wilbur 0
+Wilbur 0

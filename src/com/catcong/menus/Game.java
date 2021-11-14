@@ -10,15 +10,24 @@ import com.jme3.system.JmeCanvasContext;
 import java.awt.Canvas;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.Set;
+
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 public class Game extends SimpleApplication {
     private LevelControl LC;
     public static JFrame frame = new JFrame("CatCong");
+    public static String name = null;
 	public static void runGame() throws InterruptedException{
     	//LC = new LevelControl();
     	//LC.start();
-    	HomeScreen hs = new HomeScreen("CatCong");
+		SwingUtilities.invokeLater(new Runnable() {
+	         public void run() {
+	            HomeScreen hs = new HomeScreen("CatCong");
+	         }
+	      });
+    	
     	//JFrame homeFrame = hs.getHomeScreen();
     	AppSettings settings = new AppSettings(true);
         settings.setWidth(1920);
@@ -59,12 +68,23 @@ public class Game extends SimpleApplication {
     	LC = new LevelControl(this, guiFont, settings);
     	LC.simpleInitApp();
     }
-    
+    public static void displayThreads() {
+		Set<Thread> threads = Thread.getAllStackTraces().keySet();
+		 
+		for (Thread t : threads) {
+		    String name = t.getName();
+		    Thread.State state = t.getState();
+		    int priority = t.getPriority();
+		    String type = t.isDaemon() ? "Daemon" : "Normal";
+		    System.out.printf("%-20s \t %s \t %d \t %s\n", name, state, priority, type);
+		}
+    }
     @Override
     public void simpleUpdate(float tpf) {
 		LC.simpleUpdate(tpf);
 	}
     public static void main(String[] args) {
+    	displayThreads();
     	try {
 			runGame();
 		} catch (InterruptedException e) {
@@ -72,4 +92,5 @@ public class Game extends SimpleApplication {
 			e.printStackTrace();
 		}
     }
+    
 }

@@ -439,7 +439,7 @@
                 </panel>
 				
 				<panel id="panel_fourth" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
-                    <text text="Click below to enter high score and return to the home screen" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+                    <text text="Click button below to save your High Score!" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
 
                 </panel>
 				
@@ -450,7 +450,7 @@
 					​</control>
 
                 </panel>
-
+				
 
             </panel>
 

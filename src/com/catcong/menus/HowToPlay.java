@@ -62,6 +62,7 @@ private final int windowHeight = 800;
 		play.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				Game.name = JOptionPane.showInputDialog(null, "Enter your name", "Wilbur");
 				dispose();
 				Game.frame.setVisible(true);
 				

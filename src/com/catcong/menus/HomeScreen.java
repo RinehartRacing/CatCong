@@ -21,6 +21,7 @@ private final int windowHeight = 800;
 private LevelControl canvasApplication;
 private LevelControl LC;
 private SimpleApplication app;
+
 private static JFrame frame;
 	public HomeScreen(String name) {
 		// Set title of window
@@ -110,6 +111,7 @@ private static JFrame frame;
 		play.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				Game.name = JOptionPane.showInputDialog(null, "Enter your name", "Wilbur");
 				frame.dispose();
 				Game.frame.setVisible(true);
 				
