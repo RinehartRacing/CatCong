@@ -78,9 +78,13 @@
                     <text text="Bear Down and help Wilbur rescue her!" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
 
                 </panel>
+				<panel id="panel_fifth" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="Press P to Unpause!" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+
+                </panel>
 				
 				
-				<panel id="panel_fifth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
+				<panel id="panel_sixth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
                     ​<control name="button" label="Start Tutorial Level" id="StartLevel0" align="center" valign="center"
 					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
 					​<interact onClick="resumeButton()"/>

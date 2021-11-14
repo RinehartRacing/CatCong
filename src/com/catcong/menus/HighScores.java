@@ -19,8 +19,8 @@ import javax.swing.border.Border;
 public class HighScores extends JFrame {
 	private final int windowWidth = 800;
 	private final int windowHeight = 800;
-	private Object[][] data;
-	private String[] columns;
+	private Object[][] data; // Holds all of the highscores
+	private String[] columns; // Holds the table headers
 	private JTable table;
 	private JScrollPane sp;
 
@@ -75,6 +75,9 @@ public class HighScores extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				/*
+				 * Called when Home Screen Button is clicked
+				 */
 				setVisible(false);
 				dispose();
 				HomeScreen hs = new HomeScreen("CatCong");
@@ -94,6 +97,9 @@ public class HighScores extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				/*
+				 * Called when How To PLay Button is clicked
+				 */
 				setVisible(false);
 				dispose();
 				HowToPlay htp = new HowToPlay();
@@ -111,13 +117,15 @@ public class HighScores extends JFrame {
 		getContentPane().add(play);
 		play.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				do {
+				/*
+				 * Called when Play button is clicked
+				 */
+				do { // Loop getting player input until legal name is entered
 					Game.name = JOptionPane.showInputDialog(null, "Enter your name (Max 10 characters)", "Wilbur");
 				} while (Game.name.length() > 10);
 				dispose();
 				Game.frame.setVisible(true);
 
-				// LevelControl.startGame();
 			}
 
 		});
@@ -133,6 +141,9 @@ public class HighScores extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				/*
+				 * Called when quit button is clicked
+				 */
 				setVisible(false);
 				dispose();
 				System.exit(0);
@@ -145,10 +156,9 @@ public class HighScores extends JFrame {
 		// headers for the table
 		columns = new String[] { "Rank", "Name", "High Score" };
 
-		this.readFile();
+		this.readFile(); // Read highscores.txt to get the latest highscores loaded into data
 		// create table with data
 		table = new JTable(data, columns);
-		Border tableBorder = BorderFactory.createLineBorder(UARed, 3);
 
 		table.setRowHeight(43);
 		table.setFont(new Font("Verdana", Font.BOLD, 20));
@@ -169,69 +179,79 @@ public class HighScores extends JFrame {
 	}
 
 	public void shiftData(int loc) {
-		Object[][] sd = new Object[10][3];
-		for (int i = 0; i < data.length; i++) {
-			if (i < loc) {
+		/*
+		 * Shifts data to the right by 1 starting at the loc index
+		 */
+		Object[][] sd = new Object[10][3]; // Make a second array
+		for (int i = 0; i < data.length; i++) { // Loop through data
+			if (i < loc) { // If before loc, then make a direct copy
 				sd[i] = data[i];
-			} else if (i == loc) {
+			} else if (i == loc) { // If on loc, make it a new object
 				sd[i] = new Object[3];
 			} else {
-				sd[i] = data[i - 1];
+				sd[i] = data[i - 1]; // If after loc, then feed it the previous data value
 			}
 		}
-		data = sd;
+		data = sd; // Make second array the new data array
 	}
 
 	public void addScore(int score) {
-		try {
+		/*
+		 * Adds a new highscore to the leaderboards
+		 */
+		try {// Delay a second to give user time to see old ranking
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 
-		if (Game.name != null) {
-			for (int i = 0; i < data.length; i++) {
+		if (Game.name != null) { // Prevent adding a score to a name never entered
+			for (int i = 0; i < data.length; i++) { // Loop through data
 				if (data[i][0] == null || data[i][1] == null || data[i][2] == null) {
-					data[i][0] = i + 1;
+					data[i][0] = i + 1; // If no score exists, put score here
 					data[i][1] = Game.name;
 					data[i][2] = score;
 					break;
 				} else {
 					int oldscore = (int) data[i][2];
-					if (score > oldscore) {
+					if (score > oldscore) { // If greater than score being looked at, then shift the scores to the right
 						this.shiftData(i);
-						data[i][0] = i + 1;
+						data[i][0] = i + 1; // Place the new score in the empty slot
 						data[i][1] = Game.name;
 						data[i][2] = score;
-						break;
-					} else if (score <= oldscore) {
+						break; // Score added correctly so we can leave the loop
+					} else if (score <= oldscore) { // Keep going if score is less than or equal to the old score
 						continue;
 					} else {
-						System.out.println("Error loading score.");
+						System.out.println("Error loading score."); // Condition that should be impossible to reach, but
+																	// here just in case
 					}
 				}
 			}
-			writeFile();
-			this.setVisible(false);
+			writeFile(); // Update highscores.txt to match data
+			this.setVisible(false); // Reload screen to show newly inputted highscore
 			HighScores hs = new HighScores();
 			this.dispose();
 		}
 	}
 
 	public void writeFile() {
+		/*
+		 * Updates highscore.txt to have the latest and gretaest highscores
+		 */
 		try {
-			FileWriter fileOut = new FileWriter("highscores.txt");
+			FileWriter fileOut = new FileWriter("highscores.txt"); // Filewriting object
 			for (int i = 0; i < data.length; i++) {
-				if (data[i][0] == null || data[i][1] == null || data[i][2] == null) {
+				if (data[i][0] == null || data[i][1] == null || data[i][2] == null) { // Ignore empty scores
 					break;
 				}
 				if (i != 0) {
-					fileOut.write("\n");
+					fileOut.write("\n"); // Make a new line before each entry except the first one
 				}
-				fileOut.write(data[i][1] + " " + data[i][2]);
+				fileOut.write(data[i][1] + " " + data[i][2]); // Write the player name and the score on each line
 
 			}
-			fileOut.close();
+			fileOut.close(); // close file writing object
 		} catch (IOException e) {
 			System.out.println("An error occurred.");
 			e.printStackTrace();
@@ -239,6 +259,9 @@ public class HighScores extends JFrame {
 	}
 
 	private void resetScores() {
+		/*
+		 * Helper method for resetting scores in module testing
+		 */
 		try {
 			FileWriter fileOut = new FileWriter("highscores.txt");
 			fileOut.write("");
@@ -250,14 +273,17 @@ public class HighScores extends JFrame {
 	}
 
 	public void readFile() {
+		/*
+		 * Updates data to match the scores in highscores.txt
+		 */
 		// actual data for the table in a 2d array
 		data = new Object[10][3];
 		try {
 			File myFile = new File("highscores.txt");
-			Scanner fileIn = new Scanner(myFile);
-			int count = 1;
+			Scanner fileIn = new Scanner(myFile); // File reading object
+			int count = 1; // Count represents ranking of each player
 			while (fileIn.hasNextLine()) {
-				String name = fileIn.next();
+				String name = fileIn.next(); // Read through each line and update data to the ranking, name, and score
 				int score = fileIn.nextInt();
 				data[count - 1][0] = count;
 				data[count - 1][1] = name;
@@ -271,7 +297,10 @@ public class HighScores extends JFrame {
 		}
 	}
 
-	public void printData() {
+	private void printData() {
+		/*
+		 * Helper method to print data or module testing
+		 */
 		for (int i = 0; i < data.length; i++) {
 			for (int j = 0; j < data[i].length; j++) {
 				System.out.print(data[i][j] + " ");
@@ -281,6 +310,9 @@ public class HighScores extends JFrame {
 	}
 
 	public static void main(String[] args) {
+		/*
+		 * Main method used for module testing HighScores
+		 */
 		HighScores hs = new HighScores();
 		hs.resetScores();
 	}
