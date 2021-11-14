@@ -1,3 +1,7 @@
+/*
+ * Rusty Rinehart, Isabel Dailey, Chris Bremser
+ * ECE 373
+ */
 package com.catcong.menus;
 
 import java.awt.*;
@@ -109,10 +113,10 @@ public class HighScores extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				do {
 					Game.name = JOptionPane.showInputDialog(null, "Enter your name (Max 10 characters)", "Wilbur");
-				}while(Game.name.length() > 10);
+				} while (Game.name.length() > 10);
 				dispose();
 				Game.frame.setVisible(true);
-				
+
 				// LevelControl.startGame();
 			}
 
@@ -182,11 +186,9 @@ public class HighScores extends JFrame {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		System.out.println(Game.name);
 		if (Game.name != null) {
 			for (int i = 0; i < data.length; i++) {
 				if (data[i][0] == null || data[i][1] == null || data[i][2] == null) {

@@ -1,22 +1,20 @@
+/*
+ * Rusty Rinehart, Isabel Dailey, Chris Bremser
+ * ECE 373
+ */
 package com.catcong.levels;
 
 import java.util.ArrayList;
 
 import com.catcong.Player;
-import com.catcong.enemy.BarrelCactus;
 import com.catcong.enemy.Cactus;
-import com.catcong.enemy.ChollaCactus;
-import com.catcong.enemy.SaguaroCactus;
 import com.jme3.asset.AssetManager;
 import com.jme3.bullet.BulletAppState;
-import com.jme3.bullet.collision.PhysicsCollisionEvent;
-import com.jme3.bullet.collision.PhysicsCollisionListener;
 import com.jme3.bullet.collision.shapes.CollisionShape;
 import com.jme3.bullet.control.RigidBodyControl;
 import com.jme3.bullet.util.CollisionShapeFactory;
 import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
-import com.jme3.math.Matrix3f;
 import com.jme3.math.Vector3f;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
@@ -24,14 +22,14 @@ import com.jme3.scene.Spatial;
 import com.jme3.scene.shape.Box;
 
 public class Level{
-	protected AssetManager assetManager;
+	protected AssetManager assetManager;	//Game Engine objects
 	protected Node node;
 	protected BulletAppState bulletAppState;
-	protected ArrayList<Cactus> cacti;
-	protected ArrayList<Node> hammers;
-	protected Player player;
-	protected RigidBodyControl hammerControl;
-	protected String redbrick = "assets/Textures/redbrick.jpg";
+	protected ArrayList<Cactus> cacti;	//List of all cactus in Level
+	protected ArrayList<Node> hammers;	//List of all hammers in level
+	protected Player player;			//player object reference
+	protected RigidBodyControl hammerControl;	//hammer collision detection object
+	protected String redbrick = "assets/Textures/redbrick.jpg";	//Textures
 	protected String whitewall = "assets/Textures/whitewall.jpg";
 	protected String whitetile = "assets/Textures/whitetile.jpg";
 	protected String graywall = "assets/Textures/graywall.png";
@@ -45,7 +43,10 @@ public class Level{
 		this.hammers = new ArrayList<Node>();
 	}
 	public void fillBlocks(Vector3f coor1, Vector3f coor2, String name, String texture) {
-		Box b = new Box(1, 1, 1);
+		/*
+		 * Fills in blocks from one coordinate to another in three dimensions
+		 */
+		Box b = new Box(1, 1, 1);	//Create unit box
 		Geometry geom = new Geometry("Box", b);
 		Material mat = new Material(assetManager, // Create new material and...
 				"Common/MatDefs/Misc/Unshaded.j3md"); // ... specify .j3md file to use (unshaded).
@@ -55,29 +56,32 @@ public class Level{
 		geom.setMaterial(mat); // Use new material on this Geometry.
 		
 		Node blockNode = new Node(name);
-		float xMax = Math.max(coor1.getX(), coor2.getX());
+		float xMax = Math.max(coor1.getX(), coor2.getX());	//Start by getting max and min of x,y, and z
 		float xMin = Math.min(coor1.getX(), coor2.getX());
 		float yMax = Math.max(coor1.getY(), coor2.getY());
 		float yMin = Math.min(coor1.getY(), coor2.getY());
 		float zMax = Math.max(coor1.getZ(), coor2.getZ());
 		float zMin = Math.min(coor1.getZ(), coor2.getZ());
-		for(float i = xMin; i <= xMax; i++) {
+		for(float i = xMin; i <= xMax; i++) {	//Loop through every coordinate in range
 			for(float j = yMin; j <= yMax; j++) {
 				for(float k = zMin; k <= zMax; k++) {
-					Geometry geomCopy = geom.clone();
+					Geometry geomCopy = geom.clone();	//Clone unit box
 					geomCopy.setName("Wall");
 					geomCopy.setLocalTranslation(new Vector3f(i, j, k));
 					blockNode.attachChild(geomCopy);
 				}
 			}
 		}
-		CollisionShape blockShape = CollisionShapeFactory.createMeshShape(blockNode);
+		CollisionShape blockShape = CollisionShapeFactory.createMeshShape(blockNode);	//Add collision detection
 		blockNode.addControl(new RigidBodyControl(blockShape, 0));
 		node.attachChild(blockNode);
 		bulletAppState.getPhysicsSpace().addAll(blockNode);
 		
 	}
 	public void fillBlocksGhost(Vector3f coor1, Vector3f coor2, String name, String texture) {
+		/*
+		 * Same functionality as fillBLocks but has no collision detection
+		 */
 		Box b = new Box(1, 1, 1);
 		Geometry geom = new Geometry("Box", b);
 		Material mat = new Material(assetManager, // Create new material and...
@@ -107,6 +111,9 @@ public class Level{
 		node.attachChild(blockNode);
 	}
 	public void buildElevator(Vector3f coor, String name) {
+		/*
+		 * Spawns and elevator at a given coordinate
+		 */
 		Box b = new Box(1, 1, 1);
 		Geometry geom = new Geometry("Elevator", b);
 		Material mat = new Material(assetManager, // Create new material and...
@@ -122,6 +129,9 @@ public class Level{
 		bulletAppState.getPhysicsSpace().addAll(elevatorNode);
 	}
 	public void updateCacti(float tpf) {
+		/*
+		 * Tells every cactus in level to move
+		 */
 		for(int i = 0; i < cacti.size(); i++) {
 			if(cacti.get(i).getCactusNode() != null) {
 				cacti.get(i).updateCactus(tpf);
@@ -130,6 +140,9 @@ public class Level{
 	}
 	
 	public void spawnHammer(Vector3f coor, String name) {
+		/*
+		 * Spawns a hamer at a given coordinate
+		 */
 		Box b = new Box(1, 1, 1);
 		Spatial hammer = assetManager.loadModel("assets/Models/neuro_hammer_obj/neuro_hammer_obj.obj");
 		hammer.setLocalScale(new Vector3f(0.2f, 0.2f, 0.2f));
@@ -153,12 +166,18 @@ public class Level{
 	}
 	
 	public void removeHammer(int hammer) {
+		/*
+		 * Removes hammer from level
+		 */
 		Node hammerNode = hammers.get(hammer);
 		node.detachChild(hammerNode);
 		hammerNode.removeControl(hammerControl);
 	}
 	
 	public void removeCactus(String name) {
+		/*
+		 * Removes cactus from level
+		 */
 		for(int i = 0; i < cacti.size(); i++) {
 			if(cacti.get(i).toString() == name) {
 				cacti.get(i).removeCactus();

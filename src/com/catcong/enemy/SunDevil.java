@@ -1,3 +1,7 @@
+/*
+ * Rusty Rinehart, Isabel Dailey, Chris Bremser
+ * ECE 373
+ */
 package com.catcong.enemy;
 
 import com.catcong.Player;
@@ -10,10 +14,8 @@ import com.jme3.bullet.util.CollisionShapeFactory;
 import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector3f;
-import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
-import com.jme3.scene.shape.Box;
 
 public class SunDevil extends Cactus {
 
@@ -24,11 +26,11 @@ public class SunDevil extends Cactus {
 	public void spawnCactus(Vector3f coor1, String name) {
 		this.name = name;
 
-		Spatial sundevil = assetManager.loadModel("assets/Models/sundevil.obj");
+		Spatial sundevil = assetManager.loadModel("assets/Models/sundevil.obj");	//Load sundevil model
 		Material mat = new Material(assetManager, // Create new material and...
 				"Common/MatDefs/Misc/Unshaded.j3md"); // ... specify .j3md file to use (unshaded).
 		//mat.setTexture("ColorMap", assetManager.loadTexture("assets/Textures/sundevil.jpg"));
-		mat.setColor("Color", ColorRGBA.Red);
+		mat.setColor("Color", ColorRGBA.Red);	//Set model color to red
 		sundevil.setMaterial(mat); // Use new material on this Geometry.
 
 		cactusNode = new Node(name);
@@ -36,7 +38,7 @@ public class SunDevil extends Cactus {
 		cactusNode.rotate(0f, -1.57f, 0f);
 		cactusNode.attachChild(sundevil);
 		node.attachChild(cactusNode);
-		CollisionShape cactusShape = CollisionShapeFactory.createMeshShape(cactusNode);
+		CollisionShape cactusShape = CollisionShapeFactory.createMeshShape(cactusNode);	//Add collision to SunDevil
 		control = new RigidBodyControl(cactusShape, 0);
 		control.setKinematic(true);
 
@@ -45,14 +47,17 @@ public class SunDevil extends Cactus {
 	}
 	@Override
 	public void collision(PhysicsCollisionEvent event) {
-		if (event.getNodeB() != null) {
-			if (this.name.equals(event.getNodeB().getName())) {
-				System.out.println("Hit cactus");
-				cactusNode.removeControl(control);
-				this.removeCactus();
-				this.player.loseLife();
-			}
-		}
+		/*
+		 * Called if player collides with SunDevil
+		 */
 
+	}
+
+	@Override
+	public void updateCactus(float tpf) {
+		/*
+		 * Called if we decide to move SunDevil
+		 */
+		
 	}
 }

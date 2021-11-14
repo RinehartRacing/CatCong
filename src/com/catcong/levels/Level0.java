@@ -1,31 +1,24 @@
+/*
+ * Rusty Rinehart, Isabel Dailey, Chris Bremser
+ * ECE 373
+ */
 package com.catcong.levels;
-
-import java.util.ArrayList;
 
 import com.catcong.Player;
 import com.catcong.enemy.BarrelCactus;
-import com.catcong.enemy.Cactus;
 import com.catcong.enemy.ChollaCactus;
 import com.catcong.enemy.SaguaroCactus;
 import com.jme3.asset.AssetManager;
 import com.jme3.bullet.BulletAppState;
-import com.jme3.bullet.collision.PhysicsCollisionEvent;
-import com.jme3.bullet.collision.PhysicsCollisionListener;
-import com.jme3.bullet.collision.shapes.CollisionShape;
-import com.jme3.bullet.control.RigidBodyControl;
-import com.jme3.bullet.util.CollisionShapeFactory;
-import com.jme3.material.Material;
-import com.jme3.math.ColorRGBA;
-import com.jme3.math.Matrix3f;
 import com.jme3.math.Vector3f;
-import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
-import com.jme3.scene.Spatial;
-import com.jme3.scene.shape.Box;
 
 public class Level0 extends Level {
 
 	public Level0(Node node, AssetManager assetManager, BulletAppState bulletAppState, Player player) {
+		/*
+		 * Build Level 0
+		 */
 		super(node, assetManager, bulletAppState, player);
 
 		fillBlocks(new Vector3f(0, 0, 0), new Vector3f(100, 0, 26), "floor2", redbrick);
@@ -66,23 +59,23 @@ public class Level0 extends Level {
 
 		fillBlocks(new Vector3f(102, 42, 10), new Vector3f(102, 42, 16), "elevatorL0F2", whitetile);
 		SaguaroCactus sc1 = new SaguaroCactus(node, assetManager, bulletAppState, player);
-		sc1.spawnCactus(new Vector3f(25, 2, 25), new Vector3f(25, 2, 0), "cactusS1", ColorRGBA.Green);
+		sc1.spawnCactus(new Vector3f(25, 2, 25), new Vector3f(25, 2, 0), "cactusS1");
 		cacti.add(sc1);
 
 		BarrelCactus bc1 = new BarrelCactus(node, assetManager, bulletAppState, player);
-		bc1.spawnCactus(new Vector3f(100, 24, 10), new Vector3f(0, 24, 10), "cactusB1", ColorRGBA.Green);
+		bc1.spawnCactus(new Vector3f(100, 24, 10), new Vector3f(0, 24, 10), "cactusB1");
 		cacti.add(bc1);
 
 		BarrelCactus bc2 = new BarrelCactus(node, assetManager, bulletAppState, player);
-		bc2.spawnCactus(new Vector3f(100, 24, 15), new Vector3f(0, 24, 15), "cactusB2", ColorRGBA.Green);
+		bc2.spawnCactus(new Vector3f(100, 24, 15), new Vector3f(0, 24, 15), "cactusB2");
 		cacti.add(bc2);
 
 		BarrelCactus bc3 = new BarrelCactus(node, assetManager, bulletAppState, player);
-		bc3.spawnCactus(new Vector3f(100, 24, 19), new Vector3f(0, 24, 19), "cactusB3", ColorRGBA.Green);
+		bc3.spawnCactus(new Vector3f(100, 24, 19), new Vector3f(0, 24, 19), "cactusB3");
 		cacti.add(bc3);
 
 		ChollaCactus cc1 = new ChollaCactus(node, assetManager, bulletAppState, player);
-		cc1.spawnCactus(new Vector3f(100, 44, 13), "cactusC1", ColorRGBA.Green);
+		cc1.spawnCactus(new Vector3f(100, 44, 13), "cactusC1");
 		cacti.add(cc1);
 		spawnHammer(new Vector3f(50, 2, -10), "hammerL0F0");
 		spawnHammer(new Vector3f(50, 24, -10), "hammerL0F1");

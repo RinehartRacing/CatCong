@@ -1,3 +1,7 @@
+/*
+ * Rusty Rinehart, Isabel Dailey, Chris Bremser
+ * ECE 373
+ */
 package com.catcong.menus;
 
 import java.awt.*;

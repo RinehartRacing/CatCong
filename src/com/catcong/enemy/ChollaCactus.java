@@ -1,3 +1,7 @@
+/*
+ * Rusty Rinehart, Isabel Dailey, Chris Bremser
+ * ECE 373
+ */
 package com.catcong.enemy;
 
 import com.catcong.Player;
@@ -8,7 +12,6 @@ import com.jme3.bullet.collision.shapes.CollisionShape;
 import com.jme3.bullet.control.RigidBodyControl;
 import com.jme3.bullet.util.CollisionShapeFactory;
 import com.jme3.material.Material;
-import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector3f;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
@@ -20,7 +23,10 @@ public class ChollaCactus extends Cactus {
 		super(node, assetManager, bulletAppState, player);
 	}
 
-	public void spawnCactus(Vector3f coor1, String name, ColorRGBA color) {
+	public void spawnCactus(Vector3f coor1, String name) {
+		/*
+		 * Spawns ChollaCactus
+		 */
 		this.name = name;
 
 		Box b = new Box(1, 1, 1);
@@ -32,9 +38,9 @@ public class ChollaCactus extends Cactus {
 
 		cactusNode = new Node(name);
 		cactusNode.setLocalTranslation(new Vector3f(coor1.getX(), coor1.getY() + 8, coor1.getZ()));
-		
-		for (int i = 0; i < 5; i++) {
-			for (int j = 0; j < 4; j++) {
+
+		for (int i = 0; i < 5; i++) { // Make Cholla 5 blocks high
+			for (int j = 0; j < 4; j++) { // and 4 blocks wide
 				Geometry geom2 = geom.clone();
 				cactusNode.attachChild(geom2);
 				geom2.setLocalTranslation(new Vector3f(0, -i * 2, (-j * 2) + 3));
@@ -49,14 +55,17 @@ public class ChollaCactus extends Cactus {
 		cactusNode.addControl(control);
 		bulletAppState.getPhysicsSpace().addAll(cactusNode);
 	}
+
 	@Override
 	public void collision(PhysicsCollisionEvent event) {
+		/*
+		 * Called when player collides with Cholla Cactus
+		 */
 		if (event.getNodeB() != null) {
 			if (this.name.equals(event.getNodeB().getName())) {
-				System.out.println("Hit cactus");
 				cactusNode.removeControl(control);
-				this.removeCactus();
-				this.player.loseLife();
+				this.removeCactus(); // Break cactus
+				this.player.loseLife(); // Lose life
 			}
 		}
 
@@ -67,6 +76,6 @@ public class ChollaCactus extends Cactus {
 		/*
 		 * Where ChollaCactus movement would be defined if needed
 		 */
-		
+
 	}
 }
