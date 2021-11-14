@@ -78,9 +78,13 @@
                     <text text="Bear Down and help Wilbur rescue her!" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
 
                 </panel>
+				<panel id="panel_fifth" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
+                    <text text="Press P to Unpause!" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
+
+                </panel>
 				
 				
-				<panel id="panel_fifth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
+				<panel id="panel_sixth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
                     ​<control name="button" label="Start Tutorial Level" id="StartLevel0" align="center" valign="center"
 					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
 					​<interact onClick="resumeButton()"/>
@@ -439,41 +443,18 @@
                 </panel>
 				
 				<panel id="panel_fourth" backgroundColor="#ee4035" width="*" height="10%" childLayout="center">
-                    <text text="What would you like to do?" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
-
-                </panel>
-				
-				<panel id="panel_fifth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
-                    ​<control name="button" label="Play Again" id="PlayAgainButton" align="center" valign="center"
-					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
-					​<interact onClick="resumeButton()"/>
-					​</control>
-
-                </panel>
-				
-				<panel id="panel_sixth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
-                    ​<control name="button" label="High Scores" id="HighScoresButton" align="center" valign="center"
-					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
-					​<interact onClick="highScoreButton()"/>
-					​</control>
+                    <text text="Click button below to save your High Score!" font="Interface/Fonts/Default.fnt" width="100%" height="100%"/>
 
                 </panel>
 				
 				<panel id="panel_seventh" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
                     ​<control name="button" label="Home Screen" id="HomeScreenButton" align="center" valign="center"
 					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
-					​<interact onClick="homeScreenButton()"/>
+					​<interact onClick="setHighScore()"/>
 					​</control>
 
                 </panel>
 				
-				<panel id="panel_eighth" backgroundColor="#7bb3ff" width="*" height="26%" childLayout="center">
-                    ​<control name="button" label="Quit Cat Cong" id="QuitButton" align="center" valign="center"
-					​visibleToMouse="true" width="25%" height="17%" backgroundColor="#0C234B">
-					​<interact onClick="quitButton()"/>
-					​</control>
-
-                </panel>
 
             </panel>
 

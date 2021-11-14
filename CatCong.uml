@@ -9,25 +9,23 @@
   <packagedElement xmi:type="uml:Class" xmi:id="_w9Z0cDECEeyak6zvHJwSyw" name="HowToPlay"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_zb5QIDECEeyak6zvHJwSyw" name="HighScores"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_0StjYDECEeyak6zvHJwSyw" name="HomeScreen"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_1LgzoDECEeyak6zvHJwSyw" name="LevelMap">
-    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_vQwWsDFVEeyak6zvHJwSyw" client="_1LgzoDECEeyak6zvHJwSyw" supplier="_MG80oDEDEeyak6zvHJwSyw" contract="_MG80oDEDEeyak6zvHJwSyw"/>
-  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_1LgzoDECEeyak6zvHJwSyw" name="LevelMap"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_3C-EgDECEeyak6zvHJwSyw" name="InGameMenu"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_4DXKgDECEeyak6zvHJwSyw" name="Level0">
-    <generalization xmi:type="uml:Generalization" xmi:id="_jnc_oDEFEeyak6zvHJwSyw" general="_1LgzoDECEeyak6zvHJwSyw"/>
+    <generalization xmi:type="uml:Generalization" xmi:id="_TScWoEVqEeyMPqmptlx7cA" general="_Noo1gEVqEeyMPqmptlx7cA"/>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_iF_3gzFTEeyak6zvHJwSyw" name="cactus" type="_UJtKIDEDEeyak6zvHJwSyw" aggregation="shared" association="_iF_3gDFTEeyak6zvHJwSyw">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iGAekDFTEeyak6zvHJwSyw"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iGAekTFTEeyak6zvHJwSyw" value="*"/>
     </ownedAttribute>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_4wvN4DECEeyak6zvHJwSyw" name="Level1">
-    <generalization xmi:type="uml:Generalization" xmi:id="_kfn9wDEFEeyak6zvHJwSyw" general="_1LgzoDECEeyak6zvHJwSyw"/>
+    <generalization xmi:type="uml:Generalization" xmi:id="_U7RVoEVqEeyMPqmptlx7cA" general="_Noo1gEVqEeyMPqmptlx7cA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_5d3ZoDECEeyak6zvHJwSyw" name="Level2">
-    <generalization xmi:type="uml:Generalization" xmi:id="_leARkDEFEeyak6zvHJwSyw" general="_1LgzoDECEeyak6zvHJwSyw"/>
+    <generalization xmi:type="uml:Generalization" xmi:id="_W4-YcEVqEeyMPqmptlx7cA" general="_Noo1gEVqEeyMPqmptlx7cA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_6NF3IDECEeyak6zvHJwSyw" name="Level3">
-    <generalization xmi:type="uml:Generalization" xmi:id="_nwCloDEFEeyak6zvHJwSyw" general="_1LgzoDECEeyak6zvHJwSyw"/>
+    <generalization xmi:type="uml:Generalization" xmi:id="_ZQN8oEVqEeyMPqmptlx7cA" general="_Noo1gEVqEeyMPqmptlx7cA"/>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_EucHozFTEeyak6zvHJwSyw" name="cactus" type="_UJtKIDEDEeyak6zvHJwSyw" aggregation="shared" association="_EucHoDFTEeyak6zvHJwSyw">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EucusDFTEeyak6zvHJwSyw"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_EucusTFTEeyak6zvHJwSyw" value="*"/>
@@ -35,11 +33,8 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_7DALcDECEeyak6zvHJwSyw" name="Player">
     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_ouyegDFVEeyak6zvHJwSyw" client="_7DALcDECEeyak6zvHJwSyw" supplier="_If4nUDEDEeyak6zvHJwSyw" contract="_If4nUDEDEeyak6zvHJwSyw"/>
-    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_s71GsDFVEeyak6zvHJwSyw" client="_7DALcDECEeyak6zvHJwSyw" supplier="_MG80oDEDEeyak6zvHJwSyw" contract="_MG80oDEDEeyak6zvHJwSyw"/>
-    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_f6O3oDFgEeyak6zvHJwSyw" client="_7DALcDECEeyak6zvHJwSyw" supplier="_HYbakDEEEeyak6zvHJwSyw" contract="_HYbakDEEEeyak6zvHJwSyw"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_If4nUDEDEeyak6zvHJwSyw" name="PlayerMovement"/>
-  <packagedElement xmi:type="uml:Interface" xmi:id="_MG80oDEDEeyak6zvHJwSyw" name="LevelComplete"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_UJtKIDEDEeyak6zvHJwSyw" name="Cactus"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_W_2Q0DEDEeyak6zvHJwSyw" name="BarrelCactus">
     <generalization xmi:type="uml:Generalization" xmi:id="_wpk1sDFTEeyak6zvHJwSyw" general="_UJtKIDEDEeyak6zvHJwSyw"/>
@@ -50,7 +45,6 @@
   <packagedElement xmi:type="uml:Class" xmi:id="_fUYS0DEDEeyak6zvHJwSyw" name="SunDevil">
     <generalization xmi:type="uml:Generalization" xmi:id="_sev0ADFTEeyak6zvHJwSyw" general="_UJtKIDEDEeyak6zvHJwSyw"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Interface" xmi:id="_HYbakDEEEeyak6zvHJwSyw" name="DetectCollision"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_F82X8DEFEeyak6zvHJwSyw" name="LevelControl"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_u9Mo4DFSEeyak6zvHJwSyw" memberEnd="_u9NP8jFSEeyak6zvHJwSyw _u9NP9TFSEeyak6zvHJwSyw">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_u9NP8DFSEeyak6zvHJwSyw" source="org.eclipse.papyrus">
@@ -131,5 +125,37 @@
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_FFVClUVoEeyMPqmptlx7cA" name="homescreen" type="_0StjYDECEeyak6zvHJwSyw" association="_FFUbgEVoEeyMPqmptlx7cA"/>
     <ownedEnd xmi:type="uml:Property" xmi:id="_FFVCkkVoEeyMPqmptlx7cA" name="highscores" type="_zb5QIDECEeyak6zvHJwSyw" aggregation="shared" association="_FFUbgEVoEeyMPqmptlx7cA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_pR00gEVpEeyMPqmptlx7cA" memberEnd="_pR00g0VpEeyMPqmptlx7cA _pR1bkkVpEeyMPqmptlx7cA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pR00gUVpEeyMPqmptlx7cA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pR00gkVpEeyMPqmptlx7cA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_pR1bkkVpEeyMPqmptlx7cA" name="levelmap" type="_1LgzoDECEeyak6zvHJwSyw" association="_pR00gEVpEeyMPqmptlx7cA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_pR00g0VpEeyMPqmptlx7cA" name="level0" type="_4DXKgDECEeyak6zvHJwSyw" aggregation="composite" association="_pR00gEVpEeyMPqmptlx7cA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_u8MWUEVpEeyMPqmptlx7cA" memberEnd="_u8M9YUVpEeyMPqmptlx7cA _u8M9ZEVpEeyMPqmptlx7cA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_u8MWUUVpEeyMPqmptlx7cA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_u8M9YEVpEeyMPqmptlx7cA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_u8M9ZEVpEeyMPqmptlx7cA" name="levelmap" type="_1LgzoDECEeyak6zvHJwSyw" association="_u8MWUEVpEeyMPqmptlx7cA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_u8M9YUVpEeyMPqmptlx7cA" name="level1" type="_4wvN4DECEeyak6zvHJwSyw" aggregation="composite" association="_u8MWUEVpEeyMPqmptlx7cA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_1S8dAEVpEeyMPqmptlx7cA" memberEnd="_1S8dA0VpEeyMPqmptlx7cA _1S9EEkVpEeyMPqmptlx7cA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1S8dAUVpEeyMPqmptlx7cA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_1S8dAkVpEeyMPqmptlx7cA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_1S9EEkVpEeyMPqmptlx7cA" name="levelmap" type="_1LgzoDECEeyak6zvHJwSyw" association="_1S8dAEVpEeyMPqmptlx7cA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_1S8dA0VpEeyMPqmptlx7cA" name="level2" type="_5d3ZoDECEeyak6zvHJwSyw" aggregation="composite" association="_1S8dAEVpEeyMPqmptlx7cA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_8ZxVwEVpEeyMPqmptlx7cA" memberEnd="_8Zx80kVpEeyMPqmptlx7cA _8Zx81UVpEeyMPqmptlx7cA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8Zx80EVpEeyMPqmptlx7cA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8Zx80UVpEeyMPqmptlx7cA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_8Zx81UVpEeyMPqmptlx7cA" name="levelmap" type="_1LgzoDECEeyak6zvHJwSyw" association="_8ZxVwEVpEeyMPqmptlx7cA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_8Zx80kVpEeyMPqmptlx7cA" name="level3" type="_6NF3IDECEeyak6zvHJwSyw" aggregation="composite" association="_8ZxVwEVpEeyMPqmptlx7cA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Noo1gEVqEeyMPqmptlx7cA" name="Level"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_jNUe8EVqEeyMPqmptlx7cA" name="ChollaCactus">
+    <generalization xmi:type="uml:Generalization" xmi:id="_np6mEEVqEeyMPqmptlx7cA" general="_UJtKIDEDEeyak6zvHJwSyw"/>
   </packagedElement>
 </uml:Model>

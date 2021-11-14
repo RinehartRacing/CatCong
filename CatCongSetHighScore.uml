@@ -8,11 +8,11 @@
       <transition xmi:type="uml:Transition" xmi:id="_sHEUsDLQEeyHduIcLUro5Q" source="_Cr4TUDKuEeyHduIcLUro5Q" target="_Lnm4MDKuEeyHduIcLUro5Q"/>
       <transition xmi:type="uml:Transition" xmi:id="_Q1wqMDLREeyHduIcLUro5Q" name="Name Entered[Name less than or equal to 10 characters]" source="_Lnm4MDKuEeyHduIcLUro5Q" target="_BY0bEDLREeyHduIcLUro5Q"/>
       <transition xmi:type="uml:Transition" xmi:id="_dShs4DLREeyHduIcLUro5Q" name="Name Entered[Name greater than 10 characters]" source="_Lnm4MDKuEeyHduIcLUro5Q" target="_Lnm4MDKuEeyHduIcLUro5Q"/>
-      <subvertex xmi:type="uml:Pseudostate" xmi:id="_Cr4TUDKuEeyHduIcLUro5Q" name="Set HighScore Menu appears"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_Cr4TUDKuEeyHduIcLUro5Q" name="Play button clicked"/>
       <subvertex xmi:type="uml:State" xmi:id="_Lnm4MDKuEeyHduIcLUro5Q" name="EnterName">
         <doActivity xmi:type="uml:Activity" xmi:id="_kd2gkDLQEeyHduIcLUro5Q" name="Prompt user to enter in name"/>
       </subvertex>
-      <subvertex xmi:type="uml:FinalState" xmi:id="_BY0bEDLREeyHduIcLUro5Q" name="Return to HighScore Menu"/>
+      <subvertex xmi:type="uml:FinalState" xmi:id="_BY0bEDLREeyHduIcLUro5Q" name="Start Game"/>
     </region>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_56uR0DLQEeyHduIcLUro5Q">

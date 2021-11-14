@@ -6,13 +6,13 @@
   <packagedElement xmi:type="uml:StateMachine" xmi:id="_MOHKkDOKEeyfXOiwAyIdfA" name="CactusMovement State">
     <region xmi:type="uml:Region" xmi:id="_MOI_wDOKEeyfXOiwAyIdfA" name="Region1">
       <transition xmi:type="uml:Transition" xmi:id="_xvdFADOKEeyfXOiwAyIdfA" source="_r7BoQDOKEeyfXOiwAyIdfA" target="_cGOSwDOKEeyfXOiwAyIdfA"/>
-      <transition xmi:type="uml:Transition" xmi:id="_HuCcMDOLEeyfXOiwAyIdfA" name="Cactus hit by hammer or cactus hits wall" source="_cGOSwDOKEeyfXOiwAyIdfA" target="_4nkMUDOKEeyfXOiwAyIdfA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_HuCcMDOLEeyfXOiwAyIdfA" name="Cactus hit by hammer" source="_cGOSwDOKEeyfXOiwAyIdfA" target="_4nkMUDOKEeyfXOiwAyIdfA"/>
       <transition xmi:type="uml:Transition" xmi:id="_wqkqUDO7EeyfXOiwAyIdfA" name="Cactus hits player" source="_cGOSwDOKEeyfXOiwAyIdfA" target="_mtOQYDO7EeyfXOiwAyIdfA"/>
       <transition xmi:type="uml:Transition" xmi:id="_2WCYUDO7EeyfXOiwAyIdfA" name="Lives Left on Player" source="_mtOQYDO7EeyfXOiwAyIdfA" target="_cGOSwDOKEeyfXOiwAyIdfA"/>
       <transition xmi:type="uml:Transition" xmi:id="_MgSEQDUtEeyAFINa0juYjw" name="Player out of lives" source="_mtOQYDO7EeyfXOiwAyIdfA" target="_JOEFkDUtEeyAFINa0juYjw"/>
       <transition xmi:type="uml:Transition" xmi:id="_d2HHoDUtEeyAFINa0juYjw" source="_JOEFkDUtEeyAFINa0juYjw" target="_cA7usDUtEeyAFINa0juYjw"/>
       <subvertex xmi:type="uml:State" xmi:id="_cGOSwDOKEeyfXOiwAyIdfA" name="CactusSpawn">
-        <doActivity xmi:type="uml:Activity" xmi:id="_pjCdMDOKEeyfXOiwAyIdfA" name="Cactus Spawns after a random time interval and begins rolling"/>
+        <doActivity xmi:type="uml:Activity" xmi:id="_pjCdMDOKEeyfXOiwAyIdfA" name="Cactus Spawns"/>
       </subvertex>
       <subvertex xmi:type="uml:Pseudostate" xmi:id="_r7BoQDOKEeyfXOiwAyIdfA" name="Cactus Spawns"/>
       <subvertex xmi:type="uml:State" xmi:id="_4nkMUDOKEeyfXOiwAyIdfA" name="CactusBreak">
