@@ -56,7 +56,7 @@ public class Level0 extends Level {
 		fillBlocks(new Vector3f(0, 22, 0), new Vector3f(40, 60, 0), "floor4LeftWallFront", graywall);
 		fillBlocks(new Vector3f(60, 22, 0), new Vector3f(100, 60, 0), "floor4LeftWallBack", graywall);
 		fillBlocks(new Vector3f(2, 22, 2), new Vector3f(100, 22, 24), "floor4LeftWall", graywall);
-
+		//fillBlocks(coordinates of one corner, coordinates of opposite corner, unique name, texture to use)
 		fillBlocks(new Vector3f(102, 42, 10), new Vector3f(102, 42, 16), "elevatorL0F2", whitetile);
 		SaguaroCactus sc1 = new SaguaroCactus(node, assetManager, bulletAppState, player);
 		sc1.spawnCactus(new Vector3f(25, 2, 25), new Vector3f(25, 2, 0), "cactusS1");
