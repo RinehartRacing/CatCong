@@ -35,7 +35,7 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 		capsuleShape = new CapsuleCollisionShape(1.5f, 6f, 1); // Set dimensions of player
 
 		cc = new CharacterControl(capsuleShape, 0.05f);
-		cc.setJumpSpeed(50);
+		cc.setJumpSpeed(35);
 		cc.setFallSpeed(50);
 		cc.setGravity(100);
 
