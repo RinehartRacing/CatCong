@@ -15,6 +15,17 @@ public class Level1 extends Level {
 		/*
 		 * Build Level 1
 		 */
+		
+		/* TODO Chris Needs to finish level 1. FLoor 1 Nearly completely done. 
+		 * Just needs: 
+		 * Finish Jump Puzzle
+		 * End Level area from teleport ** Ask isabel and Rusty about possibilty of making floor two level 2 and maybe finishing just the stadium after
+		 * Cactus Placement All cactus needs to spawned
+		 * Textures ** need to work up with rusty on making this work. Unable to import any Textures. I must be doing something wrong
+		 * Hammer Pickup not happening. ** Ask Rusty about this oone
+		 * 
+		 * Chris 
+		 */
 		super(node, assetManager, bulletAppState, player);
 		fillBlocks(new Vector3f(10200, 0, 0), new Vector3f(10350, 0, 150), "level1floor", redbrick);
 		
@@ -82,6 +93,8 @@ public class Level1 extends Level {
 		//Jump Puzzle middle of the room. 
 		
 		//Crafted walls around puzzle
+		
+		//TODO Finish Puzzle.
 		fillBlocks(new Vector3f(10270, 2, 55), new Vector3f(10300, 20, 55), "JumpingPuzzleOutweWallEast", graywall);
 		fillBlocks(new Vector3f(10270, 2, 25), new Vector3f(10300, 20, 25), "JumpingPuzzleOutweWallWest", graywall);
 		fillBlocks(new Vector3f(10270, 2, 25), new Vector3f(10270, 20, 45), "JumpingPuzzleOutweWallSouth", graywall);
