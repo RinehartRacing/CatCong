@@ -21,9 +21,10 @@ public class BarrelCactus extends Cactus {
 	private Vector3f startCoord; // Starting point of BarrelCactus
 	private Vector3f endCoord; // Ending point of BarrelCactus
 
-	public BarrelCactus(Node node, AssetManager assetManager, BulletAppState bulletAppState, Player player) {
+	public BarrelCactus(Node node, AssetManager assetManager, BulletAppState bulletAppState, Player player, char direction) {
 		super(node, assetManager, bulletAppState, player);
-		speed = 32.0f; // Speed of BarrelCactus
+		speedX = 32.0f; // Speed of BarrelCactus
+		super.direction = direction;
 	}
 
 	public void spawnCactus(Vector3f coor1, Vector3f coor2, String name) {
@@ -33,6 +34,8 @@ public class BarrelCactus extends Cactus {
 		this.name = name;
 		this.startCoord = coor1;
 		this.endCoord = coor2;
+		//this.direction = direction;
+		
 		Box b = new Box(1, 1, 1);
 		Geometry geom = new Geometry(name, b);
 		Material mat = new Material(assetManager, // Create new material and...
@@ -59,10 +62,11 @@ public class BarrelCactus extends Cactus {
 		bulletAppState.getPhysicsSpace().addAll(cactusNode);
 	}
 
-	public void updateCactus(float tpf) {
+	public void updateCactusX(float tpf) {
 		/*
 		 * Responsible for moving the BarrelCactus given ticks per frame (tpf)
 		 */
+		if (direction ==  'x') {
 		float maxX = endCoord.getX(); // Start by finding max and min of x coordinates
 		float minX = startCoord.getX();
 		if (minX > maxX) {
@@ -71,17 +75,18 @@ public class BarrelCactus extends Cactus {
 		}
 
 		if (cactusNode != null) {
-			float xMov = speed * tpf;
+			float xMov = speedX * tpf;
 			float cactusPosX = cactusNode.getWorldTranslation().getX();
-			if (((cactusPosX >= maxX) && (speed > 0)) || ((cactusPosX < minX) && (speed < 0))) { // Flip speed if
+			if (((cactusPosX >= maxX) && (speedX > 0)) || ((cactusPosX < minX) && (speedX < 0))) { // Flip speed if
 																									// BarrelCactus gets
 																									// out of range
-				speed *= -1;
+				speedX *= -1;
 			}
 			cactusNode.move(xMov, 0, 0); // Move BarelCactus
 		}
 		bulletAppState.getPhysicsSpace().addAll(cactusNode);
 		bulletAppState.getPhysicsSpace().addCollisionListener(this); // Update collision detection
+	}
 	}
 
 	@Override
@@ -97,5 +102,13 @@ public class BarrelCactus extends Cactus {
 			}
 		}
 
+	}
+
+	@Override
+	public void updateCactusZ(float tpf) {
+		
+	
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -105,9 +105,9 @@ public class Level1 extends Level {
 		// Entrance to puzzle. 
 		//fillBlocks(new Vector3f(10300, 2, 25), new Vector3f(10300, 20, 55), "JumpingPuzzleOutweWallEast", graywall);
 		
-		fillBlocks(new Vector3f(10275, 0, 25), new Vector3f(10290, 10, 50), "JumpPuzzleCatcusfloor", cactuswall);
-		fillBlocks(new Vector3f(10290, 0, 35), new Vector3f(10299, 10, 50), "JumpPuzzlecactusfloor1", cactuswall);
-		fillBlocks(new Vector3f(10299, 0, 25), new Vector3f(10290, 5, 50), "JumpPuzzlecactusentrance", cactuswall);
+		fillBlocks(new Vector3f(10275, 0, 25), new Vector3f(10290, 10, 50), "JumpPuzzleCatcusfloor", whitetile);
+		fillBlocks(new Vector3f(10290, 0, 35), new Vector3f(10299, 10, 50), "JumpPuzzlecactusfloor1", whitetile);
+		fillBlocks(new Vector3f(10299, 0, 25), new Vector3f(10290, 5, 50), "JumpPuzzlecactusentrance", whitetile);
 		//Center block placement for the 
 		
 		fillBlocks(new Vector3f(10282.5f, 10, 37.5f), new Vector3f(10287.5f, 15, 42.5f), "JumpPuzzlecactusfloor1", graywall);
@@ -116,13 +116,49 @@ public class Level1 extends Level {
 		spawnHammer(new Vector3f(10285, 17, 40), "hammer2L1F0");
 		
 		//jump platforms. 
-		fillBlocks(new Vector3f(10282.5f, 14, 26.5f), new Vector3f(10287.5f, 14, 36.5f), "JumpPuzzlecactusfloor1", graywall);
+		fillBlocks(new Vector3f(10283.5f, 14, 26.5f), new Vector3f(10287.5f, 14, 33.5f), "JumpPuzzlecactusfloor1", graywall);
 		
-		///Cactus for Puzzle
-		SaguaroCactus scL1F1B1 = new SaguaroCactus(node, assetManager, bulletAppState, player);
+		///Cactus south of middle block for Puzzle
+		SaguaroCactus scL1F1B1 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
 		//// 						Starting location				Ending Location
-		scL1F1B1.spawnCactus(new Vector3f(10270, 11, 28.5f), new Vector3f(10282.5f, 11, 28.5f), "cactusL1F1B1");
+		scL1F1B1.spawnCactus(new Vector3f(10271, 12, 28.5f), new Vector3f(10281.5f, 12, 28.5f), "cactusL1F1B1");
 		cacti.add(scL1F1B1);
+		
+		SaguaroCactus scL1F1B2 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
+		//// 						Starting location				Ending Location
+		scL1F1B2.spawnCactus(new Vector3f(10271, 12, 32.25f), new Vector3f(10281.5f, 12, 32.25f), "cactusL1F1B2");
+		cacti.add(scL1F1B2);
+		
+		SaguaroCactus scL1F1B3 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
+		//// 						Starting location				Ending Location
+		scL1F1B3.spawnCactus(new Vector3f(10271, 12, 36), new Vector3f(10281.5f, 12, 36), "cactusL1F1B3");
+		cacti.add(scL1F1B3);
+		
+		SaguaroCactus scL1F1B4 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
+		//// 						Starting location				Ending Location
+		scL1F1B4.spawnCactus(new Vector3f(10271, 12, 39.75f), new Vector3f(10281.5f, 12, 39.75f), "cactusL1F1B4");
+		cacti.add(scL1F1B4);
+		
+		SaguaroCactus scL1F1B5 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
+		//// 						Starting location				Ending Location
+		scL1F1B5.spawnCactus(new Vector3f(10271, 12, 43.5f), new Vector3f(10281.5f, 12, 43.5f), "cactusL1F1B5");
+		cacti.add(scL1F1B5);
+		
+		SaguaroCactus scL1F1B6 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
+		//// 						Starting location				Ending Location
+		scL1F1B6.spawnCactus(new Vector3f(10271, 12, 47.25f), new Vector3f(10281.5f, 12, 47.25f), "cactusL1F1B6");
+		cacti.add(scL1F1B6);
+		
+		// Cactus West of Middle Block 
+		SaguaroCactus scL1F1B7 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'z');
+		//// 						Starting location				Ending Location
+		scL1F1B7.spawnCactus(new Vector3f(10282.5f, 12, 26.2f), new Vector3f(10282.5f, 12, 35), "cactusL1F1B7");
+		cacti.add(scL1F1B7);
+		
+		SaguaroCactus scL1F1B8 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'z');
+		//// 						Starting location				Ending Location
+		scL1F1B8.spawnCactus(new Vector3f(10285.5f, 12, 26.2f), new Vector3f(10285.5f, 12, 35), "cactusL1F1B8");
+		cacti.add(scL1F1B8);
 		
 		//IQfresh Room. Safe room
 

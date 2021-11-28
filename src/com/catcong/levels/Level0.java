@@ -58,19 +58,19 @@ public class Level0 extends Level {
 		fillBlocks(new Vector3f(2, 22, 2), new Vector3f(100, 22, 24), "floor4LeftWall", graywall);
 		//fillBlocks(coordinates of one corner, coordinates of opposite corner, unique name, texture to use)
 		fillBlocks(new Vector3f(102, 42, 10), new Vector3f(102, 42, 16), "elevatorL0F2", whitetile);
-		SaguaroCactus sc1 = new SaguaroCactus(node, assetManager, bulletAppState, player);
+		SaguaroCactus sc1 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'z');
 		sc1.spawnCactus(new Vector3f(25, 2, 25), new Vector3f(25, 2, 0), "cactusS1");
 		cacti.add(sc1);
 
-		BarrelCactus bc1 = new BarrelCactus(node, assetManager, bulletAppState, player);
+		BarrelCactus bc1 = new BarrelCactus(node, assetManager, bulletAppState, player, 'x');
 		bc1.spawnCactus(new Vector3f(100, 24, 10), new Vector3f(0, 24, 10), "cactusB1");
 		cacti.add(bc1);
 
-		BarrelCactus bc2 = new BarrelCactus(node, assetManager, bulletAppState, player);
+		BarrelCactus bc2 = new BarrelCactus(node, assetManager, bulletAppState, player, 'x');
 		bc2.spawnCactus(new Vector3f(100, 24, 15), new Vector3f(0, 24, 15), "cactusB2");
 		cacti.add(bc2);
 
-		BarrelCactus bc3 = new BarrelCactus(node, assetManager, bulletAppState, player);
+		BarrelCactus bc3 = new BarrelCactus(node, assetManager, bulletAppState, player, 'x');
 		bc3.spawnCactus(new Vector3f(100, 24, 19), new Vector3f(0, 24, 19), "cactusB3");
 		cacti.add(bc3);
 
