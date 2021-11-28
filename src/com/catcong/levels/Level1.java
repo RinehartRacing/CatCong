@@ -140,7 +140,7 @@ public class Level1 extends Level {
 		
 		//Cutting off level across 
 		//TODO NEED A NEW COLOUR WAS NOT ABLE TO PUT IT IN
-		fillBlocks(new Vector3f(10320, 2, 115), new Vector3f(10320, 20 ,150), "CutoffinFrontofBookstore", graybrick);
+		fillBlocks(new Vector3f(10320, 2, 115), new Vector3f(10320, 20 ,150), "CutoffinFrontofBookstore", cactuswall);
 		
 		
 	}

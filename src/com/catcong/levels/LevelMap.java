@@ -29,18 +29,18 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 
 	private final Node rootNode;
 
-	private final Node gameLevel = new Node("LevelMap");	//Node to hold level
+	private final Node gameLevel = new Node("LevelMap"); // Node to hold level
 	private final AssetManager assetManager;
 	private final InputManager inputManager;
 	private Player player;
 	private BulletAppState bulletAppState;
 	private SimpleApplication app;
-	private LevelControl lc;	//LevelControl access object
-	private Level0 level0;		//4 level objects
+	private LevelControl lc; // LevelControl access object
+	private Level0 level0; // 4 level objects
 	private Level1 level1;
 	private Level2 level2;
 	private Level3 level3;
-	private boolean toScoreorNottoScore;	//Boolean to prevent getting too high of a score with threading
+	private boolean toScoreorNottoScore; // Boolean to prevent getting too high of a score with threading
 
 	public LevelMap(SimpleApplication app, LevelControl lc) {
 		rootNode = app.getRootNode();
@@ -58,27 +58,30 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 		 * Called when the Level Map is started
 		 */
 		super.initialize(stateManager, app);
-		app.getCamera().setLocation(new Vector3f(10, 5, 10));	//Set initial camera location
+		app.getCamera().setLocation(new Vector3f(10, 5, 10)); // Set initial camera location
 		bulletAppState = new BulletAppState();
 		stateManager.attach(bulletAppState);
 
-		player.setupKeys();	//Setup key bindings
-		//level0 = new Level0(gameLevel, assetManager, bulletAppState, player);	//Create 4 levels
+		player.setupKeys(); // Setup key bindings
+		// level0 = new Level0(gameLevel, assetManager, bulletAppState, player);
+		// //Create 4 levels
 		level1 = new Level1(gameLevel, assetManager, bulletAppState, player);
 		level2 = new Level2(gameLevel, assetManager, bulletAppState, player);
 		level3 = new Level3(gameLevel, assetManager, bulletAppState, player);
-		CollisionShape sceneShape = CollisionShapeFactory.createMeshShape(gameLevel);	//Add collision detection to levels
+		CollisionShape sceneShape = CollisionShapeFactory.createMeshShape(gameLevel); // Add collision detection to
+																						// levels
 		gameLevel.addControl(new RigidBodyControl(sceneShape, 0));
 
 		rootNode.attachChild(gameLevel);
 
-		getPhysicsSpace().add(player.get());	//Add physiscs to player
+		getPhysicsSpace().add(player.get()); // Add physiscs to player
 		getPhysicsSpace().addCollisionListener(this);
 
-		inputManager.addMapping("Pause", new KeyTrigger(KeyInput.KEY_P));	//Map p to pause
+		inputManager.addMapping("Pause", new KeyTrigger(KeyInput.KEY_P)); // Map p to pause
 
-		rootNode.attachChild(
-				SkyFactory.createSky(assetManager, "assets/Textures/BrightSky.dds", SkyFactory.EnvMapType.CubeMap));	//Sky background
+		// rootNode.attachChild(
+		// SkyFactory.createSky(assetManager, "assets/Textures/BrightSky.dds",
+		// SkyFactory.EnvMapType.CubeMap)); //Sky background
 	}
 
 	public PhysicsSpace getPhysicsSpace() {
@@ -119,9 +122,10 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 		level3.removeCactus(name);
 	}
 
-	public void setScoreBool(boolean toScoreorNottoScore ) {
+	public void setScoreBool(boolean toScoreorNottoScore) {
 		this.toScoreorNottoScore = toScoreorNottoScore;
 	}
+
 	@Override
 	public void cleanup() {
 		/*
@@ -137,7 +141,7 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 		/*
 		 * Called on loop to move cacti
 		 */
-		//level0.updateCacti(tpf);
+		// level0.updateCacti(tpf);
 	}
 
 	@Override
@@ -195,6 +199,10 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 			if (event.getNodeB() != null) {
 				if ("hammerL3F0".equals(event.getNodeB().getName())) {
 					level3.removeHammer(0);
+					player.grabHammer();
+				}
+				if ("hammerL1F0".equals(event.getNodeB().getName())) {
+					level1.removeHammer(0);
 					player.grabHammer();
 				}
 			}

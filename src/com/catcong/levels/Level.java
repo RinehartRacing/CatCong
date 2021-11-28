@@ -35,6 +35,7 @@ public class Level{
 	protected String graywall = "assets/Textures/graywall.png";
 	protected String officeceiling = "assets/Textures/officeceiling.jpg";
 	protected String graybrick = "assets/Textures/graybrick.jpg";
+	protected String cactuswall = "assets/Textures/cactus.jpg";
 	//protected String redStop = "C:\\Users\\Cwbre\\OneDrive\\Documents\\ECE 373\\CatCong\\bin\\assets\\Textures\\RedColour.png";
 	
 	public Level(Node node, AssetManager assetManager, BulletAppState bulletAppState, Player player) {
