@@ -142,6 +142,7 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 		 * Called on loop to move cacti
 		 */
 		// level0.updateCacti(tpf);
+		 level1.updateCacti(tpf);
 	}
 
 	@Override
@@ -203,6 +204,10 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 				}
 				if ("hammerL1F0".equals(event.getNodeB().getName())) {
 					level1.removeHammer(0);
+					player.grabHammer();
+				}
+				if ("hammer2L1F0".equals(event.getNodeB().getName())) {
+					level1.removeHammer(1);
 					player.grabHammer();
 				}
 			}

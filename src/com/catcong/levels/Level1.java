@@ -5,6 +5,8 @@
 package com.catcong.levels;
 
 import com.catcong.Player;
+import com.catcong.enemy.BarrelCactus;
+import com.catcong.enemy.SaguaroCactus;
 import com.jme3.asset.AssetManager;
 import com.jme3.bullet.BulletAppState;
 import com.jme3.math.Vector3f;
@@ -94,15 +96,33 @@ public class Level1 extends Level {
 		
 		//Crafted walls around puzzle
 		
-		//TODO Finish Puzzle.
 		fillBlocks(new Vector3f(10270, 2, 55), new Vector3f(10300, 20, 55), "JumpingPuzzleOutweWallEast", graywall);
 		fillBlocks(new Vector3f(10270, 2, 25), new Vector3f(10300, 20, 25), "JumpingPuzzleOutweWallWest", graywall);
 		fillBlocks(new Vector3f(10270, 2, 25), new Vector3f(10270, 20, 45), "JumpingPuzzleOutweWallSouth", graywall);
 		fillBlocks(new Vector3f(10300, 2, 35), new Vector3f(10300, 20, 55), "JumpingPuzzleOutweWallNorth", graywall);
 		fillBlocks(new Vector3f(10270, 2, 45), new Vector3f(10270, 15, 55), "JumpingPuzzleOutweWallEast", graywall);
 		
+		// Entrance to puzzle. 
+		//fillBlocks(new Vector3f(10300, 2, 25), new Vector3f(10300, 20, 55), "JumpingPuzzleOutweWallEast", graywall);
 		
+		fillBlocks(new Vector3f(10275, 0, 25), new Vector3f(10290, 10, 50), "JumpPuzzleCatcusfloor", cactuswall);
+		fillBlocks(new Vector3f(10290, 0, 35), new Vector3f(10299, 10, 50), "JumpPuzzlecactusfloor1", cactuswall);
+		fillBlocks(new Vector3f(10299, 0, 25), new Vector3f(10290, 5, 50), "JumpPuzzlecactusentrance", cactuswall);
+		//Center block placement for the 
 		
+		fillBlocks(new Vector3f(10282.5f, 10, 37.5f), new Vector3f(10287.5f, 15, 42.5f), "JumpPuzzlecactusfloor1", graywall);
+		// spawn hammer time. 
+		
+		spawnHammer(new Vector3f(10285, 17, 40), "hammer2L1F0");
+		
+		//jump platforms. 
+		fillBlocks(new Vector3f(10282.5f, 14, 26.5f), new Vector3f(10287.5f, 14, 36.5f), "JumpPuzzlecactusfloor1", graywall);
+		
+		///Cactus for Puzzle
+		SaguaroCactus scL1F1B1 = new SaguaroCactus(node, assetManager, bulletAppState, player);
+		//// 						Starting location				Ending Location
+		scL1F1B1.spawnCactus(new Vector3f(10270, 11, 28.5f), new Vector3f(10282.5f, 11, 28.5f), "cactusL1F1B1");
+		cacti.add(scL1F1B1);
 		
 		//IQfresh Room. Safe room
 

@@ -52,7 +52,7 @@ public class SaguaroCactus extends Cactus {
 		bulletAppState.getPhysicsSpace().addAll(cactusNode);
 	}
 
-	public void updateCactus(float tpf) {
+	public void updateCactusZ(float tpf) {
 		/*
 		 * Responsible for moving the Saguaro
 		 */
@@ -75,6 +75,29 @@ public class SaguaroCactus extends Cactus {
 		bulletAppState.getPhysicsSpace().addAll(cactusNode);
 		bulletAppState.getPhysicsSpace().addCollisionListener(this);
 	}
+	public void updateCactusX(float tpf) {
+		/*
+		 * Responsible for moving the Saguaro
+		 */
+		float maxX = endCoord.getX(); // Find max and min x first
+		float minX = startCoord.getX();
+		if (minX > maxX) {
+			maxX = startCoord.getX();
+			minX = endCoord.getX();
+		}
+
+		if (cactusNode != null) {
+			float xMov = speed * tpf;
+			float cactusPosX = cactusNode.getWorldTranslation().getX();
+			if (((cactusPosX >= maxX) && (speed > 0)) || ((cactusPosX < minX) && (speed < 0))) { // Flip direction if
+																									// out of bounds
+				speed *= -1;
+			}
+			cactusNode.move(0, 0, xMov); // Move Saguaro
+		}
+		bulletAppState.getPhysicsSpace().addAll(cactusNode);
+		bulletAppState.getPhysicsSpace().addCollisionListener(this);
+	}
 
 	@Override
 	public void collision(PhysicsCollisionEvent event) {
@@ -89,5 +112,11 @@ public class SaguaroCactus extends Cactus {
 			}
 		}
 
+	}
+
+	@Override
+	public void updateCactus(float tpf) {
+		// TODO Auto-generated method stub
+		
 	}
 }
