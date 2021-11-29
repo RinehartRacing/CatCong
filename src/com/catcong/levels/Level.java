@@ -137,7 +137,8 @@ public class Level{
 		 */
 		for(int i = 0; i < cacti.size(); i++) {
 			if(cacti.get(i).getCactusNode() != null) {
-				cacti.get(i).updateCactus(tpf);
+				cacti.get(i).updateCactusX(tpf);
+				cacti.get(i).updateCactusZ(tpf);
 			}
 		}
 	}

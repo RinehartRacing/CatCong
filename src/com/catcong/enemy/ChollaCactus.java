@@ -71,11 +71,18 @@ public class ChollaCactus extends Cactus {
 
 	}
 
-	@Override
-	public void updateCactus(float tpf) {
-		/*
-		 * Where ChollaCactus movement would be defined if needed
-		 */
 
+	
+
+	@Override
+	public void updateCactusX(float tpf) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateCactusZ(float tpf) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -18,9 +18,12 @@ public abstract class Cactus implements PhysicsCollisionListener{
 	protected BulletAppState bulletAppState;
 	protected Node cactusNode;
 	protected RigidBodyControl control;
-	protected float speed;
+	protected float speedX;
+	protected float speedZ;
 	protected String name;
 	protected Player player;
+	protected char direction; //Which Direction to spawn cactus. 
+	
 	public Cactus(Node node, AssetManager assetManager, BulletAppState bulletAppState, Player player) {
 		this.node = node;
 		this.assetManager = assetManager;
@@ -29,7 +32,8 @@ public abstract class Cactus implements PhysicsCollisionListener{
 		cactusNode = null;
 		control = null;
 	}
-	public abstract void updateCactus(float tpf);
+	public abstract void updateCactusX(float tpf);
+	public abstract void updateCactusZ(float tpf);
 	public abstract void collision(PhysicsCollisionEvent event);
 	public String toString() {
 		/*

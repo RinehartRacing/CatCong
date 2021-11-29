@@ -55,10 +55,14 @@ public class SunDevil extends Cactus {
 	}
 
 	@Override
-	public void updateCactus(float tpf) {
-		/*
-		 * Called if we decide to move SunDevil
-		 */
+	public void updateCactusX(float tpf) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateCactusZ(float tpf) {
+		// TODO Auto-generated method stub
 		
 	}
 }

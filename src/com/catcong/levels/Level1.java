@@ -5,6 +5,8 @@
 package com.catcong.levels;
 
 import com.catcong.Player;
+import com.catcong.enemy.BarrelCactus;
+import com.catcong.enemy.SaguaroCactus;
 import com.jme3.asset.AssetManager;
 import com.jme3.bullet.BulletAppState;
 import com.jme3.math.Vector3f;
@@ -52,7 +54,7 @@ public class Level1 extends Level {
 		// Arizona Market
 		fillBlocks(new Vector3f(10245, 2, 115), new Vector3f(10245, 20 ,130), "ArizonaMarketDisplaceZ", graywall);
 		fillBlocks(new Vector3f(10245, 2, 130), new Vector3f(10250, 20 ,130), "ArizonaMarketDisplaceX", graywall);
-		//TODO Ask Rusty This created a full triangle but not an angle. 
+		
 		fillBlocks(new Vector3f(10250, 2, 130), new Vector3f(10270, 20 ,115), "DiagonalArizonaMarket", graywall);
 		
 		//hallway by restroom and Theatre to secret wall
@@ -63,7 +65,7 @@ public class Level1 extends Level {
 		fillBlocksGhost(new Vector3f(10215, 2, 99), new Vector3f(10215, 20, 90), "HiddenWallbyTheatre", graybrick);
 		fillBlocks(new Vector3f(10200, 2, 90), new Vector3f(10215, 20 , 90), "FillingHiddenroomDisplaceZ", graywall);
 		//Spawn hammer in secret room:
-		//TODO Hammer Does not get picked up. Dont know why
+		
 		spawnHammer(new Vector3f(10207, 2, 110), "hammerL1F0");
 		
 		//Galager's Theatre: 
@@ -94,15 +96,81 @@ public class Level1 extends Level {
 		
 		//Crafted walls around puzzle
 		
-		//TODO Finish Puzzle.
 		fillBlocks(new Vector3f(10270, 2, 55), new Vector3f(10300, 20, 55), "JumpingPuzzleOutweWallEast", graywall);
 		fillBlocks(new Vector3f(10270, 2, 25), new Vector3f(10300, 20, 25), "JumpingPuzzleOutweWallWest", graywall);
 		fillBlocks(new Vector3f(10270, 2, 25), new Vector3f(10270, 20, 45), "JumpingPuzzleOutweWallSouth", graywall);
 		fillBlocks(new Vector3f(10300, 2, 35), new Vector3f(10300, 20, 55), "JumpingPuzzleOutweWallNorth", graywall);
 		fillBlocks(new Vector3f(10270, 2, 45), new Vector3f(10270, 15, 55), "JumpingPuzzleOutweWallEast", graywall);
 		
+		// Entrance to puzzle. 
+		//fillBlocks(new Vector3f(10300, 2, 25), new Vector3f(10300, 20, 55), "JumpingPuzzleOutweWallEast", graywall);
 		
+		fillBlocks(new Vector3f(10275, 0, 25), new Vector3f(10290, 10, 50), "JumpPuzzleCatcusfloor", whitetile);
+		fillBlocks(new Vector3f(10290, 0, 35), new Vector3f(10299, 10, 50), "JumpPuzzlecactusfloor1", whitetile);
+		fillBlocks(new Vector3f(10299, 0, 25), new Vector3f(10290, 5, 50), "JumpPuzzlecactusentrance", whitetile);
+		//Center block placement for the 
 		
+		fillBlocks(new Vector3f(10282.5f, 10, 37.5f), new Vector3f(10287.5f, 15, 42.5f), "JumpPuzzlecactusfloor1", graywall);
+		// spawn hammer time. 
+		
+		spawnHammer(new Vector3f(10285, 17, 40), "hammer2L1F0");
+		
+		//jump platforms. 
+		fillBlocks(new Vector3f(10283.5f, 14, 26.5f), new Vector3f(10287.5f, 14, 33.5f), "JumpPuzzlecactusfloor1", graywall);
+		fillBlocks(new Vector3f(10283.5f, 14, 26.5f), new Vector3f(10287.5f, 14, 33.5f), "JumpPuzzlecactusfloor1", graywall);
+		
+		///Cactus south of middle block for Puzzle
+		SaguaroCactus scL1F1B1 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
+		//// 						Starting location				Ending Location
+		scL1F1B1.spawnCactus(new Vector3f(10271, 12, 28.5f), new Vector3f(10281.5f, 12, 28.5f), "cactusL1F1B1");
+		cacti.add(scL1F1B1);
+		
+		SaguaroCactus scL1F1B2 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
+		//// 						Starting location				Ending Location
+		scL1F1B2.spawnCactus(new Vector3f(10271, 12, 32.25f), new Vector3f(10281.5f, 12, 32.25f), "cactusL1F1B2");
+		cacti.add(scL1F1B2);
+		
+		SaguaroCactus scL1F1B3 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
+		//// 						Starting location				Ending Location
+		scL1F1B3.spawnCactus(new Vector3f(10271, 12, 36), new Vector3f(10281.5f, 12, 36), "cactusL1F1B3");
+		cacti.add(scL1F1B3);
+		
+		SaguaroCactus scL1F1B4 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
+		//// 						Starting location				Ending Location
+		scL1F1B4.spawnCactus(new Vector3f(10271, 12, 39.75f), new Vector3f(10281.5f, 12, 39.75f), "cactusL1F1B4");
+		cacti.add(scL1F1B4);
+		
+		SaguaroCactus scL1F1B5 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
+		//// 						Starting location				Ending Location
+		scL1F1B5.spawnCactus(new Vector3f(10271, 12, 43.5f), new Vector3f(10281.5f, 12, 43.5f), "cactusL1F1B5");
+		cacti.add(scL1F1B5);
+		
+		SaguaroCactus scL1F1B6 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
+		//// 						Starting location				Ending Location
+		scL1F1B6.spawnCactus(new Vector3f(10271, 12, 47.25f), new Vector3f(10281.5f, 12, 47.25f), "cactusL1F1B6");
+		cacti.add(scL1F1B6);
+		
+		// Cactus West of Middle Block 
+		SaguaroCactus scL1F1B7 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'z');
+		//// 						Starting location				Ending Location
+		scL1F1B7.spawnCactus(new Vector3f(10282.5f, 12, 26.2f), new Vector3f(10282.5f, 12, 35), "cactusL1F1B7");
+		cacti.add(scL1F1B7);
+		
+		SaguaroCactus scL1F1B8 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'z');
+		//// 						Starting location				Ending Location
+		scL1F1B8.spawnCactus(new Vector3f(10285.5f, 12, 26.2f), new Vector3f(10285.5f, 12, 35), "cactusL1F1B8");
+		cacti.add(scL1F1B8);
+		
+		// Cactus East of the Middle Block
+		SaguaroCactus scL1F1B9 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'z');
+		//// 						Starting location				Ending Location
+		scL1F1B9.spawnCactus(new Vector3f(10282.5f, 12, 54), new Vector3f(10282.5f, 12, 43.5f), "cactusL1F1B7");
+		cacti.add(scL1F1B9);
+		
+		SaguaroCactus scL1F1B10 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'z');
+		//// 						Starting location				Ending Location
+		scL1F1B10.spawnCactus(new Vector3f(10285.5f, 12, 54), new Vector3f(10285.5f, 12, 43.5f), "cactusL1F1B8");
+		cacti.add(scL1F1B10);
 		
 		//IQfresh Room. Safe room
 
