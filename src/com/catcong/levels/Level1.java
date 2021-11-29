@@ -54,7 +54,7 @@ public class Level1 extends Level {
 		// Arizona Market
 		fillBlocks(new Vector3f(10245, 2, 115), new Vector3f(10245, 20 ,130), "ArizonaMarketDisplaceZ", graywall);
 		fillBlocks(new Vector3f(10245, 2, 130), new Vector3f(10250, 20 ,130), "ArizonaMarketDisplaceX", graywall);
-		//TODO Ask Rusty This created a full triangle but not an angle. 
+		
 		fillBlocks(new Vector3f(10250, 2, 130), new Vector3f(10270, 20 ,115), "DiagonalArizonaMarket", graywall);
 		
 		//hallway by restroom and Theatre to secret wall
@@ -65,7 +65,7 @@ public class Level1 extends Level {
 		fillBlocksGhost(new Vector3f(10215, 2, 99), new Vector3f(10215, 20, 90), "HiddenWallbyTheatre", graybrick);
 		fillBlocks(new Vector3f(10200, 2, 90), new Vector3f(10215, 20 , 90), "FillingHiddenroomDisplaceZ", graywall);
 		//Spawn hammer in secret room:
-		//TODO Hammer Does not get picked up. Dont know why
+		
 		spawnHammer(new Vector3f(10207, 2, 110), "hammerL1F0");
 		
 		//Galager's Theatre: 
@@ -117,6 +117,7 @@ public class Level1 extends Level {
 		
 		//jump platforms. 
 		fillBlocks(new Vector3f(10283.5f, 14, 26.5f), new Vector3f(10287.5f, 14, 33.5f), "JumpPuzzlecactusfloor1", graywall);
+		fillBlocks(new Vector3f(10283.5f, 14, 26.5f), new Vector3f(10287.5f, 14, 33.5f), "JumpPuzzlecactusfloor1", graywall);
 		
 		///Cactus south of middle block for Puzzle
 		SaguaroCactus scL1F1B1 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
@@ -159,6 +160,17 @@ public class Level1 extends Level {
 		//// 						Starting location				Ending Location
 		scL1F1B8.spawnCactus(new Vector3f(10285.5f, 12, 26.2f), new Vector3f(10285.5f, 12, 35), "cactusL1F1B8");
 		cacti.add(scL1F1B8);
+		
+		// Cactus East of the Middle Block
+		SaguaroCactus scL1F1B9 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'z');
+		//// 						Starting location				Ending Location
+		scL1F1B9.spawnCactus(new Vector3f(10282.5f, 12, 54), new Vector3f(10282.5f, 12, 43.5f), "cactusL1F1B7");
+		cacti.add(scL1F1B9);
+		
+		SaguaroCactus scL1F1B10 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'z');
+		//// 						Starting location				Ending Location
+		scL1F1B10.spawnCactus(new Vector3f(10285.5f, 12, 54), new Vector3f(10285.5f, 12, 43.5f), "cactusL1F1B8");
+		cacti.add(scL1F1B10);
 		
 		//IQfresh Room. Safe room
 

@@ -28,6 +28,8 @@ public class SaguaroCactus extends Cactus {
 		this.direction = direction; 
 	}
 
+	
+
 	public void spawnCactus(Vector3f coor1, Vector3f coor2, String name) {
 		/*
 		 * Builds Saguaro geometry
