@@ -79,9 +79,9 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 
 		inputManager.addMapping("Pause", new KeyTrigger(KeyInput.KEY_P)); // Map p to pause
 
-		// rootNode.attachChild(
-		// SkyFactory.createSky(assetManager, "assets/Textures/BrightSky.dds",
-		// SkyFactory.EnvMapType.CubeMap)); //Sky background
+		rootNode.attachChild(
+				SkyFactory.createSky(assetManager, "assets/Textures/BrightSky.dds", SkyFactory.EnvMapType.CubeMap)); // Sky
+																														// background
 	}
 
 	public PhysicsSpace getPhysicsSpace() {
@@ -150,7 +150,7 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 		 * Triggered when collision occurs between player and cactus or elevator
 		 */
 		if (event.getNodeB() != null) {
-			if ("elevatorL0F0".equals(event.getNodeB().getName())) {	//Elevator collision
+			if ("elevatorL0F0".equals(event.getNodeB().getName())) { // Elevator collision
 				player.get().setPhysicsLocation(new Vector3f(99, 24, 13));
 			}
 			if ("elevatorL0F1".equals(event.getNodeB().getName())) {
@@ -159,9 +159,10 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 			if ("elevatorL0F2".equals(event.getNodeB().getName())) {
 				player.get().setPhysicsLocation(new Vector3f(10225, 5, 50));
 				player.advanceLevel();
-				if (toScoreorNottoScore) {	//End of level logic that ensures score doesn't get incremented multiple times
-				player.incrementScore(500);
-				toScoreorNottoScore = false;
+				if (toScoreorNottoScore) { // End of level logic that ensures score doesn't get incremented multiple
+											// times
+					player.incrementScore(500);
+					toScoreorNottoScore = false;
 				}
 				lc.finishLevel(0);
 
@@ -169,26 +170,26 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 			if ("elevatorL1F0".equals(event.getNodeB().getName())) {
 				player.get().setPhysicsLocation(new Vector3f(21425, 5, 50));
 				player.advanceLevel();
-				if (toScoreorNottoScore) {	//End of level logic that ensures score doesn't get incremented multiple times
+				if (toScoreorNottoScore) { // End of level logic that ensures score doesn't get incremented multiple
+											// times
 					player.incrementScore(500);
 					toScoreorNottoScore = false;
-					}
+				}
 				lc.finishLevel(1);
-				
 
 			}
 			if ("elevatorL2F0".equals(event.getNodeB().getName())) {
 				player.get().setPhysicsLocation(new Vector3f(31625, 5, 50));
 				player.advanceLevel();
-				if (toScoreorNottoScore) {	//End of level logic that ensures score doesn't get incremented multiple times
+				if (toScoreorNottoScore) { // End of level logic that ensures score doesn't get incremented multiple
+											// times
 					player.incrementScore(500);
 					toScoreorNottoScore = false;
-					}
+				}
 				lc.finishLevel(2);
-				
-				
+
 			}
-			if ("hammerL0F0".equals(event.getNodeB().getName())) {	//Hammers
+			if ("hammerL0F0".equals(event.getNodeB().getName())) { // Hammers
 				level0.removeHammer(0);
 				player.grabHammer();
 			}
@@ -201,9 +202,11 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 					level3.removeHammer(0);
 					player.grabHammer();
 				}
-				if ("hammerL1F0".equals(event.getNodeB().getName())) {
-					level1.removeHammer(0);
-					player.grabHammer();
+				if (event.getNodeB() != null) {
+					if ("hammerL1F0".equals(event.getNodeB().getName())) {
+						level1.removeHammer(0);
+						player.grabHammer();
+					}
 				}
 			}
 

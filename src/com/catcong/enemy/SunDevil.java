@@ -26,16 +26,17 @@ public class SunDevil extends Cactus {
 	public void spawnCactus(Vector3f coor1, String name) {
 		this.name = name;
 
-		Spatial sundevil = assetManager.loadModel("assets/Models/sundevil.obj");	//Load sundevil model
+		Spatial sundevil = assetManager.loadModel("assets/Models/sundevil3.obj");	//Load sundevil model
 		Material mat = new Material(assetManager, // Create new material and...
 				"Common/MatDefs/Misc/Unshaded.j3md"); // ... specify .j3md file to use (unshaded).
-		//mat.setTexture("ColorMap", assetManager.loadTexture("assets/Textures/sundevil.jpg"));
-		mat.setColor("Color", ColorRGBA.Red);	//Set model color to red
+		mat.setTexture("ColorMap", assetManager.loadTexture("assets/Models/texture_0_6195987693227547908.png"));
+		//mat.setColor("Color", ColorRGBA.Red);	//Set model color to red
 		sundevil.setMaterial(mat); // Use new material on this Geometry.
 
 		cactusNode = new Node(name);
 		cactusNode.setLocalTranslation(new Vector3f(coor1.getX(), coor1.getY(), coor1.getZ()));
-		cactusNode.rotate(0f, -1.57f, 0f);
+		cactusNode.rotate(-1.5f, -1.5f, 0f);
+		cactusNode.scale(0.01f, 0.01f, 0.01f);
 		cactusNode.attachChild(sundevil);
 		node.attachChild(cactusNode);
 		CollisionShape cactusShape = CollisionShapeFactory.createMeshShape(cactusNode);	//Add collision to SunDevil
