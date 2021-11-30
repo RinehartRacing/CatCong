@@ -21,14 +21,13 @@ public class SaguaroCactus extends Cactus {
 	private Vector3f startCoord; // initial coordinate of Saguaro
 	private Vector3f endCoord; // ending coordinate of Saguaro
 
-	public SaguaroCactus(Node node, AssetManager assetManager, BulletAppState bulletAppState, Player player, char direction) {
+	public SaguaroCactus(Node node, AssetManager assetManager, BulletAppState bulletAppState, Player player,
+			char direction) {
 		super(node, assetManager, bulletAppState, player);
 		speedX = 32.0f; // speed of saguaro
 		speedZ = 32.0f;
-		this.direction = direction; 
+		this.direction = direction;
 	}
-
-	
 
 	public void spawnCactus(Vector3f coor1, Vector3f coor2, String name) {
 		/*
@@ -37,8 +36,8 @@ public class SaguaroCactus extends Cactus {
 		this.name = name;
 		this.startCoord = coor1;
 		this.endCoord = coor2;
-		//this.direction = direction;
-		
+		// this.direction = direction;
+
 		Box b = new Box(1, 1, 1);
 		Geometry geom = new Geometry(name, b);
 		Material mat = new Material(assetManager, // Create new material and...
@@ -63,50 +62,53 @@ public class SaguaroCactus extends Cactus {
 		 * Responsible for moving the Saguaro
 		 */
 		if (direction == 'z') {
-		float maxZ = endCoord.getZ(); // Find max and min x first
-		float minZ = startCoord.getZ();
-		if (minZ > maxZ) {
-			maxZ = startCoord.getZ();
-			minZ = endCoord.getZ();
-		}
-
-		if (cactusNode != null) {
-			float zMov = speedZ * tpf;
-			float cactusPosZ = cactusNode.getWorldTranslation().getZ();
-			if (((cactusPosZ >= maxZ) && (speedZ > 0)) || ((cactusPosZ < minZ) && (speedZ < 0))) { // Flip direction if
-																									// out of bounds
-				speedZ *= -1;
+			float maxZ = endCoord.getZ(); // Find max and min x first
+			float minZ = startCoord.getZ();
+			if (minZ > maxZ) {
+				maxZ = startCoord.getZ();
+				minZ = endCoord.getZ();
 			}
-			cactusNode.move(0, 0, zMov); // Move Saguaro
+
+			if (cactusNode != null) {
+				float zMov = speedZ * tpf;
+				float cactusPosZ = cactusNode.getWorldTranslation().getZ();
+				if (((cactusPosZ >= maxZ) && (speedZ > 0)) || ((cactusPosZ < minZ) && (speedZ < 0))) { // Flip direction
+																										// if
+																										// out of bounds
+					speedZ *= -1;
+				}
+				cactusNode.move(0, 0, zMov); // Move Saguaro
+			}
+			bulletAppState.getPhysicsSpace().addAll(cactusNode);
+			bulletAppState.getPhysicsSpace().addCollisionListener(this);
 		}
-		bulletAppState.getPhysicsSpace().addAll(cactusNode);
-		bulletAppState.getPhysicsSpace().addCollisionListener(this);
 	}
-	}
+
 	public void updateCactusX(float tpf) {
 		/*
 		 * Responsible for moving the Saguaro
 		 */
-		if (direction ==  'x') {
-		float maxX = endCoord.getX(); // Find max and min x first
-		float minX = startCoord.getX();
-		if (minX > maxX) {
-			maxX = startCoord.getX();
-			minX = endCoord.getX();
-		}
-
-		if (cactusNode != null) {
-			float xMov = speedX * tpf;
-			float cactusPosX = cactusNode.getWorldTranslation().getX();
-			if (((cactusPosX >= maxX) && (speedX > 0)) || ((cactusPosX < minX) && (speedX < 0))) { // Flip direction if
-																									// out of bounds
-				speedX *= -1;
+		if (direction == 'x') {
+			float maxX = endCoord.getX(); // Find max and min x first
+			float minX = startCoord.getX();
+			if (minX > maxX) {
+				maxX = startCoord.getX();
+				minX = endCoord.getX();
 			}
-			cactusNode.move(xMov, 0, 0); // Move Saguaro
+
+			if (cactusNode != null) {
+				float xMov = speedX * tpf;
+				float cactusPosX = cactusNode.getWorldTranslation().getX();
+				if (((cactusPosX >= maxX) && (speedX > 0)) || ((cactusPosX < minX) && (speedX < 0))) { // Flip direction
+																										// if
+																										// out of bounds
+					speedX *= -1;
+				}
+				cactusNode.move(xMov, 0, 0); // Move Saguaro
+			}
+			bulletAppState.getPhysicsSpace().addAll(cactusNode);
+			bulletAppState.getPhysicsSpace().addCollisionListener(this);
 		}
-		bulletAppState.getPhysicsSpace().addAll(cactusNode);
-		bulletAppState.getPhysicsSpace().addCollisionListener(this);
-	}
 	}
 
 	@Override
@@ -124,6 +126,4 @@ public class SaguaroCactus extends Cactus {
 
 	}
 
-
-	
 }

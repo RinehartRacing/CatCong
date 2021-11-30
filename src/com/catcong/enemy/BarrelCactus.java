@@ -24,7 +24,8 @@ public class BarrelCactus extends Cactus {
 	public BarrelCactus(Node node, AssetManager assetManager, BulletAppState bulletAppState, Player player, char direction) {
 		super(node, assetManager, bulletAppState, player);
 		speedX = 32.0f; // Speed of BarrelCactus
-		super.direction = direction;
+		speedZ = 32.0f;
+		this.direction = direction;
 	}
 
 	public void spawnCactus(Vector3f coor1, Vector3f coor2, String name) {
@@ -108,7 +109,30 @@ public class BarrelCactus extends Cactus {
 	public void updateCactusZ(float tpf) {
 		
 	
-		// TODO Auto-generated method stub
+		/*
+		 * Responsible for moving the BarrelCactus given ticks per frame (tpf)
+		 */
+		if (direction ==  'z') {
+		float maxZ = endCoord.getZ(); // Start by finding max and min of x coordinates
+		float minZ = startCoord.getZ();
+		if (minZ > maxZ) {
+			maxZ = startCoord.getZ();
+			minZ = endCoord.getZ();
+		}
+
+		if (cactusNode != null) {
+			float zMov = speedZ * tpf;
+			float cactusPosZ = cactusNode.getWorldTranslation().getZ();
+			if (((cactusPosZ >= maxZ) && (speedZ > 0)) || ((cactusPosZ < minZ) && (speedZ < 0))) { // Flip speed if
+																									// BarrelCactus gets
+																									// out of range
+				speedZ *= -1;
+			}
+			cactusNode.move(0, 0, zMov); // Move BarelCactus
+		}
+		bulletAppState.getPhysicsSpace().addAll(cactusNode);
+		bulletAppState.getPhysicsSpace().addCollisionListener(this); // Update collision detection
+	}
 		
 	}
 }
