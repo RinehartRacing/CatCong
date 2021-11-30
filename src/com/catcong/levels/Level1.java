@@ -18,15 +18,12 @@ public class Level1 extends Level {
 		 * Build Level 1
 		 */
 		
-		/* TODO Chris Needs to finish level 1. FLoor 1 Nearly completely done. 
-		 * Just needs: 
-		 * Finish Jump Puzzle
-		 * End Level area from teleport ** Ask isabel and Rusty about possibilty of making floor two level 2 and maybe finishing just the stadium after
-		 * Cactus Placement All cactus needs to spawned
-		 * Textures ** need to work up with rusty on making this work. Unable to import any Textures. I must be doing something wrong
-		 * Hammer Pickup not happening. ** Ask Rusty about this oone
+		/* TODO
+		 * Just needs Texture and Cactus. 
 		 * 
-		 * Chris 
+		 * Chris. 
+		 * 
+		 * 
 		 */
 		super(node, assetManager, bulletAppState, player);
 		fillBlocks(new Vector3f(10200, 0, 0), new Vector3f(10350, 0, 150), "level1floor", redbrick);
@@ -110,15 +107,16 @@ public class Level1 extends Level {
 		fillBlocks(new Vector3f(10299, 0, 25), new Vector3f(10290, 5, 50), "JumpPuzzlecactusentrance", whitetile);
 		//Center block placement for the 
 		
-		fillBlocks(new Vector3f(10282.5f, 10, 37.5f), new Vector3f(10287.5f, 15, 42.5f), "JumpPuzzlecactusfloor1", graywall);
+		fillBlocks(new Vector3f(10282.5f, 10, 37.5f), new Vector3f(10287.5f, 15, 42.5f), "JumpPuzzlecactusfloor1", redbrick);
 		// spawn hammer time. 
 		
 		spawnHammer(new Vector3f(10285, 17, 40), "hammer2L1F0");
 		
 		//jump platforms. 
-		fillBlocks(new Vector3f(10283.5f, 14, 26.5f), new Vector3f(10287.5f, 14, 33.5f), "JumpPuzzlecactusfloor1", graywall);
-		fillBlocks(new Vector3f(10283.5f, 14, 26.5f), new Vector3f(10287.5f, 14, 33.5f), "JumpPuzzlecactusfloor1", graywall);
-		
+		fillBlocks(new Vector3f(10283.5f, 14, 26.5f), new Vector3f(10287.5f, 14, 33.5f), "JumpPuzzlecactusfloor1", redbrick);
+		fillBlocks(new Vector3f(10280.5f, 14, 26.5f), new Vector3f(10279.5f, 14, 33.5f), "JumpPuzzlecactusfloor2", redbrick);
+		fillBlocksGhost(new Vector3f(10276.5f, 14, 28), new Vector3f(10271.5f, 14, 31), "JumpPuzzlecactusfloor3", redbrick);
+		fillBlocks(new Vector3f(10272, 14, 37.5f), new Vector3f(10277.5f, 14, 54), "JumpPuzzlecactusfloor2", redbrick);
 		///Cactus south of middle block for Puzzle
 		SaguaroCactus scL1F1B1 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
 		//// 						Starting location				Ending Location
@@ -175,22 +173,22 @@ public class Level1 extends Level {
 		// Cactus North of the Middle Block
 		SaguaroCactus scL1F1B11 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
 		//// 						Starting location				Ending Location
-		scL1F1B11.spawnCactus(new Vector3f(10299, 12, 37), new Vector3f(10290, 12, 37), "cactusL1F1B11");
+		scL1F1B11.spawnCactus(new Vector3f(10298, 12, 37), new Vector3f(10290, 12, 37), "cactusL1F1B11");
 		cacti.add(scL1F1B11);
 		
 		SaguaroCactus scL1F1B12 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
 		//// 						Starting location				Ending Location
-		scL1F1B12.spawnCactus(new Vector3f(10299, 12, 41), new Vector3f(10290, 12, 41), "cactusL1F1B12");
+		scL1F1B12.spawnCactus(new Vector3f(10298, 12, 41), new Vector3f(10290, 12, 41), "cactusL1F1B12");
 		cacti.add(scL1F1B12);
 
 		SaguaroCactus scL1F1B13 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
 		//// 						Starting location				Ending Location
-		scL1F1B13.spawnCactus(new Vector3f(10299, 12, 45), new Vector3f(10290, 12, 45), "cactusL1F1B13");
+		scL1F1B13.spawnCactus(new Vector3f(10298, 12, 45), new Vector3f(10290, 12, 45), "cactusL1F1B13");
 		cacti.add(scL1F1B13);
 		
 		SaguaroCactus scL1F1B14 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
 		//// 						Starting location				Ending Location
-		scL1F1B14.spawnCactus(new Vector3f(10299, 12, 49), new Vector3f(10290, 12, 49), "cactusL1F1B14");
+		scL1F1B14.spawnCactus(new Vector3f(10298, 12, 49), new Vector3f(10290, 12, 49), "cactusL1F1B14");
 		cacti.add(scL1F1B14);
 
 
