@@ -75,7 +75,7 @@ public class Level0 extends Level {
 		cacti.add(bc3);
 
 		ChollaCactus cc1 = new ChollaCactus(node, assetManager, bulletAppState, player);
-		cc1.spawnCactus(new Vector3f(100, 44, 13), "cactusC1");
+		cc1.spawnCactus(new Vector3f(100, 44, 13), "cactusC1", 'x');
 		cacti.add(cc1);
 		spawnHammer(new Vector3f(50, 2, -10), "hammerL0F0");
 		spawnHammer(new Vector3f(50, 24, -10), "hammerL0F1");

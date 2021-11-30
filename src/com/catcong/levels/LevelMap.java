@@ -169,7 +169,7 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 
 			}
 			if ("elevatorL1F0".equals(event.getNodeB().getName())) {
-				player.get().setPhysicsLocation(new Vector3f(21425, 5, 50));
+				player.get().setPhysicsLocation(new Vector3f(21025, 5, 50));
 				player.advanceLevel();
 				if (toScoreorNottoScore) { // End of level logic that ensures score doesn't get incremented multiple
 											// times

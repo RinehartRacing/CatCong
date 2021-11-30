@@ -23,7 +23,7 @@ public class ChollaCactus extends Cactus {
 		super(node, assetManager, bulletAppState, player);
 	}
 
-	public void spawnCactus(Vector3f coor1, String name) {
+	public void spawnCactus(Vector3f coor1, String name, char direction) {
 		/*
 		 * Spawns ChollaCactus
 		 */
@@ -38,15 +38,23 @@ public class ChollaCactus extends Cactus {
 
 		cactusNode = new Node(name);
 		cactusNode.setLocalTranslation(new Vector3f(coor1.getX(), coor1.getY() + 8, coor1.getZ()));
-
-		for (int i = 0; i < 5; i++) { // Make Cholla 5 blocks high
-			for (int j = 0; j < 4; j++) { // and 4 blocks wide
-				Geometry geom2 = geom.clone();
-				cactusNode.attachChild(geom2);
-				geom2.setLocalTranslation(new Vector3f(0, -i * 2, (-j * 2) + 3));
+		if (direction == 'x') {
+			for (int i = 0; i < 5; i++) { // Make Cholla 5 blocks high
+				for (int j = 0; j < 4; j++) { // and 4 blocks wide
+					Geometry geom2 = geom.clone();
+					cactusNode.attachChild(geom2);
+					geom2.setLocalTranslation(new Vector3f(0, -i * 2, (-j * 2) + 3));
+				}
+			}
+		} else if (direction == 'z') {
+			for (int i = 0; i < 5; i++) { // Make Cholla 5 blocks high
+				for (int j = 0; j < 4; j++) { // and 4 blocks wide
+					Geometry geom2 = geom.clone();
+					cactusNode.attachChild(geom2);
+					geom2.setLocalTranslation(new Vector3f((-j * 2) + 3, -i * 2, 0));
+				}
 			}
 		}
-
 		node.attachChild(cactusNode);
 		CollisionShape cactusShape = CollisionShapeFactory.createMeshShape(cactusNode);
 		control = new RigidBodyControl(cactusShape, 0);
@@ -55,6 +63,8 @@ public class ChollaCactus extends Cactus {
 		cactusNode.addControl(control);
 		bulletAppState.getPhysicsSpace().addAll(cactusNode);
 	}
+
+	
 
 	@Override
 	public void collision(PhysicsCollisionEvent event) {
@@ -71,18 +81,15 @@ public class ChollaCactus extends Cactus {
 
 	}
 
-
-	
-
 	@Override
 	public void updateCactusX(float tpf) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void updateCactusZ(float tpf) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

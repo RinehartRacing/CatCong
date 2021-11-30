@@ -17,8 +17,37 @@ public class Level2 extends Level {
 		 */
 		super(node, assetManager, bulletAppState, player);
 		
-		fillBlocks(new Vector3f(21400, 0, 0), new Vector3f(21500, 0, 100), "level2floor", redbrick);
+		//TODO Fill Elevator for level 3: 
 		fillBlocks(new Vector3f(21502, 0, 48), new Vector3f(21502, 0, 52), "elevatorL2F0", whitetile);
+		
+		// setting up base platform. IE The floor
+		
+	
+		fillBlocks(new Vector3f(21000, 0, 0), new Vector3f(21150, 0, 150), "level2floor", redbrick);
+		// Ceiling. To see it helps FPS.. it does not.. rofl
+		
+		fillBlocks(new Vector3f(21000, 21, 0), new Vector3f(21150, 21, 150), "level2floor", officeceiling);
+		//Walls
+		
+		//South
+		fillBlocks(new Vector3f(21000, 2, 0), new Vector3f(21100, 20 ,0), "southernWallL21", graywall);
+		fillBlocks(new Vector3f(21100, 2, 0), new Vector3f(21100, 20 ,15), "southernWallL22", graywall);
+		fillBlocks(new Vector3f(21100, 2, 15), new Vector3f(21150, 20 ,15), "southernWallL23", graywall);
+	
+		// West Wall
+		fillBlocks(new Vector3f(21150, 2, 15), new Vector3f(21150, 20 ,150), "WestWALL", graywall);
+		
+		//North Wall 
+		fillBlocks(new Vector3f(21000, 2, 150), new Vector3f(21150, 20 ,150), "NorthWall", graywall);
+		
+		//East Wall: 
+		
+		fillBlocks(new Vector3f(21000, 2, 0), new Vector3f(21000, 20 ,150), "EastWall", graywall);
+		
+		
+		
+		
+		
 
 	}
 }
