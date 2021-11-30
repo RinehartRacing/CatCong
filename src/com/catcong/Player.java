@@ -45,7 +45,9 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 		walkDirection = new Vector3f();
 		this.inputManager = app.getInputManager();
 		this.app = app;
-		this.lives = 3;
+		//TODO Fix Lives back to 3. the 3 is annoying me with placing cactus
+		
+		this.lives = 10;
 		this.hasHammer = false;
 		this.lc = lc;
 		this.level = 0;

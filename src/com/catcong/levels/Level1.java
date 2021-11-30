@@ -164,14 +164,36 @@ public class Level1 extends Level {
 		// Cactus East of the Middle Block
 		SaguaroCactus scL1F1B9 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'z');
 		//// 						Starting location				Ending Location
-		scL1F1B9.spawnCactus(new Vector3f(10282.5f, 12, 54), new Vector3f(10282.5f, 12, 43.5f), "cactusL1F1B7");
+		scL1F1B9.spawnCactus(new Vector3f(10282.5f, 12, 54), new Vector3f(10282.5f, 12, 43.5f), "cactusL1F1B9");
 		cacti.add(scL1F1B9);
 		
 		SaguaroCactus scL1F1B10 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'z');
 		//// 						Starting location				Ending Location
-		scL1F1B10.spawnCactus(new Vector3f(10285.5f, 12, 54), new Vector3f(10285.5f, 12, 43.5f), "cactusL1F1B8");
+		scL1F1B10.spawnCactus(new Vector3f(10285.5f, 12, 54), new Vector3f(10285.5f, 12, 43.5f), "cactusL1F1B10");
 		cacti.add(scL1F1B10);
 		
+		// Cactus North of the Middle Block
+		SaguaroCactus scL1F1B11 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
+		//// 						Starting location				Ending Location
+		scL1F1B11.spawnCactus(new Vector3f(10299, 12, 37), new Vector3f(10290, 12, 37), "cactusL1F1B11");
+		cacti.add(scL1F1B11);
+		
+		SaguaroCactus scL1F1B12 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
+		//// 						Starting location				Ending Location
+		scL1F1B12.spawnCactus(new Vector3f(10299, 12, 41), new Vector3f(10290, 12, 41), "cactusL1F1B12");
+		cacti.add(scL1F1B12);
+
+		SaguaroCactus scL1F1B13 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
+		//// 						Starting location				Ending Location
+		scL1F1B13.spawnCactus(new Vector3f(10299, 12, 45), new Vector3f(10290, 12, 45), "cactusL1F1B13");
+		cacti.add(scL1F1B13);
+		
+		SaguaroCactus scL1F1B14 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
+		//// 						Starting location				Ending Location
+		scL1F1B14.spawnCactus(new Vector3f(10299, 12, 49), new Vector3f(10290, 12, 49), "cactusL1F1B14");
+		cacti.add(scL1F1B14);
+
+
 		//IQfresh Room. Safe room
 
 		fillBlocks(new Vector3f(10215, 2, 90), new Vector3f(10215, 20 , 80), "IQFreshDisplaceZ1", graywall);
