@@ -63,7 +63,7 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 		stateManager.attach(bulletAppState);
 
 		player.setupKeys(); // Setup key bindings
-		// level0 = new Level0(gameLevel, assetManager, bulletAppState, player);
+		 level0 = new Level0(gameLevel, assetManager, bulletAppState, player);
 		// //Create 4 levels
 		level1 = new Level1(gameLevel, assetManager, bulletAppState, player);
 		level2 = new Level2(gameLevel, assetManager, bulletAppState, player);

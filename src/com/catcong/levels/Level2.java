@@ -26,23 +26,23 @@ public class Level2 extends Level {
 		fillBlocks(new Vector3f(21000, 0, 0), new Vector3f(21150, 0, 150), "level2floor", redbrick);
 		// Ceiling. To see it helps FPS.. it does not.. rofl
 		
-		fillBlocks(new Vector3f(21000, 21, 0), new Vector3f(21150, 21, 150), "level2floor", officeceiling);
+		fillBlocks(new Vector3f(21000, 31, 0), new Vector3f(21150, 31, 150), "level2floor", officeceiling);
 		//Walls
 		
 		//South
-		fillBlocks(new Vector3f(21000, 2, 0), new Vector3f(21100, 20 ,0), "southernWallL21", graywall);
-		fillBlocks(new Vector3f(21100, 2, 0), new Vector3f(21100, 20 ,15), "southernWallL22", graywall);
-		fillBlocks(new Vector3f(21100, 2, 15), new Vector3f(21150, 20 ,15), "southernWallL23", graywall);
+		fillBlocks(new Vector3f(21000, 2, 0), new Vector3f(21100, 30 ,0), "southernWallL21", graywall);
+		fillBlocks(new Vector3f(21100, 2, 0), new Vector3f(21100, 30 ,15), "southernWallL22", graywall);
+		fillBlocks(new Vector3f(21100, 2, 15), new Vector3f(21150, 30 ,15), "southernWallL23", graywall);
 	
 		// West Wall
-		fillBlocks(new Vector3f(21150, 2, 15), new Vector3f(21150, 20 ,150), "WestWALL", graywall);
+		fillBlocks(new Vector3f(21150, 2, 15), new Vector3f(21150, 30 ,150), "WestWALL", graywall);
 		
 		//North Wall 
-		fillBlocks(new Vector3f(21000, 2, 150), new Vector3f(21150, 20 ,150), "NorthWall", graywall);
+		fillBlocks(new Vector3f(21000, 2, 150), new Vector3f(21150, 30 ,150), "NorthWall", graywall);
 		
 		//East Wall: 
 		
-		fillBlocks(new Vector3f(21000, 2, 0), new Vector3f(21000, 20 ,150), "EastWall", graywall);
+		fillBlocks(new Vector3f(21000, 2, 0), new Vector3f(21000, 30 ,150), "EastWall", graywall);
 		
 		
 		//Southeast beginning maze area West of Jump puzzle
@@ -130,6 +130,28 @@ public class Level2 extends Level {
 		//Jump Puzzle Outline Wall South wall
 		fillBlocks(new Vector3f(21020, 2, 135), new Vector3f(21000, 20 ,135), "mazeEntrance_EastPortion_WesternWall", graywall);
 		
+		//Jump Platforms
+		fillBlocksGhost(new Vector3f(21002.5f, 12, 25), new Vector3f(21007.5f, 15 ,35), "Jump_puzzle_1R", outerwall);
+		fillBlocks(new Vector3f(21002.5f, 12, 45), new Vector3f(21007.5f, 15 ,55), "Jump_puzzle_2R", outerwall);
+		fillBlocks(new Vector3f(21002.5f, 12, 65), new Vector3f(21007.5f, 15 ,75), "Jump_puzzle_3R", outerwall);
+		fillBlocksGhost(new Vector3f(21002.5f, 12, 85), new Vector3f(21007.5f, 15 ,95), "Jump_puzzle_4R", outerwall);
+		fillBlocks(new Vector3f(21002.5f, 12, 105), new Vector3f(21007.5f, 15 ,115), "Jump_puzzle_4R", outerwall);
+		
+		fillBlocks(new Vector3f(21013.5f, 12, 25), new Vector3f(21017.5f, 15 ,35), "Jump_puzzle_1L", outerwall);
+		fillBlocksGhost(new Vector3f(21013.5f, 12, 45), new Vector3f(21017.5f, 15 ,55), "Jump_puzzle_2L", outerwall);
+		fillBlocksGhost(new Vector3f(21013.5f, 12, 65), new Vector3f(21017.5f, 15 ,75), "Jump_puzzle_3L", outerwall);
+		fillBlocks(new Vector3f(21013.5f, 12, 85), new Vector3f(21017.5f, 15 ,95), "Jump_puzzle_4L", outerwall);
+		fillBlocksGhost(new Vector3f(21013.5f, 12, 105), new Vector3f(21017.5f, 15 ,115), "Jump_puzzle_5L", outerwall);
+		
+		//Need a Hammer
+		
+		
+		fillBlocks(new Vector3f(21018, 12, 125), new Vector3f(21001, 15 ,135), "HammerPlatform", outerwall);
+		
+		//Steps up to Jump Platform
+		fillBlocks(new Vector3f(21030, 2, 0), new Vector3f(21025, 5 ,7.5f), "Jump_Step_1", outerwall);
+		fillBlocks(new Vector3f(21025, 5, 0), new Vector3f(21020, 10 ,7.5f), "Jump_Step_2", redbrick);
+		fillBlocks(new Vector3f(21020, 12, 0), new Vector3f(21000, 15 ,15), "Jump_Step_3", outerwall);
 		
 		
 		
