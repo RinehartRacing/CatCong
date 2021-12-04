@@ -152,6 +152,7 @@ public class HowToPlay extends JFrame {
 		// Text
 		JTextArea kbc = new JTextArea(
 				"   W = move forward, S = move backward, \n   A = move left, D = move right, \n   Space = jump, P = pause");
+		kbc.setEditable(false);
 		kbc.setLineWrap(true);
 		kbc.setLocation(20, 320);
 		kbc.setSize(480, 50);
@@ -172,6 +173,7 @@ public class HowToPlay extends JFrame {
 		// Powerups Text
 		JTextArea p = new JTextArea(
 				"   Powerups: \n   Left-click the mouse to use the hammer to smash\n   the obstacles throughout the level\n   (see 'Obstacles' below) and earn bonus points for doing so!\n");
+		p.setEditable(false);
 		p.setLineWrap(true);
 		p.setLocation(20, 410);
 		p.setSize(480, 50);
@@ -185,6 +187,7 @@ public class HowToPlay extends JFrame {
 				"   Obstacles:\n   There are three types of cacti: saugaro, barrel, and cholla. \n   Saguaro cacti are smaller and can either be jumped over\n   or smashed with the hammer. "
 						+ "\n   Both Barrel and Cholla cacti need to be smashed with the hammer,\n   since they obstruct your progression through the level.\n"
 						+ "   However, Cholla cacti are stationary whereas Barrel cacti move.");
+		o.setEditable(false);
 		o.setLineWrap(true);
 		o.setLocation(20, 460);
 		o.setSize(480, 120);
@@ -208,6 +211,7 @@ public class HowToPlay extends JFrame {
 						+ "   Completing The Level => 500 points\n" + "   Smashing Saguaro Cacti => 250 points\n"
 						+ "   Smashing Barrel Cacti => 250 points\n" + "   Smashing Cholla Cacti => 250 points\n"
 						+ "   Defeating the Sun Devil => 1500 points");
+		gs.setEditable(false);
 		gs.setLocation(20, 620);
 		gs.setSize(480, 120);
 		gs.setFont(new Font("Verdana", Font.BOLD, 12));
