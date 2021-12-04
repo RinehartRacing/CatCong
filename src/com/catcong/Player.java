@@ -40,7 +40,11 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 		cc.setGravity(100);
 
 		//cc.setPhysicsLocation(new Vector3f(4, 13, 0)); // Spawn location of player
-		//(10250,13,50) //level 1 start : (10210, 13, 145) //Level 2 tenative : (21005,5,5)
+	
+		
+		// level 0: (4,5,0)
+		//level 1: (10210,13,145)
+		//Level 2: (21122, 5, 20)
 		cc.setPhysicsLocation(new Vector3f(4,5,0));
 		walkDirection = new Vector3f();
 		this.inputManager = app.getInputManager();

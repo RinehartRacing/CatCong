@@ -67,7 +67,7 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 		// //Create 4 levels
 		level1 = new Level1(gameLevel, assetManager, bulletAppState, player);
 		level2 = new Level2(gameLevel, assetManager, bulletAppState, player);
-		level3 = new Level3(gameLevel, assetManager, bulletAppState, player);
+		//level3 = new Level3(gameLevel, assetManager, bulletAppState, player);
 		CollisionShape sceneShape = CollisionShapeFactory.createMeshShape(gameLevel); // Add collision detection to
 																						// levels
 		gameLevel.addControl(new RigidBodyControl(sceneShape, 0));
@@ -119,7 +119,7 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 		level0.removeCactus(name);
 		level1.removeCactus(name);
 		level2.removeCactus(name);
-		level3.removeCactus(name);
+		///level3.removeCactus(name);
 	}
 
 	public void setScoreBool(boolean toScoreorNottoScore) {
@@ -157,8 +157,9 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 			if ("elevatorL0F1".equals(event.getNodeB().getName())) {
 				player.get().setPhysicsLocation(new Vector3f(-1, 44, 13));
 			}
+			///Sends to Level 1
 			if ("elevatorL0F2".equals(event.getNodeB().getName())) {
-				player.get().setPhysicsLocation(new Vector3f(10225, 5, 50));
+				player.get().setPhysicsLocation(new Vector3f(10210,13,145));
 				player.advanceLevel();
 				if (toScoreorNottoScore) { // End of level logic that ensures score doesn't get incremented multiple
 											// times
@@ -168,8 +169,9 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 				lc.finishLevel(0);
 
 			}
+			//Sends to level 2 
 			if ("elevatorL1F0".equals(event.getNodeB().getName())) {
-				player.get().setPhysicsLocation(new Vector3f(21025, 5, 50));
+				player.get().setPhysicsLocation(new Vector3f(21122, 5, 20));
 				player.advanceLevel();
 				if (toScoreorNottoScore) { // End of level logic that ensures score doesn't get incremented multiple
 											// times

@@ -211,7 +211,7 @@ public class Level1 extends Level {
 		fillBlocks(new Vector3f(10230, 2, 55), new Vector3f(10230, 20 , 30), "afterEinsteinRightwallDisplaceZ", newWall);
 		fillBlocks(new Vector3f(10230, 2, 0), new Vector3f(10230, 20 , 20), "afterEinsteinRightwallDisplaceZ1", newWall);
 		//Elevator to floor 2
-		fillBlocks(new Vector3f(10230, 2, 20), new Vector3f(10230, 0, 30), "elevatorL1F0", whitetile);
+		fillBlocks(new Vector3f(10230, 0, 20), new Vector3f(10230, 0, 30), "elevatorL1F0", whitetile);
 		fillBlocks(new Vector3f(10232, 2, 20), new Vector3f(10232, 20, 30), "elevatorL1F0", whitetile);
 		
 		// Core
