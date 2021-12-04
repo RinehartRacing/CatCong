@@ -30,9 +30,26 @@ public class Level0 extends Level {
 		fillBlocks(new Vector3f(60, 2, -2), new Vector3f(60, 40, -15), "LeftRoomRightWall", graywall);
 		fillBlocks(new Vector3f(40, 2, -17), new Vector3f(60, 40, -17), "LeftRoomBackWall", graywall);
 		fillBlocks(new Vector3f(42, 20, 0), new Vector3f(58, 20, -15), "LeftRoomCeiling", officeceiling);
+		
+		// jump puzzle Walls 
+		fillBlocks(new Vector3f(60, 42, -2), new Vector3f(60, 60, -15), "JumpPuzzle1RightWall", graywall);
+		fillBlocks(new Vector3f(40, 42, -15), new Vector3f(60, 60, -15), "JumpPuzzleBackWall", graywall);
+		fillBlocks(new Vector3f(18, 25, -2), new Vector3f(18, 75, -14), "JumpPuzzleLEFTWall", graywall);
+		fillBlocks(new Vector3f(40, 25, -15), new Vector3f(40, 75, -30), "JumpPuzzleRightkWall", graywall);
+		fillBlocks(new Vector3f(40, 25, -30), new Vector3f(8, 75, -30), "JumpPuzzleBACKBackWall", graywall);
+		fillBlocks(new Vector3f(8, 25, -15), new Vector3f(8, 75, -30), "JumpPuzzleBackLEFTWall1", graywall);
+		fillBlocks(new Vector3f(20, 25, -14), new Vector3f(10, 60, -14), "JumpPuzzleBackFRONTWall", graywall);
+		
+		//Platform 
+		fillBlocks(new Vector3f(40, 38, -2), new Vector3f(20, 45, -15), "Plaftorm_one", outerwall);
+		fillBlocks(new Vector3f(20, 38, -15), new Vector3f(38, 50, -30), "Plaftorm_two", redStop);
+		fillBlocks(new Vector3f(19, 38, -15), new Vector3f(10, 55, -30), "Plaftorm_three", outerwall);
+		
+		//TODO Hammer Here
+	
 
 		fillBlocks(new Vector3f(42, 22, 0), new Vector3f(58, 22, -15), "HiddenRoomFloor", redbrick);
-		fillBlocksGhost(new Vector3f(42, 22, 0), new Vector3f(58, 40, 0), "HiddenRoomFloor", graybrick);
+		fillBlocksGhost(new Vector3f(42, 22, 0), new Vector3f(58, 38, 0), "HiddenRoomFloor", graybrick);
 		fillBlocks(new Vector3f(42, 40, 0), new Vector3f(58, 40, -15), "HiddenRoomCeiling", officeceiling);
 
 		fillBlocks(new Vector3f(0, 2, 26), new Vector3f(100, 60, 26), "RightWall", graywall);
