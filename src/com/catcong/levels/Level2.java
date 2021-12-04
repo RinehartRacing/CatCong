@@ -17,8 +17,8 @@ public class Level2 extends Level {
 		 */
 		super(node, assetManager, bulletAppState, player);
 		
-		//TODO Fill Elevator for level 3: 
-		fillBlocks(new Vector3f(21502, 0, 48), new Vector3f(21502, 0, 52), "elevatorL2F0", whitetile);
+		
+	
 		
 		// setting up base platform. IE The floor
 		
@@ -43,6 +43,37 @@ public class Level2 extends Level {
 		//East Wall: 
 		
 		fillBlocks(new Vector3f(21000, 2, 0), new Vector3f(21000, 20 ,150), "EastWall", graywall);
+		
+		
+		//Southeast beginning maze area West of Jump puzzle
+		
+		fillBlocks(new Vector3f(21020, 2, 15), new Vector3f(21030, 20 ,15), "mazeEntrance_EastPortion_SouthernWall", graywall);
+		fillBlocks(new Vector3f(21020, 2, 15), new Vector3f(21020, 20 ,135), "mazeEntrance_EastPortion_EasternWall", graywall);
+		fillBlocks(new Vector3f(21030, 2, 15), new Vector3f(21030, 20 ,35), "mazeEntrance_EastPortion_WesternWall", graywall);
+		fillBlocks(new Vector3f(21030, 2, 35), new Vector3f(21020, 20 ,35), "mazeEntrance_EastPortion_NorthernWall", graywall);
+		
+		//Backwall of maze and also Southern Wall for Boss room
+		
+		fillBlocks(new Vector3f(21020, 2, 45), new Vector3f(21225, 20 ,45), "SouthernWallofBOSS_NorthernWallofMaze", graywall);
+		
+		///making left side of maze including area where level starts. 
+
+		//outline first:
+		
+		fillBlocks(new Vector3f(21045, 2, 15), new Vector3f(21085, 20 ,15), "MazeEntrance_WestPortion_SouthWall", graywall);
+		fillBlocks(new Vector3f(21085, 2, 15), new Vector3f(21085, 20 ,30), "SouthOFMaze_ByElevatorEntrance", graywall);
+		fillBlocks(new Vector3f(21085, 2, 30), new Vector3f(21120, 20 ,30), "SouthOFMaze_ByElevator_StopAtElevator", graywall);
+		//Elevator:
+		fillBlocks(new Vector3f(21120, 0, 30), new Vector3f(21125, 0, 34), "elevatorL2F0", whitetile);
+		fillBlocks(new Vector3f(21120, 2, 34), new Vector3f(21125, 20, 34), "elevatorL2F0", whitetile);
+		
+		fillBlocks(new Vector3f(21030, 2, 15), new Vector3f(21030, 20 ,35), "mazeEntrance_EastPortion_WesternWall", graywall);
+		
+		
+		
+		//Jump Puzzle Outline Wall South wall
+		fillBlocks(new Vector3f(21020, 2, 135), new Vector3f(21000, 20 ,135), "mazeEntrance_EastPortion_WesternWall", graywall);
+		
 		
 		
 		
