@@ -28,77 +28,77 @@ public class Level1 extends Level {
 		 */
 		super(node, assetManager, bulletAppState, player);
 		fillBlocks(new Vector3f(10200, 0, 0), new Vector3f(10350, 0, 150), "level1floor", bluebrick);
-		fillBlocksGhost(new Vector3f(10200, 22, 0), new Vector3f(10350, 22, 150), "level2roof", greenbrick);
+		fillBlocksGhost(new Vector3f(10200, 25, 0), new Vector3f(10350, 25, 150), "level2roof", greenbrick);
 		
 		//fillBlocks(new Vector3f(0, 2, 26), new Vector3f(100, 60, 26), "RightWall", graywall); From level 1 
 		//Eastern Wall. 
-		fillBlocks(new Vector3f(10200, 2, 150), new Vector3f(10350, 20 ,150), "RightWall", outerwall);
+		fillBlocks(new Vector3f(10200, 2, 150), new Vector3f(10350, 24 ,150), "RightWall", outerwall);
 		
 		//Southern Wall.
-		fillBlocks(new Vector3f(10200, 2, 0), new Vector3f(10200, 20 ,150), "southernWall", outerwall);
+		fillBlocks(new Vector3f(10200, 2, 0), new Vector3f(10200, 24 ,150), "southernWall", outerwall);
 		
 		//Western Wall
-		fillBlocks(new Vector3f(10200, 2, 0), new Vector3f(10350, 20 , 0), "WesternWall", outerwall);
+		fillBlocks(new Vector3f(10200, 2, 0), new Vector3f(10350, 24 , 0), "WesternWall", outerwall);
 		
 		//NorthernWall
-		fillBlocks(new Vector3f(10350, 2, 0), new Vector3f(10350, 20 , 150), "NorthernWall", outerwall);
+		fillBlocks(new Vector3f(10350, 2, 0), new Vector3f(10350, 24 , 150), "NorthernWall", outerwall);
 		
 		//Building Stairwell near entrance to level. 
-		fillBlocks(new Vector3f(10200, 2, 130), new Vector3f(10215, 20 ,130), "FirstRightStairwell", outerwall);
-		fillBlocks(new Vector3f(10200, 2, 115), new Vector3f(10215, 20 ,115), "FirstLeftStairwell", outerwall);
-		fillBlocks(new Vector3f(10215, 2, 115), new Vector3f(10215, 20 ,130), "Front of Stairwell", outerwall);
+		fillBlocks(new Vector3f(10200, 2, 130), new Vector3f(10215, 24 ,130), "FirstRightStairwell", outerwall);
+		fillBlocks(new Vector3f(10200, 2, 115), new Vector3f(10215, 24 ,115), "FirstLeftStairwell", outerwall);
+		fillBlocks(new Vector3f(10215, 2, 115), new Vector3f(10215, 24 ,130), "Front of Stairwell", outerwall);
 		
 		//building wall from entrance to student union to end of level. 
-		fillBlocks(new Vector3f(10230, 2, 115), new Vector3f(10340, 20 ,115), "backwallofArizonaMarket", outerwall);
+		fillBlocks(new Vector3f(10230, 2, 115), new Vector3f(10340, 24 ,115), "backwallofArizonaMarket", outerwall);
 		// Arizona Market
-		fillBlocks(new Vector3f(10245, 2, 115), new Vector3f(10245, 20 ,130), "ArizonaMarketDisplaceZ", outerwall);
-		fillBlocks(new Vector3f(10245, 2, 130), new Vector3f(10250, 20 ,130), "ArizonaMarketDisplaceX", outerwall);
+		fillBlocks(new Vector3f(10245, 2, 115), new Vector3f(10245, 24 ,130), "ArizonaMarketDisplaceZ", outerwall);
+		fillBlocks(new Vector3f(10245, 2, 130), new Vector3f(10250, 24 ,130), "ArizonaMarketDisplaceX", outerwall);
 		
-		fillBlocks(new Vector3f(10250, 2, 130), new Vector3f(10270, 20 ,115), "DiagonalArizonaMarket", outerwall);
+		fillBlocks(new Vector3f(10250, 2, 130), new Vector3f(10270, 24 ,115), "DiagonalArizonaMarket", outerwall);
 		
 		//hallway by restroom and Theatre to secret wall
-		fillBlocks(new Vector3f(10230, 2, 115), new Vector3f(10230, 20 ,90), "HallwayRightTheatre", newWall);
-		fillBlocks(new Vector3f(10215, 2, 115), new Vector3f(10215, 20 , 100), "HallwayLeftTheatre", newWall);
+		fillBlocks(new Vector3f(10230, 2, 115), new Vector3f(10230, 24 ,90), "HallwayRightTheatre", newWall);
+		fillBlocks(new Vector3f(10215, 2, 115), new Vector3f(10215, 24 , 100), "HallwayLeftTheatre", newWall);
 		//Secret wall. 
 		//fillBlocksGhost(new Vector3f(42, 22, 0), new Vector3f(58, 40, 0), "HiddenRoomFloor", graybrick);
 		fillBlocksGhost(new Vector3f(10215, 2, 99), new Vector3f(10215, 20, 90), "HiddenWallbyTheatre", graybrick);
-		fillBlocks(new Vector3f(10200, 2, 90), new Vector3f(10215, 20 , 90), "FillingHiddenroomDisplaceZ", newWall);
+		fillBlocks(new Vector3f(10200, 2, 90), new Vector3f(10215, 24 , 90), "FillingHiddenroomDisplaceZ", newWall);
 		//Spawn hammer in secret room:
 		
 		spawnHammer(new Vector3f(10207, 2, 110), "hammerL1F0");
 		
 		//Galager's Theatre: 
-		fillBlocks(new Vector3f(10230, 2, 90), new Vector3f(10240, 20 , 90), "sittingspacebyGalagerDisplaceZ", newWall);
-		fillBlocks(new Vector3f(10240, 2, 65), new Vector3f(10240, 20 , 90), "sittingspacebyGalagerDisplaceX", newWall);
-		fillBlocks(new Vector3f(10240, 2, 65), new Vector3f(10280, 20 , 65), "GalagerTheatreEntrance", newWall);
+		fillBlocks(new Vector3f(10230, 2, 90), new Vector3f(10240, 24 , 90), "sittingspacebyGalagerDisplaceZ", newWall);
+		fillBlocks(new Vector3f(10240, 2, 65), new Vector3f(10240, 24 , 90), "sittingspacebyGalagerDisplaceX", newWall);
+		fillBlocks(new Vector3f(10240, 2, 65), new Vector3f(10280, 24 , 65), "GalagerTheatreEntrance", newWall);
 		//TODO do not through cactus in this area its a safezone. 
-		fillBlocks(new Vector3f(10280, 2, 65), new Vector3f(10280, 20 , 90), "SafeZoneNorthGalagerDisplaceX", newWall);
-		fillBlocks(new Vector3f(10280, 2, 90), new Vector3f(10320, 20 , 90), "SafeZoneNorthGalagerDisplaceZ", newWall);
+		fillBlocks(new Vector3f(10280, 2, 65), new Vector3f(10280, 24 , 90), "SafeZoneNorthGalagerDisplaceX", newWall);
+		fillBlocks(new Vector3f(10280, 2, 90), new Vector3f(10320, 24 , 90), "SafeZoneNorthGalagerDisplaceZ", newWall);
 		
 		//Hallway for potential Key. placement
-		fillBlocks(new Vector3f(10320, 2, 90), new Vector3f(10320, 20 , 115), "HallwayNorthGalagerDisplaceZ", newWall);
-		fillBlocks(new Vector3f(10335, 2, 65), new Vector3f(10335, 20 , 115), "NorthofGalagertoKeyPlacement", newWall);
-		fillBlocks(new Vector3f(10335, 2, 65), new Vector3f(10340, 20 , 65), "NorthAreabyMall", newWall);
+		fillBlocks(new Vector3f(10320, 2, 90), new Vector3f(10320, 24 , 115), "HallwayNorthGalagerDisplaceZ", newWall);
+		fillBlocks(new Vector3f(10335, 2, 65), new Vector3f(10335, 24 , 115), "NorthofGalagertoKeyPlacement", newWall);
+		fillBlocks(new Vector3f(10335, 2, 65), new Vector3f(10340, 24 , 65), "NorthAreabyMall", newWall);
 		
 		// Chick Fil eh
-		fillBlocks(new Vector3f(10330, 2, 55), new Vector3f(10340, 20 , 55), "ChikFilEeastWall", newWall);
-		fillBlocks(new Vector3f(10330, 2, 40), new Vector3f(10340, 20 , 40), "ChikFilEwestWall", newWall);
-		fillBlocks(new Vector3f(10330, 2, 40), new Vector3f(10330, 20 , 55), "ChikFilEsouthWall", newWall);
+		fillBlocks(new Vector3f(10330, 2, 55), new Vector3f(10340, 24 , 55), "ChikFilEeastWall", newWall);
+		fillBlocks(new Vector3f(10330, 2, 40), new Vector3f(10340, 24 , 40), "ChikFilEwestWall", newWall);
+		fillBlocks(new Vector3f(10330, 2, 40), new Vector3f(10330, 24 , 55), "ChikFilEsouthWall", newWall);
 		
 		//Panda and on Deck Deli
-		fillBlocks(new Vector3f(10335, 2, 30), new Vector3f(10340, 20 , 30), "OnDeckEastWall", newWall);
-		fillBlocks(new Vector3f(10335, 2, 25), new Vector3f(10335, 20 , 30), "OnDeckSouthWall", newWall);
-		fillBlocks(new Vector3f(10330, 2, 25), new Vector3f(10335, 20 , 25), "OnDeckWestWall", newWall);
-		fillBlocks(new Vector3f(10330, 2, 0), new Vector3f(10330, 20 , 25), "PandaSouthWall", newWall);
+		fillBlocks(new Vector3f(10335, 2, 30), new Vector3f(10340, 24 , 30), "OnDeckEastWall", newWall);
+		fillBlocks(new Vector3f(10335, 2, 25), new Vector3f(10335, 24 , 30), "OnDeckSouthWall", newWall);
+		fillBlocks(new Vector3f(10330, 2, 25), new Vector3f(10335, 24 , 25), "OnDeckWestWall", newWall);
+		fillBlocks(new Vector3f(10330, 2, 0), new Vector3f(10330, 24 , 25), "PandaSouthWall", newWall);
 		
 		//Jump Puzzle middle of the room. 
 		
 		//Crafted walls around puzzle
 		
-		fillBlocks(new Vector3f(10270, 2, 55), new Vector3f(10300, 20, 55), "JumpingPuzzleOutweWallEast", newWall);
-		fillBlocks(new Vector3f(10270, 2, 25), new Vector3f(10300, 20, 25), "JumpingPuzzleOutweWallWest", newWall);
-		fillBlocks(new Vector3f(10270, 2, 25), new Vector3f(10270, 20, 45), "JumpingPuzzleOutweWallSouth", newWall);
-		fillBlocks(new Vector3f(10300, 2, 35), new Vector3f(10300, 20, 55), "JumpingPuzzleOutweWallNorth", newWall);
+		fillBlocks(new Vector3f(10270, 2, 55), new Vector3f(10300, 24, 55), "JumpingPuzzleOutweWallEast", newWall);
+		fillBlocks(new Vector3f(10270, 2, 25), new Vector3f(10300, 24, 25), "JumpingPuzzleOutweWallWest", newWall);
+		fillBlocks(new Vector3f(10270, 2, 25), new Vector3f(10270, 24, 45), "JumpingPuzzleOutweWallSouth", newWall);
+		fillBlocks(new Vector3f(10300, 2, 35), new Vector3f(10300, 24, 55), "JumpingPuzzleOutweWallNorth", newWall);
 		fillBlocks(new Vector3f(10270, 2, 45), new Vector3f(10270, 15, 55), "JumpingPuzzleOutweWallEast", newWall);
 		
 		// Entrance to puzzle. 

@@ -46,7 +46,7 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 		// level 0: (4,5,0)
 		// level 1: (10210,13,145)
 		// Level 2: (21122, 5, 20)
-		cc.setPhysicsLocation(new Vector3f(4, 5, 0));
+		cc.setPhysicsLocation(new Vector3f(21122, 5, 20));
 		walkDirection = new Vector3f();
 		this.inputManager = app.getInputManager();
 		this.app = app;
