@@ -5,6 +5,7 @@
 package com.catcong.levels;
 
 import com.catcong.Player;
+import com.catcong.enemy.SaguaroCactus;
 import com.catcong.enemy.SunDevil;
 import com.jme3.asset.AssetManager;
 import com.jme3.bullet.BulletAppState;
@@ -99,7 +100,52 @@ public class Level2 extends Level {
 		// Room West of Boss Room
 		fillBlocks(new Vector3f(21115, 2, 45), new Vector3f(21115, 20 ,65), "WestofBoss_1", wood);
 		
+		SaguaroCactus scL2F1C1 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
+		//// 						Starting location				Ending Location
+		scL2F1C1.spawnCactus(new Vector3f(21122, 3, 48), new Vector3f(21148, 3, 48), "cactus_WeLoveHasseb1");
+		cacti.add(scL2F1C1);
+
+		SaguaroCactus scL2F1C2 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
+		//// 						Starting location				Ending Location
+		scL2F1C2.spawnCactus(new Vector3f(21122, 3, 58), new Vector3f(21148, 3, 58), "cactus_WeLoveHasseb2");
+		cacti.add(scL2F1C2);
 		
+		SaguaroCactus scL2F1C3= new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
+		//// 						Starting location				Ending Location
+		scL2F1C3.spawnCactus(new Vector3f(21122, 3, 68), new Vector3f(21148, 3, 68), "cactus_WeLoveHasseb3");
+		cacti.add(scL2F1C3);
+		
+		SaguaroCactus scL2F1C4 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
+		//// 						Starting location				Ending Location
+		scL2F1C4.spawnCactus(new Vector3f(21122, 3, 78), new Vector3f(21148, 3, 78), "cactus_WeLoveHasseb4");
+		cacti.add(scL2F1C4);
+		
+		SaguaroCactus scL2F1C5 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
+		//// 						Starting location				Ending Location
+		scL2F1C5.spawnCactus(new Vector3f(21122, 3, 88), new Vector3f(21148, 3, 88), "cactus_WeLoveHasseb5");
+		cacti.add(scL2F1C5);
+		
+		SaguaroCactus scL2F1C6 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
+		//// 						Starting location				Ending Location
+		scL2F1C6.spawnCactus(new Vector3f(21122, 3, 98), new Vector3f(21148, 3, 98), "cactus_WeLoveHasseb6");
+		cacti.add(scL2F1C6);
+		
+		SaguaroCactus scL2F1C7 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
+		//// 						Starting location				Ending Location
+		scL2F1C7.spawnCactus(new Vector3f(21122, 3, 108), new Vector3f(21148, 3, 108), "cactus_WeLoveHasseb7");
+		cacti.add(scL2F1C7);
+		
+		SaguaroCactus scL2F1C8 = new SaguaroCactus(node, assetManager, bulletAppState, player, 'x');
+		//// 						Starting location				Ending Location
+		scL2F1C8.spawnCactus(new Vector3f(21122, 3, 118), new Vector3f(21148, 3, 118), "cactus_WeLoveHasseb8");
+		cacti.add(scL2F1C8);
+
+
+
+
+
+
+
 		
 		//North of boss
 		
