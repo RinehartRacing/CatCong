@@ -142,6 +142,7 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 		 */
 		level0.updateCacti(tpf);
 		level1.updateCacti(tpf);
+		level2.updateCacti(tpf);
 	}
 
 	@Override
@@ -224,6 +225,12 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 				}
 				if ("hammer5L2F0".equals(name)) {
 					level2.removeHammer("hammer5L2F0");
+				}
+				if ("hammer6L2F0".equals(name)) {
+					level2.removeHammer("hammer6L2F0");
+				}
+				if ("hammer7L2F0".equals(name)) {
+					level2.removeHammer("hammer7L2F0");
 				}
 			}
 
