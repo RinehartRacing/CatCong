@@ -39,7 +39,6 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 	private Level0 level0; // 4 level objects
 	private Level1 level1;
 	private Level2 level2;
-	private Level3 level3;
 	private boolean toScoreorNottoScore; // Boolean to prevent getting too high of a score with threading
 
 	public LevelMap(SimpleApplication app, LevelControl lc) {
@@ -63,11 +62,11 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 		stateManager.attach(bulletAppState);
 
 		player.setupKeys(); // Setup key bindings
-		 level0 = new Level0(gameLevel, assetManager, bulletAppState, player);
+		level0 = new Level0(gameLevel, assetManager, bulletAppState, player);
 		// //Create 4 levels
 		level1 = new Level1(gameLevel, assetManager, bulletAppState, player);
 		level2 = new Level2(gameLevel, assetManager, bulletAppState, player);
-		//level3 = new Level3(gameLevel, assetManager, bulletAppState, player);
+		// level3 = new Level3(gameLevel, assetManager, bulletAppState, player);
 		CollisionShape sceneShape = CollisionShapeFactory.createMeshShape(gameLevel); // Add collision detection to
 																						// levels
 		gameLevel.addControl(new RigidBodyControl(sceneShape, 0));
@@ -119,7 +118,7 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 		level0.removeCactus(name);
 		level1.removeCactus(name);
 		level2.removeCactus(name);
-		///level3.removeCactus(name);
+		/// level3.removeCactus(name);
 	}
 
 	public void setScoreBool(boolean toScoreorNottoScore) {
@@ -141,8 +140,8 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 		/*
 		 * Called on loop to move cacti
 		 */
-		// level0.updateCacti(tpf);
-		 level1.updateCacti(tpf);
+		level0.updateCacti(tpf);
+		level1.updateCacti(tpf);
 	}
 
 	@Override
@@ -157,9 +156,9 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 			if ("elevatorL0F1".equals(event.getNodeB().getName())) {
 				player.get().setPhysicsLocation(new Vector3f(-1, 44, 13));
 			}
-			///Sends to Level 1
+			/// Sends to Level 1
 			if ("elevatorL0F2".equals(event.getNodeB().getName())) {
-				player.get().setPhysicsLocation(new Vector3f(10210,13,145));
+				player.get().setPhysicsLocation(new Vector3f(10210, 13, 145));
 				player.advanceLevel();
 				if (toScoreorNottoScore) { // End of level logic that ensures score doesn't get incremented multiple
 											// times
@@ -169,7 +168,7 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 				lc.finishLevel(0);
 
 			}
-			//Sends to level 2 
+			// Sends to level 2
 			if ("elevatorL1F0".equals(event.getNodeB().getName())) {
 				player.get().setPhysicsLocation(new Vector3f(21122, 5, 20));
 				player.advanceLevel();
@@ -192,28 +191,39 @@ public class LevelMap extends AbstractAppState implements PhysicsCollisionListen
 				lc.finishLevel(2);
 
 			}
-			if ("hammerL0F0".equals(event.getNodeB().getName())) { // Hammers
-				level0.removeHammer(0);
-				player.grabHammer();
-			}
-			if ("hammerL0F1".equals(event.getNodeB().getName())) {
-				level0.removeHammer(1);
-				player.grabHammer();
-			}
+
 			if (event.getNodeB() != null) {
-				if ("hammerL3F0".equals(event.getNodeB().getName())) {
-					level3.removeHammer(0);
-					player.grabHammer();
+				String name = event.getNodeB().getName();
+				if ("hammerL0F0".equals(name)) { // Hammers
+					level0.removeHammer("hammerL0F0");
 				}
-				if (event.getNodeB() != null) {
-					if ("hammerL1F0".equals(event.getNodeB().getName())) {
-						level1.removeHammer(0);
-						player.grabHammer();
-					}
+				if ("hammerL0F1".equals(name)) {
+					level0.removeHammer("hammerL0F1");
 				}
-				if ("hammer2L1F0".equals(event.getNodeB().getName())) {
-					level1.removeHammer(1);
-					player.grabHammer();
+				if ("hammerL0F2".equals(name)) {
+					level0.removeHammer("hammerL0F2");
+				}
+				if ("hammerL1F0".equals(name)) {
+					level1.removeHammer("hammerL1F0");
+				}
+				if ("hammer2L1F0".equals(name)) {
+					level1.removeHammer("hammer2L1F0");
+
+				}
+				if ("hammer1L2F0".equals(name)) {
+					level2.removeHammer("hammer1L2F0");
+				}
+				if ("hammer2L2F0".equals(name)) {
+					level2.removeHammer("hammer2L2F0");
+				}
+				if ("hammer3L2F0".equals(name)) {
+					level2.removeHammer("hammer3L2F0");
+				}
+				if ("hammer4L2F0".equals(name)) {
+					level2.removeHammer("hammer4L2F0");
+				}
+				if ("hammer5L2F0".equals(name)) {
+					level2.removeHammer("hammer5L2F0");
 				}
 			}
 

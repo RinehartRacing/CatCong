@@ -24,13 +24,6 @@
   <packagedElement xmi:type="uml:Class" xmi:id="_5d3ZoDECEeyak6zvHJwSyw" name="Level2">
     <generalization xmi:type="uml:Generalization" xmi:id="_W4-YcEVqEeyMPqmptlx7cA" general="_Noo1gEVqEeyMPqmptlx7cA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_6NF3IDECEeyak6zvHJwSyw" name="Level3">
-    <generalization xmi:type="uml:Generalization" xmi:id="_ZQN8oEVqEeyMPqmptlx7cA" general="_Noo1gEVqEeyMPqmptlx7cA"/>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_EucHozFTEeyak6zvHJwSyw" name="cactus" type="_UJtKIDEDEeyak6zvHJwSyw" aggregation="shared" association="_EucHoDFTEeyak6zvHJwSyw">
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EucusDFTEeyak6zvHJwSyw"/>
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_EucusTFTEeyak6zvHJwSyw" value="*"/>
-    </ownedAttribute>
-  </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_7DALcDECEeyak6zvHJwSyw" name="Player">
     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_ouyegDFVEeyak6zvHJwSyw" client="_7DALcDECEeyak6zvHJwSyw" supplier="_If4nUDEDEeyak6zvHJwSyw" contract="_If4nUDEDEeyak6zvHJwSyw"/>
   </packagedElement>
@@ -59,12 +52,6 @@
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_1Sy5BTFSEeyak6zvHJwSyw" name="levelcontrol" type="_F82X8DEFEeyak6zvHJwSyw" association="_1SyR8DFSEeyak6zvHJwSyw"/>
     <ownedEnd xmi:type="uml:Property" xmi:id="_1Sy5AjFSEeyak6zvHJwSyw" name="levelmap" type="_1LgzoDECEeyak6zvHJwSyw" aggregation="composite" association="_1SyR8DFSEeyak6zvHJwSyw"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_EucHoDFTEeyak6zvHJwSyw" memberEnd="_EucHozFTEeyak6zvHJwSyw _EucusjFTEeyak6zvHJwSyw">
-    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EucHoTFTEeyak6zvHJwSyw" source="org.eclipse.papyrus">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EucHojFTEeyak6zvHJwSyw" key="nature" value="UML_Nature"/>
-    </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_EucusjFTEeyak6zvHJwSyw" name="level3" type="_6NF3IDECEeyak6zvHJwSyw" association="_EucHoDFTEeyak6zvHJwSyw"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_Jop-4DFTEeyak6zvHJwSyw" memberEnd="_Joql8jFTEeyak6zvHJwSyw _JouQUDFTEeyak6zvHJwSyw">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Joql8DFTEeyak6zvHJwSyw" source="org.eclipse.papyrus">
@@ -146,13 +133,6 @@
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_1S9EEkVpEeyMPqmptlx7cA" name="levelmap" type="_1LgzoDECEeyak6zvHJwSyw" association="_1S8dAEVpEeyMPqmptlx7cA"/>
     <ownedEnd xmi:type="uml:Property" xmi:id="_1S8dA0VpEeyMPqmptlx7cA" name="level2" type="_5d3ZoDECEeyak6zvHJwSyw" aggregation="composite" association="_1S8dAEVpEeyMPqmptlx7cA"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_8ZxVwEVpEeyMPqmptlx7cA" memberEnd="_8Zx80kVpEeyMPqmptlx7cA _8Zx81UVpEeyMPqmptlx7cA">
-    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8Zx80EVpEeyMPqmptlx7cA" source="org.eclipse.papyrus">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8Zx80UVpEeyMPqmptlx7cA" key="nature" value="UML_Nature"/>
-    </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_8Zx81UVpEeyMPqmptlx7cA" name="levelmap" type="_1LgzoDECEeyak6zvHJwSyw" association="_8ZxVwEVpEeyMPqmptlx7cA"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_8Zx80kVpEeyMPqmptlx7cA" name="level3" type="_6NF3IDECEeyak6zvHJwSyw" aggregation="composite" association="_8ZxVwEVpEeyMPqmptlx7cA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_Noo1gEVqEeyMPqmptlx7cA" name="Level"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_jNUe8EVqEeyMPqmptlx7cA" name="ChollaCactus">

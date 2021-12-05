@@ -35,6 +35,7 @@ public class LevelControl extends AbstractAppState {
 	private BitmapText currentLevel; // Bitmap text that holds the player's current level
 	private InGameMenu inGameMenu; // InGameMenu object to give this class access to all in-game popup menus
 	private NiftyJmeDisplay niftyDisplay; // Object that allows displaying in-game menus
+	private BitmapText hammerCount;		// Bitmap text that holds the player's current hammers
 	private Picture pic; // Picture that will hold hammer image
 	private boolean paused; // True if game is paused, false otherwise
 	private int level; // Stores the current level the player is on
@@ -90,6 +91,12 @@ public class LevelControl extends AbstractAppState {
 		highScore.setColor(ColorRGBA.White);
 		highScore.setLocalTranslation(1200, highScore.getLineHeight(), 0);
 		guiNode.attachChild(highScore);
+		
+		hammerCount = new BitmapText(guiFont, false); // Setup on screen score
+		hammerCount.setSize(guiFont.getCharSet().getRenderedSize());
+		hammerCount.setColor(ColorRGBA.White);
+		hammerCount.setLocalTranslation(1400, 150, 0);
+		guiNode.attachChild(hammerCount);
 
 		currentLevel = new BitmapText(guiFont, false); // Setup on screen current level
 		currentLevel.setSize(guiFont.getCharSet().getRenderedSize());
@@ -109,7 +116,10 @@ public class LevelControl extends AbstractAppState {
 		/*
 		 * Displays the image of a hammer on the screen when called
 		 */
+		hammerCount.setText(Integer.toString(LM.getPlayer().getHammerCount()) + "X");
 		if (!guiNode.hasChild(pic)) { // If the hammer wasn't already the screen
+			
+			
 			pic = new Picture("Hammer Picture");
 			pic.setImage(assetManager, "assets/Textures/hammer.jpg", true);
 			pic.setWidth(settings.getWidth() / 16);
@@ -125,6 +135,7 @@ public class LevelControl extends AbstractAppState {
 		 */
 		if (pic != null) { // If hammer picture is still on screen
 			guiNode.detachChild(pic);
+			hammerCount.setText("");
 		}
 	}
 
@@ -137,7 +148,7 @@ public class LevelControl extends AbstractAppState {
 																				// screen
 		livesText.setText("Lives: " + LM.getPlayer().getLives()); // Constantly update lives on screen
 		highScore.setText("High Score:  " + LM.getPlayer().getScore()); // Constantly show up to date player score
-		currentLevel.setText("Level" + level); // Constantly show current player level
+		currentLevel.setText("Level" + (level + 1)); // Constantly show current player level
 
 	}
 

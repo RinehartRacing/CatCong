@@ -12,9 +12,9 @@ import com.jme3.bullet.collision.PhysicsCollisionListener;
 import com.jme3.bullet.control.RigidBodyControl;
 import com.jme3.scene.Node;
 
-public abstract class Cactus implements PhysicsCollisionListener{
-	protected Node node;	//node Cactus attaches to
-	protected AssetManager assetManager;	//JMonkey Engine objects
+public abstract class Cactus implements PhysicsCollisionListener {
+	protected Node node; // node Cactus attaches to
+	protected AssetManager assetManager; // JMonkey Engine objects
 	protected BulletAppState bulletAppState;
 	protected Node cactusNode;
 	protected RigidBodyControl control;
@@ -22,8 +22,8 @@ public abstract class Cactus implements PhysicsCollisionListener{
 	protected float speedZ;
 	protected String name;
 	protected Player player;
-	protected char direction; //Which Direction to spawn cactus. 
-	
+	protected char direction; // Which Direction to spawn cactus.
+
 	public Cactus(Node node, AssetManager assetManager, BulletAppState bulletAppState, Player player) {
 		this.node = node;
 		this.assetManager = assetManager;
@@ -32,25 +32,33 @@ public abstract class Cactus implements PhysicsCollisionListener{
 		cactusNode = null;
 		control = null;
 	}
+
 	public abstract void updateCactusX(float tpf);
+
 	public abstract void updateCactusZ(float tpf);
+
 	public abstract void collision(PhysicsCollisionEvent event);
+
 	public String toString() {
 		/*
 		 * Override toString method
 		 */
 		return name;
 	}
+
 	public void removeCactus() {
 		/*
 		 * Removes Cactus from Game Engine
 		 */
-		cactusNode.removeControl(control);	//Remove collision detection
-		bulletAppState.getPhysicsSpace().removeCollisionObject(control);
-		cactusNode.detachAllChildren();
-		node.detachChild(cactusNode);
-		cactusNode = null;
+		if (cactusNode != null) {
+			cactusNode.removeControl(control); // Remove collision detection
+			bulletAppState.getPhysicsSpace().removeCollisionObject(control);
+			cactusNode.detachAllChildren();
+			node.detachChild(cactusNode);
+			cactusNode = null;
+		}
 	}
+
 	public Node getCactusNode() {
 		return cactusNode;
 	}

@@ -27,9 +27,11 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 	final private Vector3f walkDirection; // Direction player is moving
 	private int lives; // Player lives
 	private boolean hasHammer; // True if player has a hammer, false otherwise
+	private int hammers;
 	private LevelControl lc; // Access to the LevelControl public methods
 	private int level; // Current player level
 	private int score; // Current player score
+	private String tempCactus;
 
 	public Player(SimpleApplication app, LevelControl lc) {
 		capsuleShape = new CapsuleCollisionShape(1.5f, 6f, 1); // Set dimensions of player
@@ -39,23 +41,24 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 		cc.setFallSpeed(50);
 		cc.setGravity(100);
 
-		//cc.setPhysicsLocation(new Vector3f(4, 13, 0)); // Spawn location of player
-	
-		
+		// cc.setPhysicsLocation(new Vector3f(4, 13, 0)); // Spawn location of player
+
 		// level 0: (4,5,0)
-		//level 1: (10210,13,145)
-		//Level 2: (21122, 5, 20)
-		cc.setPhysicsLocation(new Vector3f(4,5,0));
+		// level 1: (10210,13,145)
+		// Level 2: (21122, 5, 20)
+		cc.setPhysicsLocation(new Vector3f(4, 5, 0));
 		walkDirection = new Vector3f();
 		this.inputManager = app.getInputManager();
 		this.app = app;
-		//TODO Fix Lives back to 3. the 3 is annoying me with placing cactus
-		
+		// TODO Fix Lives back to 3. the 3 is annoying me with placing cactus
+
 		this.lives = 10;
 		this.hasHammer = false;
 		this.lc = lc;
 		this.level = 0;
 		this.score = 0;
+		this.hammers = 0;
+		this.tempCactus = "";
 	}
 
 	public CharacterControl get() {
@@ -161,6 +164,7 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 		 * Called when the player wants to grab a hammer
 		 */
 		this.hasHammer = true;
+		this.hammers++;
 		lc.grabHammer();
 	}
 
@@ -168,8 +172,16 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 		/*
 		 * Called when the player loses a hammer
 		 */
-		this.hasHammer = false;
-		lc.loseHammer();
+		this.hammers--;
+		if (this.hammers <= 0) {
+			this.hasHammer = false;
+			lc.loseHammer();
+		}
+
+	}
+
+	public int getHammerCount() {
+		return this.hammers;
 	}
 
 	public void advanceLevel() {
@@ -203,13 +215,22 @@ public class Player implements PlayerMovement, ActionListener, AnalogListener {
 				if (target.length() > 7) { // If trying to hit cactus
 					if (target.substring(0, 6).equals("cactus")) {
 						if (getHammer() && dist < 15) { // and cactus is within 15 wu
-							lc.removeCactus(target); // Break the cactus
-							this.loseHammer(); // Lose the hammer
-							incrementScore(250); // Increment the score
+							if (!target.equals(tempCactus)) {
+								tempCactus = target;
+								lc.removeCactus(target); // Break the cactus
+								this.loseHammer(); // Lose the hammer
+								incrementScore(250); // Increment the score
+								if (this.hammers >= 1) {
+									this.lc.grabHammer();
+								}
+								else {
+									this.lc.loseHammer();
+								}
+							}
 						}
 
 					}
-					if (target.equals("A_normal_mat")) { // If trying to hit SunDevil model
+					if (target.equals("sundevil3-geom-0")) { // If trying to hit SunDevil model
 						if (getHammer() && dist < 25) { // and SunDevil is within 25 wu
 							lc.removeCactus("cactusSundevil"); // Remove the SunDevil
 							this.loseHammer(); // Lose the hammer

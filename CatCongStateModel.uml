@@ -13,16 +13,13 @@
       <transition xmi:type="uml:Transition" xmi:id="_hk-vcDKjEeyHduIcLUro5Q" name="Press Play Button" source="_ck1HwDKBEeyC0YW8hhbPIA" target="_ffaKEDKjEeyHduIcLUro5Q"/>
       <transition xmi:type="uml:Transition" xmi:id="_xbJW4DKjEeyHduIcLUro5Q" source="_ffaKEDKjEeyHduIcLUro5Q" target="_s02hMDKjEeyHduIcLUro5Q"/>
       <transition xmi:type="uml:Transition" xmi:id="_KDKOcDKkEeyHduIcLUro5Q" name="Use Elevator" source="_s02hMDKjEeyHduIcLUro5Q" target="_41dzYDKjEeyHduIcLUro5Q"/>
-      <transition xmi:type="uml:Transition" xmi:id="_PKjmEDKkEeyHduIcLUro5Q" name="Use Elevator" source="__deCIDKjEeyHduIcLUro5Q" target="_AqsDMDKkEeyHduIcLUro5Q"/>
       <transition xmi:type="uml:Transition" xmi:id="_k7JkkDKkEeyHduIcLUro5Q" name="Press Pause Button" source="_s02hMDKjEeyHduIcLUro5Q" target="_iTOgEDKkEeyHduIcLUro5Q"/>
       <transition xmi:type="uml:Transition" xmi:id="_m0OmEDKkEeyHduIcLUro5Q" name="Press Pause Button" source="_41dzYDKjEeyHduIcLUro5Q" target="_iTOgEDKkEeyHduIcLUro5Q"/>
       <transition xmi:type="uml:Transition" xmi:id="_pj21EDKkEeyHduIcLUro5Q" name="Press Pause Button" source="__deCIDKjEeyHduIcLUro5Q" target="_iTOgEDKkEeyHduIcLUro5Q"/>
-      <transition xmi:type="uml:Transition" xmi:id="_s0ffYDKkEeyHduIcLUro5Q" name="Press Pause Button" source="_AqsDMDKkEeyHduIcLUro5Q" target="_iTOgEDKkEeyHduIcLUro5Q"/>
       <transition xmi:type="uml:Transition" xmi:id="_54TT8DKkEeyHduIcLUro5Q" name="Press Resume[Level 0]" kind="local" source="_iTOgEDKkEeyHduIcLUro5Q" target="_s02hMDKjEeyHduIcLUro5Q"/>
       <transition xmi:type="uml:Transition" xmi:id="_IUxkkDKlEeyHduIcLUro5Q" name="Press Resume[Level 1]" source="_iTOgEDKkEeyHduIcLUro5Q" target="_41dzYDKjEeyHduIcLUro5Q"/>
       <transition xmi:type="uml:Transition" xmi:id="_Sjv6ADKlEeyHduIcLUro5Q" name="Press Resume[Level 2]" source="_iTOgEDKkEeyHduIcLUro5Q" target="__deCIDKjEeyHduIcLUro5Q"/>
-      <transition xmi:type="uml:Transition" xmi:id="_d8PcQDKlEeyHduIcLUro5Q" name="Press Resume[Level 3]" source="_iTOgEDKkEeyHduIcLUro5Q" target="_AqsDMDKkEeyHduIcLUro5Q"/>
-      <transition xmi:type="uml:Transition" xmi:id="_q4zZUDKlEeyHduIcLUro5Q" name="Use Hammer on Sun Devil" source="_AqsDMDKkEeyHduIcLUro5Q" target="_pNGFcDKlEeyHduIcLUro5Q"/>
+      <transition xmi:type="uml:Transition" xmi:id="_q4zZUDKlEeyHduIcLUro5Q" name="Use Hammer on Sun Devil" source="__deCIDKjEeyHduIcLUro5Q" target="_pNGFcDKlEeyHduIcLUro5Q"/>
       <transition xmi:type="uml:Transition" xmi:id="_z1aH8DKlEeyHduIcLUro5Q" source="_pNGFcDKlEeyHduIcLUro5Q" target="_xDTMsDKlEeyHduIcLUro5Q"/>
       <transition xmi:type="uml:Transition" xmi:id="_5kB3oDKlEeyHduIcLUro5Q" name="HighScore Set" source="_xDTMsDKlEeyHduIcLUro5Q" target="_Or3XYDKCEeyC0YW8hhbPIA"/>
       <transition xmi:type="uml:Transition" xmi:id="__a2hEDKlEeyHduIcLUro5Q" name="HomeScreen Button pressed" source="_iTOgEDKkEeyHduIcLUro5Q" target="_ck1HwDKBEeyC0YW8hhbPIA"/>
@@ -49,9 +46,6 @@
       </subvertex>
       <subvertex xmi:type="uml:State" xmi:id="__deCIDKjEeyHduIcLUro5Q" name="Level2">
         <doActivity xmi:type="uml:Activity" xmi:id="_zl1FEDO8EeyfXOiwAyIdfA" name="State Machine PlayerMovement and State Machine CactusMovement"/>
-      </subvertex>
-      <subvertex xmi:type="uml:State" xmi:id="_AqsDMDKkEeyHduIcLUro5Q" name="Level3">
-        <doActivity xmi:type="uml:Activity" xmi:id="_1_XvUDO8EeyfXOiwAyIdfA" name="State Machine PlayerMovement and State Machine CactusMovement"/>
       </subvertex>
       <subvertex xmi:type="uml:State" xmi:id="_iTOgEDKkEeyHduIcLUro5Q" name="Pause Menu">
         <doActivity xmi:type="uml:Activity" xmi:id="_hVh6ADKqEeyHduIcLUro5Q" name="Pause all Level processes and display Resume and HomeScreen Buttons"/>

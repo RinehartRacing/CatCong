@@ -21,11 +21,11 @@ public class Level0 extends Level {
 		 */
 		super(node, assetManager, bulletAppState, player);
 
-		fillBlocks(new Vector3f(0, 0, 0), new Vector3f(100, 0, 26), "floor2", redbrick);
+		fillBlocks(new Vector3f(0, 0, 0), new Vector3f(100, 0, 26), "floor2", ecefloor);
 		fillBlocks(new Vector3f(0, 2, 0), new Vector3f(40, 40, 0), "LeftWallFront", graywall);
 		fillBlocks(new Vector3f(60, 2, 0), new Vector3f(100, 40, 0), "LeftWallBack", graywall);
 
-		fillBlocks(new Vector3f(40, 0, 0), new Vector3f(60, 0, -15), "LeftRoomFloor", redbrick);
+		fillBlocks(new Vector3f(40, 0, 0), new Vector3f(60, 0, -15), "LeftRoomFloor", ecefloor);
 		fillBlocks(new Vector3f(40, 2, -2), new Vector3f(40, 40, -15), "LeftRoomLeftWall", graywall);
 		fillBlocks(new Vector3f(60, 2, -2), new Vector3f(60, 40, -15), "LeftRoomRightWall", graywall);
 		fillBlocks(new Vector3f(40, 2, -17), new Vector3f(60, 40, -17), "LeftRoomBackWall", graywall);
@@ -42,13 +42,13 @@ public class Level0 extends Level {
 		
 		//Platform 
 		fillBlocks(new Vector3f(40, 38, -2), new Vector3f(20, 45, -15), "Plaftorm_one", outerwall);
-		fillBlocks(new Vector3f(20, 38, -15), new Vector3f(38, 50, -30), "Plaftorm_two", redStop);
+		fillBlocks(new Vector3f(20, 38, -15), new Vector3f(38, 50, -30), "Plaftorm_two", table);
 		fillBlocks(new Vector3f(19, 38, -15), new Vector3f(10, 55, -30), "Plaftorm_three", outerwall);
 		
 		//TODO Hammer Here
-	
+		spawnHammer(new Vector3f(14.5f, 56, -22.4f), "hammerL0F2");
 
-		fillBlocks(new Vector3f(42, 22, 0), new Vector3f(58, 22, -15), "HiddenRoomFloor", redbrick);
+		fillBlocks(new Vector3f(42, 22, 0), new Vector3f(58, 22, -15), "HiddenRoomFloor", ecefloor);
 		fillBlocksGhost(new Vector3f(42, 22, 0), new Vector3f(58, 38, 0), "HiddenRoomFloor", graybrick);
 		fillBlocks(new Vector3f(42, 40, 0), new Vector3f(58, 40, -15), "HiddenRoomCeiling", officeceiling);
 
@@ -57,7 +57,7 @@ public class Level0 extends Level {
 		fillBlocks(new Vector3f(102, 0, 10), new Vector3f(102, 0, 16), "elevatorL0F0", whitetile);
 		fillBlocks(new Vector3f(102, 22, 10), new Vector3f(102, 22, 16), "floor3spawn", whitetile);
 		fillBlocks(new Vector3f(0, 20, 2), new Vector3f(100, 20, 24), "floor2ceiling", officeceiling);
-		fillBlocks(new Vector3f(2, 22, 2), new Vector3f(100, 22, 24), "floor3", redbrick);
+		fillBlocks(new Vector3f(2, 22, 2), new Vector3f(100, 22, 24), "floor3", ecefloor);
 		fillBlocks(new Vector3f(102, 0, 0), new Vector3f(102, 40, 8), "BackWallLeft", graywall);
 		fillBlocks(new Vector3f(102, 0, 18), new Vector3f(102, 40, 26), "BackWallRight", graywall);
 		fillBlocks(new Vector3f(104, 0, 6), new Vector3f(110, 40, 20), "BackWallMiddle", whitewall);
@@ -68,7 +68,7 @@ public class Level0 extends Level {
 		fillBlocks(new Vector3f(0, 22, 10), new Vector3f(0, 22, 16), "elevatorL0F1", whitetile);
 
 		fillBlocks(new Vector3f(0, 40, 2), new Vector3f(100, 40, 24), "floor3ceiling", officeceiling);
-		fillBlocks(new Vector3f(2, 42, 2), new Vector3f(100, 42, 24), "floor4", redbrick);
+		fillBlocks(new Vector3f(2, 42, 2), new Vector3f(100, 42, 24), "floor4", ecefloor);
 		fillBlocks(new Vector3f(0, 42, 10), new Vector3f(0, 42, 16), "floor4spawn", whitetile);
 		fillBlocks(new Vector3f(0, 22, 0), new Vector3f(40, 60, 0), "floor4LeftWallFront", graywall);
 		fillBlocks(new Vector3f(60, 22, 0), new Vector3f(100, 60, 0), "floor4LeftWallBack", graywall);
